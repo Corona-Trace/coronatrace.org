@@ -1,0 +1,17 @@
+{
+  "name": "coronatrace.org",
+  "private": true,
+  "scripts": {
+    "build": "gridsome build",
+    "develop": "gridsome develop",
+    "explore": "gridsome explore"
+  },
+  "dependencies": {
+    "buefy": "^0.8.8",
+    "bulma": "^0.8.0",
+    "gridsome": "^0.7.0",
+    "node-sass": "^4.13.0",
+    "sass-loader": "^8.0.0"
+  },
+  "devDependencies": {}
+}
