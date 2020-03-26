@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import Logo from '~/assets/images/logo.vue'
+import Logo from '~/assets/images/Logo.vue'
 
 export default {
   components: {
@@ -43,9 +43,5 @@ query {
 </static-query>
 
 <style lang="scss" scoped>
-.nav {
-  &__logo {
-    height: 50px;
-  }
-}
+
 </style>
