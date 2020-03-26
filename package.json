@@ -7,7 +7,8 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
-    "buefy": "^0.8.8",
+    "@mdi/font": "^5.0.45",
+    "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
     "gridsome": "^0.7.0"

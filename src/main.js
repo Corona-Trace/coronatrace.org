@@ -3,6 +3,7 @@
 
 import Buefy from 'buefy'
 import '~/styles/main.scss'
+import '@mdi/font/css/materialdesignicons.css'
 
 import DefaultLayout from '~/layouts/Default.vue'
 
@@ -17,5 +18,7 @@ export default function(Vue, { router, head, isClient }) {
   Vue.component('Layout', DefaultLayout)
 
   // Register our Bulma component library
-  Vue.use(Buefy)
+  Vue.use(Buefy, {
+    defaultIconPack: 'mdi'
+  })
 }
