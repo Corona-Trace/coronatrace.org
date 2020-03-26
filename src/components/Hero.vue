@@ -53,6 +53,14 @@ export default {
     }
 
     &__text {
+        .title {
+            font-size: 4rem;
+
+            @include from($desktop) {
+                font-size: 3rem;
+            }
+        }
+
         .subtitle {
             margin: 2rem 0;
         }
@@ -64,8 +72,13 @@ export default {
 
         .push-notification {
             position: absolute;
-            bottom: 0;
-            left: 8rem;
+            top: 4rem;
+            left: 11rem;
+
+            @include from($desktop) {
+                top: 9rem;
+                left: 8rem;
+            }
         }
     }
 }

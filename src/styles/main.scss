@@ -7,10 +7,10 @@
 @import 'variables';
 
 // Import Bulma's core
-@import '~bulma/sass/utilities/_all';
+// @import '~bulma-scss/utilities/_all';
 
 // Import Bulma and Buefy styles
-@import '~bulma';
+@import '~bulma-scss';
 @import '~buefy/src/scss/buefy';
 
 @import 'global';

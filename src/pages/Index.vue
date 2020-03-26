@@ -1,7 +1,7 @@
 <template>
   <Layout>
 
-    <Hero/>
+    <Hero />
 
 
   </Layout>
@@ -20,4 +20,4 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+
