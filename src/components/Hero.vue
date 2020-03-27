@@ -22,7 +22,10 @@
         </div>
         <div class="column is-7 hero__right">
           <TraceBubbles class="bubbles" />
-          <PushNotification class="push-notification" />
+          <g-image
+            class="push-notification"
+            src="~/assets/images/PushNotification.png"
+          ></g-image>
         </div>
       </div>
     </div>
@@ -104,7 +107,6 @@ export default {
 
     .bubbles {
       width: 100%;
-      height: 40vh;
 
       @include from($desktop) {
         width: auto;
@@ -114,9 +116,9 @@ export default {
 
     .push-notification {
       position: absolute;
-      top: 1rem;
+      top: 3rem;
       left: 9rem;
-      width: 54%;
+      width: 62%;
 
       @include from($desktop) {
         top: 9rem;
