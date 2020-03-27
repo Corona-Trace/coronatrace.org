@@ -1,16 +1,23 @@
-# 💜 Buefy starter for Gridsome
+# Marketing Site for CoronaTrace.org
 
-This project is a default starter for [Gridsome](https://gridsome.org) using the [Buefy](https://buefy.org/) Vue library. Buefy is a Vue component library for the popular [Bulma](https://bulma.io) CSS framework. To use this starter when creating a new Gridsome project:
+This project is meant to support the CoronaTrace effort. It was built using [Gridsome](https://gridsome.org) using the [Buefy](https://buefy.org/) component library for the popular [Bulma](https://bulma.io) CSS framework. It's currently hosted on Netlify.
 
-### 1. Install Gridsome CLI tool if you don't have
+If you have any comments or notice any issues please open up an issue!
 
-`npm install --global @gridsome/cli`
+## Installation Instructions
 
-### 2. Create a Gridsome project based on this starter
+### 1. Clone the Repo
 
-1. `gridsome create my-website https://github.com/weaversam8/gridsome-starter-buefy.git` to install this starter
-2. `cd my-website` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+`git clone git@github.com:Corona-Trace/coronatrace.org.git`
 
-(this project was based off of the original [`gridsome-starter-default`](https://github.com/gridsome/gridsome-starter-default) template)# coronatrace.org
+### 2. Install Dependencies
+
+`cd coronatrace.org && yarn install`
+
+or NPM if you prefer
+
+`cd coronatrace.org && npm install`
+
+### 3. Run locally
+
+Run `gridsome develop` to start a local dev server at `http://localhost:8080`
