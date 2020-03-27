@@ -10,6 +10,15 @@
           <div class="column">&copy; {{ currentYear }} CoronaTrace</div>
         </div>
       </div>
+      <!--
+      <div class="columns footer__bottom">
+        <div class="column footer__item">
+          <a href="https://corona-trace.github.io/" target="_blank"
+            >Contribute</a
+          >
+        </div>
+      </div>
+      -->
     </div>
   </section>
 </template>
@@ -64,6 +73,13 @@ export default {
   }
 
   &__bottom {
+    border-top: 1px solid #fafafa;
+    margin-top: 2rem;
+    padding: 1rem 1rem 0 1rem;
+    a {
+      color: lighten($white, 20%);
+    }
+
     .column {
       display: flex;
       justify-content: center;
