@@ -27,7 +27,16 @@ module.exports = {
   siteDescription:
     'CoronaTrace is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
   siteUrl: 'https://www.coronatrace.org',
-  plugins: [],
+  plugins: [
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        paths: ['/'],
+        width: 1300,
+        height: 900
+      }
+    }
+  ],
 
   chainWebpack(config) {
     // Load variables for all vue-files
