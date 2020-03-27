@@ -24,7 +24,11 @@
         >
       </template>
       <template v-slot:image>
-        <g-image src="~/assets/images/corona-map.jpg" fit="cover"></g-image>
+        <g-image
+          src="~/assets/images/corona-map.jpg"
+          fit="contain"
+          height="600"
+        ></g-image>
       </template>
     </ContentWithImage>
 
@@ -49,7 +53,8 @@
       <template v-slot:image>
         <g-image
           src="~/assets/images/people-on-subway-in-masks.jpg"
-          fit="cover"
+          fit="contain"
+          height="600"
         ></g-image>
       </template>
     </ContentWithImage>
@@ -80,7 +85,11 @@
         >
       </template>
       <template v-slot:image>
-        <g-image src="~/assets/images/woman-smiling.jpg" fit="cover"></g-image>
+        <g-image
+          src="~/assets/images/woman-smiling.jpg"
+          fit="contain"
+          height="600"
+        ></g-image>
       </template>
     </ContentWithImage>
   </div>
