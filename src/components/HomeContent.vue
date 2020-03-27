@@ -20,12 +20,7 @@
         <a href="#">See Latest Data</a>
       </template>
       <template v-slot:image>
-        <g-image
-          src="~/assets/images/corona-map.jpg"
-          fit="cover"
-          height="600"
-          width="600"
-        ></g-image>
+        <g-image src="~/assets/images/corona-map.jpg" fit="cover"></g-image>
       </template>
     </ContentWithImage>
 
@@ -47,8 +42,6 @@
         <g-image
           src="~/assets/images/people-on-subway-in-masks.jpg"
           fit="cover"
-          height="600"
-          width="600"
         ></g-image>
       </template>
     </ContentWithImage>
@@ -75,12 +68,7 @@
         <a href="#">Learn More About Flattening the Curve</a>
       </template>
       <template v-slot:image>
-        <g-image
-          src="~/assets/images/woman-smiling.jpg"
-          fit="cover"
-          height="600"
-          width="600"
-        ></g-image>
+        <g-image src="~/assets/images/woman-smiling.jpg" fit="cover"></g-image>
       </template>
     </ContentWithImage>
   </div>

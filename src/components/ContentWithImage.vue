@@ -8,7 +8,7 @@
         class="columns is-variable is-8"
         :class="{ rowReverse: imagePushed }"
       >
-        <div class="column content-with-image__content is-5">
+        <div class="column content-with-image__content">
           <h2 class="title is-1">
             <slot name="heading"></slot>
           </h2>
@@ -20,8 +20,8 @@
             <b-icon size="is-small" icon="arrow-right"></b-icon>
           </div>
         </div>
-        <div class="column content-with-image__image-container is-7">
-          <div class="content-with-image__image">
+        <div class="column content-with-image__image-container">
+          <div class="content-with-image__image image is-square">
             <slot name="image"></slot>
           </div>
         </div>
@@ -51,10 +51,19 @@ export default {
 
 .columns {
   align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include from($desktop) {
+    padding-bottom: 0;
+    flex-direction: row;
+  }
 }
 
 .rowReverse {
-  flex-direction: row-reverse;
+  @include from($desktop) {
+    flex-direction: row-reverse;
+  }
 }
 
 .alternateBackground {
@@ -71,7 +80,9 @@ export default {
     padding-bottom: 1rem;
 
     p {
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      line-height: 1.6;
     }
   }
 
@@ -88,12 +99,24 @@ export default {
     }
   }
 
+  &__image-container {
+    width: 100%;
+    padding-bottom: 6rem;
+
+    @include from($desktop) {
+      padding-bottom: 0;
+    }
+  }
+
   &__image {
     border-radius: 6px;
-    height: 600px;
-    width: 600px;
     overflow: hidden;
     @include box_shadow(2);
+
+    img {
+      object-fit: cover;
+      object-position: center;
+    }
   }
 }
 </style>
