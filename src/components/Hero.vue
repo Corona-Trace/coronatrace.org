@@ -10,8 +10,9 @@
               Save Lives.<br />
             </h1>
             <p class="subtitle">
-              Instantly learn if you’ve come into contact with someone infected
-              with CoronaVirus. Avoid further contact. Get help. Save lives.
+              Instantly & anonymously learn if you’ve come into contact with
+              someone infected with CoronaVirus. Avoid further contact. Get
+              help. Save lives.
             </p>
           </div>
 
@@ -63,6 +64,7 @@ export default {
 
     .subtitle {
       padding: 2rem 0;
+      line-height: 1.6;
     }
   }
 

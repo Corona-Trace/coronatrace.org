@@ -16,7 +16,8 @@ export default {
   components: {
     Navbar,
     Footer
-  }
+  },
+  computed: {}
 }
 </script>
 
