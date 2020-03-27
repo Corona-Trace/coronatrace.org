@@ -17,6 +17,9 @@ import HomeContent from '~/components/HomeContent.vue'
 import CallToAction from '~/components/CallToAction.vue'
 
 export default {
+  metaInfo: {
+    title: "Let's stop the spread of the Coronavirus together"
+  },
   components: {
     Hero,
     HowItWorks,
