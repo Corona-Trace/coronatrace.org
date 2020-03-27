@@ -1,4 +1,4 @@
-<template>
+
     <svg width="359" height="202" viewBox="0 0 359 202" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0)">
     <mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="359" height="217">
@@ -40,6 +40,4 @@
     </clipPath>
     </defs>
     </svg>
-    
-</template>
 

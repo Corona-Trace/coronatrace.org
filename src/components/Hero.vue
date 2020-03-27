@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import TraceBubbles from '~/assets/images/TraceBubbles'
-import PushNotification from '~/assets/images/PushNotification'
+import TraceBubbles from '~/assets/images/TraceBubbles.svg'
+import PushNotification from '~/assets/images/PushNotification.svg'
 
 export default {
   components: {
