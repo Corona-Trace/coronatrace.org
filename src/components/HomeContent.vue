@@ -17,7 +17,11 @@
         </p>
       </template>
       <template v-slot:link>
-        <a href="#">See Latest Data</a>
+        <a
+          href="https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6"
+          target="_blank"
+          >See Latest Data</a
+        >
       </template>
       <template v-slot:image>
         <g-image src="~/assets/images/corona-map.jpg" fit="cover"></g-image>
@@ -36,7 +40,11 @@
         </p>
       </template>
       <template v-slot:link>
-        <a href="#">Learn About Asymptomatic Carriers</a>
+        <a
+          href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html"
+          target="_blank"
+          >Learn More About the Coronavirus</a
+        >
       </template>
       <template v-slot:image>
         <g-image
@@ -65,7 +73,11 @@
         </p>
       </template>
       <template v-slot:link>
-        <a href="#">Learn More About Flattening the Curve</a>
+        <a
+          href="https://www.livescience.com/coronavirus-flatten-the-curve.html"
+          target="_blank"
+          >Learn More About Flattening the Curve</a
+        >
       </template>
       <template v-slot:image>
         <g-image src="~/assets/images/woman-smiling.jpg" fit="cover"></g-image>

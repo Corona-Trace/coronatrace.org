@@ -23,7 +23,10 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Corona Trace',
+  siteDescription:
+    'CoronaTrace is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
+  siteUrl: 'https://www.coronatrace.org',
   plugins: [],
 
   chainWebpack(config) {

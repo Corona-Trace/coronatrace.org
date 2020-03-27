@@ -10,7 +10,8 @@
         </p>
       </div>
       <div class="call-to-action__badges">
-        <BadgeApple class="badge" /> <BadgeGoogle class="badge" />
+        <!-- <BadgeApple class="badge" /> <BadgeGoogle class="badge" /> -->
+        <b-button type="is-primary" disabled>Coming Soon</b-button>
       </div>
     </div>
   </section>
@@ -70,5 +71,9 @@ export default {
 
 .corona-badge {
   width: 64px;
+}
+
+.coming-soon {
+  color: $blue;
 }
 </style>
