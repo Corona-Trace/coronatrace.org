@@ -5,6 +5,8 @@
     <HowItWorks />
 
     <HomeContent />
+
+    <CallToAction />
   </Layout>
 </template>
 
@@ -12,6 +14,7 @@
 import Hero from '~/components/Hero.vue'
 import HowItWorks from '~/components/HowItWorks.vue'
 import HomeContent from '~/components/HomeContent.vue'
+import CallToAction from '~/components/CallToAction.vue'
 
 export default {
   metaInfo: {
@@ -20,7 +23,8 @@ export default {
   components: {
     Hero,
     HowItWorks,
-    HomeContent
+    HomeContent,
+    CallToAction
   }
 }
 </script>

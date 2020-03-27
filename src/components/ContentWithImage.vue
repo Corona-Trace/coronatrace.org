@@ -66,10 +66,6 @@ export default {
   }
 }
 
-.alternateBackground {
-  background-color: $blue-light;
-}
-
 .content-with-image {
   .title {
     margin-bottom: 0;
