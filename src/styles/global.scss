@@ -17,4 +17,25 @@ h6 {
 
 p {
   line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.subtitle {
+  line-height: 1.6;
+}
+
+.cta-link {
+  padding-top: 1.5rem;
+
+  a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+    color: $blue;
+  }
 }

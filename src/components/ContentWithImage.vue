@@ -15,7 +15,7 @@
           <div class="content-with-image__body-text">
             <slot name="body-text"></slot>
           </div>
-          <div class="content-with-image__link">
+          <div class="content-with-image__link cta-link">
             <slot name="link"> </slot>
             <b-icon size="is-small" icon="arrow-right"></b-icon>
           </div>
