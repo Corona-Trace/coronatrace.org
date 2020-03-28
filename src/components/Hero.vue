@@ -104,22 +104,30 @@ export default {
   &__right {
     position: relative;
     text-align: right;
-    overflow: hidden;
+    overflow: visible;
+
+    @include from($desktop) {
+      width: auto;
+      height: auto;
+      overflow: hidden;
+    }
 
     .bubbles {
       width: 100%;
+      overflow: visible;
 
       @include from($desktop) {
         width: auto;
         height: auto;
+        overflow: hidden;
       }
     }
 
     .push-notification {
       position: absolute;
-      top: 3rem;
-      left: 9rem;
-      width: 62%;
+      top: 4rem;
+      left: 8rem;
+      width: 65%;
 
       @include from($desktop) {
         top: 9rem;
