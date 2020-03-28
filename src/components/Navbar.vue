@@ -16,6 +16,9 @@
       <b-navbar-item tag="g-link" to="/about">
         About
       </b-navbar-item>
+      <b-navbar-item tag="g-link" to="/faqs">
+        FAQs
+      </b-navbar-item>
       <b-navbar-item tag="div">
         <div class="buttons">
           <a class="button is-primary" disabled>
