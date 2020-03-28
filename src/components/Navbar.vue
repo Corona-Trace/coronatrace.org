@@ -1,5 +1,10 @@
 <template>
-  <b-navbar id="main-nav" wrapper-class="container" :fixed-top="true">
+  <b-navbar
+    id="main-nav"
+    wrapper-class="container"
+    :fixed-top="true"
+    :class="{ scrolled: scrolled }"
+  >
     <template slot="brand">
       <b-navbar-item tag="g-link" :to="{ path: '/' }">
         <Logo class="nav__logo" />
@@ -26,8 +31,41 @@
 import Logo from '~/assets/images/Logo.svg'
 
 export default {
+  data: function() {
+    return {
+      navHeight: null,
+      scrolled: null,
+      lastPosition: null,
+      limitPosition: 66
+    }
+  },
   components: {
     Logo
+  },
+  methods: {
+    handleScroll() {
+      if (window.scrollY > this.limitPosition) {
+        this.scrolled = true
+        // move up!
+      }
+
+      if (window.scrollY <= this.limitPosition) {
+        this.scrolled = false
+        // move down
+      }
+
+      this.lastPosition = window.scrollY
+      // this.scrolled = window.scrollY > 250;
+    }
+  },
+  created() {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  mounted() {
+    this.handleScroll()
+  },
+  destroyed() {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -41,9 +79,12 @@ query {
 </static-query>
 
 <style lang="scss" scoped>
-.scrolled {
-  #main-nav {
+#main-nav {
+  transition: box-shadow 0.3s;
+
+  &.scrolled {
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
   }
 }
 </style>

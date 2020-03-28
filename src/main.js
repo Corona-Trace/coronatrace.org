@@ -2,9 +2,9 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import Buefy from 'buefy'
+
 import '~/styles/main.scss'
 import '@mdi/font/css/materialdesignicons.css'
-
 import DefaultLayout from '~/layouts/Default.vue'
 
 export default function(Vue, { router, head, isClient }) {
