@@ -1,9 +1,9 @@
 <template>
-  <section class="section page-header alternateBackground">
+  <section class="section page-header">
     <div class="container">
       <div class="columns">
         <div class="column">
-          <h1 class="title">About Coronatrace</h1>
+          <h1 class="title is-1">About Coronatrace</h1>
           <p class="subtitle">
             Our mission is to limit the spread of Covid-19 and save lives by
             using decentralized contact-tracing using mobile phones and GPS.

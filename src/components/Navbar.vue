@@ -62,12 +62,15 @@ export default {
     }
   },
   created() {
+    // Stop gridsome from trying to run this function on build - results in window not defined error
+    if (!process.isClient) return
     window.addEventListener('scroll', this.handleScroll)
   },
   mounted() {
     this.handleScroll()
   },
   destroyed() {
+    if (!process.isClient) return
     window.removeEventListener('scroll', this.handleScroll)
   }
 }

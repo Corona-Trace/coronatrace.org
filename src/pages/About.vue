@@ -3,7 +3,7 @@
     <div class="about">
       <PageHeader />
 
-      <section class="section about__overview about__text">
+      <section class="section about__overview about__text alternateBackground">
         <div class="container">
           <div class="columns">
             <div class="column">
@@ -43,7 +43,7 @@
         </div>
       </section>
 
-      <section class="section about__figure about__text alternateBackground">
+      <section class="section about__figure about__text">
         <div class="container">
           <div class="about__figure-heading">
             <h2 class="title">Total Confirmed Cases of Covid 19</h2>
@@ -63,7 +63,7 @@
         </div>
       </section>
 
-      <section class="section about__privacy about__text">
+      <section class="section about__privacy about__text  alternateBackground">
         <div class="container">
           <div class="columns">
             <div class="column">
@@ -109,9 +109,7 @@
         </div>
       </section>
 
-      <section
-        class="section about__contribute about__text alternateBackground"
-      >
+      <section class="section about__contribute about__text">
         <div class="container">
           <h2 class="title">Want to Contribute?</h2>
           <p class="subtitle">
