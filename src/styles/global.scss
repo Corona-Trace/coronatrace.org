@@ -39,3 +39,9 @@ p {
     color: $blue;
   }
 }
+
+.container {
+  &__large-margins {
+    max-width: 720px;
+  }
+}
