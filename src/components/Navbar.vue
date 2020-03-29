@@ -44,6 +44,9 @@ export default {
   },
   methods: {
     handleScroll() {
+      // Stop gridsome from trying to run this function on build - results in window not defined error
+      if (!process.isClient) return
+
       if (window.scrollY > this.limitPosition) {
         this.scrolled = true
         // move up!
