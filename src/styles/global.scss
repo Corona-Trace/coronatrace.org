@@ -45,3 +45,16 @@ p {
     max-width: 720px;
   }
 }
+
+.donation-currency-input {
+  border: none !important;
+  color: #313ebd;
+  font-weight: bold;
+  font-size: 1.25rem !important;
+
+  &:focus,
+  &:active,
+  &:hover {
+    border: none !important;
+  }
+}
