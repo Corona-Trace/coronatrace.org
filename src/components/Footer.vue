@@ -6,7 +6,6 @@
           <LogoInverse />
         </div>
         <div class="column footer__item footer__top-middle">
-          <g-link to="/faqs">FAQs</g-link>
           <g-link to="/about">About</g-link>
         </div>
         <div class="column footer__item footer__top-right">
