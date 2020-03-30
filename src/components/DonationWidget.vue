@@ -1,6 +1,5 @@
 <template>
-  <section class="section donate__widget">
-    <div class="container container__large-margins">
+    <div class="container container__large-margins donate__widget">
       <div class="columns">
         <div class="column">
           <div class="donate__widget-heading">
@@ -46,18 +45,24 @@
             </div>
 
             <div class="widget__cta">
-              <b-button type="is-primary" size="is-large" expanded>COMPLETE DONATION</b-button>
+              <b-button 
+                type="is-primary"
+                icon-left="lock-outline"
+                size="is-large" expanded>
+                COMPLETE DONATION
+              </b-button>
+              <PoweredByStripe />
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
 </template>
 
 <script>
 import { Money } from 'v-money'
 import Cleave from 'cleave.js'
+import PoweredByStripe from '~/assets/images/PoweredByStripe.svg'
 
 const cleave = {
   name: 'cleave',
@@ -73,14 +78,13 @@ const cleave = {
 
 export default {
   directives: { cleave },
+  components: { PoweredByStripe },
   data: function() {
     return {
       donationAmounts: [5, 10, 20, 50, 100, 250, 500],
       donationAmountSelected: 20,
       customDonationAmountRaw: null,
       customDonationAmount: null,
-      value: '',
-      rawValue: '',
       masks: {
         creditCard: { creditCard: true },
         numeral: {
@@ -109,11 +113,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.section {
-  padding-top: 0;
-  padding-bottom: 4rem;
-}
-
 .widget {
   &__wrapper {
     margin-top: 0.5rem;
@@ -121,9 +120,15 @@ export default {
 
   &__cta {
     margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     button {
       justify-content: center;
+      @include box_shadow(1);
+      margin-bottom: 1rem;
     }
   }
 }
@@ -143,6 +148,8 @@ export default {
   text-align: center;
   line-height: 1.5rem;
   flex: 1 0 47%;
+  background-color: transparent;
+  width: 100%;
 
   &::placeholder {
     color: $blue;
@@ -150,7 +157,8 @@ export default {
   }
 
   &:hover {
-    background-color: lighten($blue, 50%);
+    background-color: lighten($blue, 30%);
+    border: 2px solid $blue;
   }
 
   &.selected {

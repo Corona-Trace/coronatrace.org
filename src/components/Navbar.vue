@@ -21,6 +21,9 @@
           <a class="button is-primary" disabled>
             Coming Soon
           </a>
+          <g-link to="/donate" class="button is-primary is-outlined">
+            Donate
+          </g-link>
         </div>
       </b-navbar-item>
     </template>
