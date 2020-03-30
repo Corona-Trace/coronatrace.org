@@ -13,7 +13,9 @@
     "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
-    "gridsome": "^0.7.0"
+    "gridsome": "^0.7.0",
+    "vue-faq-accordion": "^1.5.0",
+    "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
     "node-sass": "^4.13.1",

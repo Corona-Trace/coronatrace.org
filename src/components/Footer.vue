@@ -5,20 +5,16 @@
         <div class="column footer__item footer__top-left">
           <LogoInverse />
         </div>
-        <div class="column footer__item footer__top-middle"></div>
+        <div class="column footer__item footer__top-middle">
+          <g-link to="/faqs">FAQs</g-link>
+          <g-link to="/about">About</g-link>
+        </div>
         <div class="column footer__item footer__top-right">
           <div class="column">&copy; {{ currentYear }} CoronaTrace</div>
         </div>
       </div>
-      <!--
-      <div class="columns footer__bottom">
-        <div class="column footer__item">
-          <a href="https://corona-trace.github.io/" target="_blank"
-            >Contribute</a
-          >
-        </div>
-      </div>
-      -->
+
+      <!-- <div class="columns footer__bottom"></div> -->
     </div>
   </section>
 </template>
@@ -52,12 +48,31 @@ export default {
 
     @include from($desktop) {
       justify-content: flex-start;
+      align-items: center;
     }
   }
 
   &__top {
     a {
       color: $white;
+    }
+
+    &-middle {
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+
+      > * {
+        padding: 1rem 0;
+      }
+
+      @include from($tablet) {
+        flex-direction: row;
+
+        > * {
+          padding: 0 1rem;
+        }
+      }
     }
 
     &-right {
@@ -73,7 +88,7 @@ export default {
   }
 
   &__bottom {
-    border-top: 1px solid #fafafa;
+    border-top: 1px solid $grey-light;
     margin-top: 2rem;
     padding: 1rem 1rem 0 1rem;
     a {
