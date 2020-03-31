@@ -2,6 +2,22 @@ body {
   font-family: $body-font;
 }
 
+html,
+body,
+.layout {
+  height: 100%;
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.footer {
+  flex-shrink: 0;
+}
+
 h1,
 h2,
 h3,
