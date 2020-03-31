@@ -10,6 +10,7 @@
     "@gridsome/plugin-critical": "^0.1.6",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@mdi/font": "^5.0.45",
+    "airtable": "^0.8.1",
     "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",

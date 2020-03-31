@@ -6,42 +6,24 @@
         effort possible.
       </PageHeader>
 
-      <section class="section contributors__section contributors__core">
+      <section class="section section__contributors contributors__core">
         <div class="container">
           <h2 class="title">Core Contributors</h2>
-          <div class="columns is-multiline">
-            <div class="column is-4">
-              <a target="_blank" href="https://www.google.com">
-                <g-image
-                  src="https://dummyimage.com/500x92/888/aaa"
-                  alt="Mutual Mobile Logo"
-                ></g-image>
-              </a>
-            </div>
-
-            <div class="column is-4">
-              <a target="_blank" href="https://www.google.com">
-                <img
-                  src="https://dummyimage.com/500x92/888/aaa"
-                  alt="Bolt Source"
-                />
-              </a>
-            </div>
-          </div>
+          <CoreContributors />
         </div>
       </section>
 
-      <section class="section contributors__section contributors__corporate">
+      <section class="section section__contributors contributors__corporate">
         <div class="container">
           <h2 class="title">Corporate Contributors</h2>
-          <div class="columns"></div>
+          <CorporateContributors />
         </div>
       </section>
 
-      <section class="section contributors__section contributors__individual">
+      <section class="section section__contributors contributors__individual">
         <div class="container">
           <h2 class="title">Individual Contributors</h2>
-          <div class="columns"></div>
+          <IndividualContributors />
         </div>
       </section>
     </div>
@@ -50,21 +32,40 @@
 
 <script>
 import PageHeader from '~/components/PageHeader.vue'
+import CoreContributors from '~/components/contributors/CoreContributors.vue'
+import CorporateContributors from '~/components/contributors/CorporateContributors.vue'
+import IndividualContributors from '~/components/contributors/IndividualContributors.vue'
 
 export default {
   components: {
-    PageHeader
+    PageHeader,
+    CoreContributors,
+    CorporateContributors,
+    IndividualContributors
   }
 }
 </script>
+
+
 
 <style lang="scss" scoped>
 .section {
   padding-top: 9rem;
   padding-bottom: 2rem;
+
+  &__contributors {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .contributors {
+  padding-bottom: 6rem;
+
+  .columns {
+    align-items: center;
+  }
+
   &__section {
     h2 {
       padding-bottom: 4rem;
