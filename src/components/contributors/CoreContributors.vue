@@ -5,14 +5,16 @@
       :key="edge.node.id"
       class="column is-4"
     >
-      <a target="_blank" :href="edge.node.Website_URL">
-        <g-image
-          v-if="edge.node.fields.Logo[0]"
-          :src="edge.node.fields.Logo[0].url"
-          :alt="edge.node.fields.Name + ' Logo'"
-        >
-        </g-image>
-      </a>
+      <div class="contributor">
+        <a target="_blank" :href="edge.node.Website_URL">
+          <g-image
+            v-if="edge.node.fields.Logo[0]"
+            :src="edge.node.fields.Logo[0].url"
+            :alt="edge.node.fields.Name + ' Logo'"
+          >
+          </g-image>
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -40,7 +42,7 @@ export default {}
 <static-query>
 
 query CoreContributers {
-  allCore {
+  allCore(sortBy: "order", order: ASC) {
     edges {
       node {
         id,

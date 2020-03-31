@@ -16,6 +16,7 @@ module.exports = function(api, opts) {
 
           contentType.addNode({
             id: item.id,
+            order: item.fields.Order,
             name: item.fields.Name,
             fields: item.fields
           })
@@ -37,6 +38,7 @@ module.exports = function(api, opts) {
 
           contentType.addNode({
             id: item.id,
+            order: item.fields.Order,
             name: item.fields.Name,
             fields: item.fields
           })
@@ -58,6 +60,7 @@ module.exports = function(api, opts) {
 
           contentType.addNode({
             id: item.id,
+            order: item.fields.Order,
             name: item.fields.Name,
             fields: item.fields
           })

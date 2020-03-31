@@ -63,7 +63,7 @@ export default {}
 
 <static-query>
 query IndividualContributors {
-  allIndividual {
+  allIndividual(sortBy: "order", order: ASC) {
     edges {
       node {
         id,
