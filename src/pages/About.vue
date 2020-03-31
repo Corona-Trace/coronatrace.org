@@ -1,10 +1,14 @@
 <template>
   <Layout>
     <div class="about">
-      <PageHeader />
+      <PageHeader title="About Coronatrace" largeMargins>
+        Our mission is to limit the spread of Covid-19 and save lives by using
+        decentralized contact-tracing using mobile phones and GPS. Prioritize
+        saving lives over privacy.
+      </PageHeader>
 
       <section class="section about__overview about__text alternateBackground">
-        <div class="container">
+        <div class="container container__large-margins">
           <div class="columns">
             <div class="column">
               <h2 class="title">Overview</h2>
@@ -44,7 +48,7 @@
       </section>
 
       <section class="section about__figure about__text">
-        <div class="container">
+        <div class="container container__large-margins">
           <div class="about__figure-heading">
             <h2 class="title">Total Confirmed Cases of Covid 19</h2>
             <p class="subtitle">
@@ -64,7 +68,7 @@
       </section>
 
       <section class="section about__privacy about__text  alternateBackground">
-        <div class="container">
+        <div class="container container__large-margins">
           <div class="columns">
             <div class="column">
               <h2 class="title">Our Philosophy on Privacy</h2>
@@ -110,7 +114,7 @@
       </section>
 
       <section class="section about__contribute about__text">
-        <div class="container">
+        <div class="container container__large-margins">
           <h2 class="title">Want to Contribute?</h2>
           <p class="subtitle">
             Visit our community site for more information on how you can join
@@ -153,10 +157,6 @@ export default {
 
 .about {
   &__text {
-    .container {
-      max-width: 720px;
-    }
-
     .title {
       margin-bottom: 2rem;
     }

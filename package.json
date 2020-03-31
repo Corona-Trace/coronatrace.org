@@ -13,6 +13,7 @@
     "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
+    "cleave.js": "^1.5.8",
     "gridsome": "^0.7.0",
     "vue-faq-accordion": "^1.5.0",
     "vue2-transitions": "^0.3.0"
