@@ -2,9 +2,11 @@
   <Layout>
     <div class="about">
       <PageHeader title="About Coronatrace" largeMargins>
-        Our mission is to limit the spread of Covid-19 and save lives by using
-        decentralized contact-tracing using mobile phones and GPS. Prioritize
-        saving lives over privacy.
+        Help stop the spread of COVID-19. A single answer saves lives.
+        CoronaTrace is a privacy-centric, real-time location-based contact
+        tracer that alerts you about possible contact with other CoronaTrace
+        users who have tested positive for COVID-19 and helps stop the spread of
+        the virus.
       </PageHeader>
 
       <section class="section about__overview about__text alternateBackground">
