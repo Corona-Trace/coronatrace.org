@@ -1,7 +1,7 @@
 <template>
   <Layout>
     <div class="about">
-      <PageHeader title="About Coronatrace" largeMargins>
+      <PageHeader title="About CoronaTrace" largeMargins>
         Help stop the spread of COVID-19. A single answer saves lives.
         CoronaTrace is a privacy-centric, real-time location-based contact
         tracer that alerts you about possible contact with other CoronaTrace
@@ -146,7 +146,7 @@ export default {
   metaInfo: {
     title: 'About',
     description:
-      'Learn more about Coronatrace, our mission, and our philosophy on privacy.'
+      'Learn more about CoronaTrace, our mission, and our philosophy on privacy.'
   }
 }
 </script>

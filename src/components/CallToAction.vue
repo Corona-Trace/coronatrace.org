@@ -3,7 +3,7 @@
     <div class="container">
       <div class="call-to-action__heading">
         <CoronaBadge class="corona-badge" />
-        <h2 class="title is-3">Get Protected with <br />Coronatrace</h2>
+        <h2 class="title is-3">Get Protected with <br />CoronaTrace</h2>
         <p>
           Download the app and get alerted when you cross paths with someone
           infected with Coronavirus.
