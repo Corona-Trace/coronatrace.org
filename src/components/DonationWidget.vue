@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import { Money } from 'v-money'
 import Cleave from 'cleave.js'
 import PoweredByStripe from '~/assets/images/PoweredByStripe.svg'
 
