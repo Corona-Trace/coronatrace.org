@@ -12,7 +12,7 @@
           class="column is-2"
         >
           <div class="contributor">
-            <a target="_blank" :href="edge.node.Website_URL">
+            <a target="_blank" :href="edge.node.fields.Website_URL">
               <g-image
                 v-if="edge.node.fields.Logo[0]"
                 :src="edge.node.fields.Logo[0].url"
