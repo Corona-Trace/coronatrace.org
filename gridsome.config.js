@@ -31,14 +31,14 @@ module.exports = {
     {
       use: '@gridsome/plugin-google-analytics',
       options: {
-        id: 'UA-162613610-1'
+        id: process.env.GOOGLE_ANALYTICS_ID
       }
     },
     {
       use: '~/src/sources/contributors',
       options: {
-        apiKey: 'keybBJVYYSFfewGKk',
-        base: 'appTO372xh9fsnSNQ'
+        apiKey: process.env.AIRTABLE_API_KEY,
+        base: process.env.AIRTABLE_BASE
       }
     },
     {
