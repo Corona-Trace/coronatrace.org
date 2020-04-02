@@ -69,9 +69,9 @@
           of CoronaVirus.
         </p>
         <p>
-          When you seecurely and anonymously share your recent location data
-          with us, we can enable instant digital contact tracing and notify
-          those who’ve unknowingly been in contact with the virus.
+          When you securely and anonymously share your recent location data with
+          us, we can enable instant digital contact tracing and notify those
+          who’ve unknowingly been in contact with the virus.
         </p>
         <p>
           Help us flatten the curve and save every live we possibly can.
