@@ -6,26 +6,11 @@
         effort possible.
       </PageHeader>
 
-      <section class="section section__contributors contributors__core">
-        <div class="container">
-          <h2 class="title">Core Contributors</h2>
-          <CoreContributors />
-        </div>
-      </section>
+      <CoreContributors />
 
-      <section class="section section__contributors contributors__corporate">
-        <div class="container">
-          <h2 class="title">Corporate Contributors</h2>
-          <CorporateContributors />
-        </div>
-      </section>
+      <!-- <CorporateContributors />
 
-      <section class="section section__contributors contributors__individual">
-        <div class="container">
-          <h2 class="title">Individual Contributors</h2>
-          <IndividualContributors />
-        </div>
-      </section>
+      <IndividualContributors /> -->
     </div>
   </layout>
 </template>

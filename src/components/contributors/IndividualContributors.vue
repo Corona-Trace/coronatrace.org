@@ -1,25 +1,38 @@
 <template>
-  <div class="columns is-multiline is-mobile">
-    <div
-      v-for="edge in $static.allIndividual.edges"
-      :key="edge.node.id"
-      class="column is-3"
-    >
-      <div class="contributor">
-        <div class="contributor__heading">
-          <h4>{{ edge.node.fields.Name }}</h4>
-          <a v-if="edge.node.fields.LinkedIn" :href="edge.node.fields.LinkedIn">
-            <b-icon icon="linkedin"></b-icon>
-          </a>
-        </div>
-        <div class="contributor__footer">
-          <p v-if="edge.node.fields.Skill" class="contributor__skill">
-            {{ edge.node.fields.Skill }}
-          </p>
+  <section
+    v-if="$static.allIndividual.edges.length > 0"
+    class="section section__contributors contributors__individual"
+  >
+    <div class="container">
+      <h2 class="title">
+        Individual Contributors {{ $static.allIndividual.totalCount }}
+      </h2>
+      <div class="columns is-multiline is-mobile">
+        <div
+          v-for="edge in $static.allIndividual.edges"
+          :key="edge.node.id"
+          class="column is-3"
+        >
+          <div class="contributor">
+            <div class="contributor__heading">
+              <h4>{{ edge.node.fields.Name }}</h4>
+              <a
+                v-if="edge.node.fields.LinkedIn"
+                :href="edge.node.fields.LinkedIn"
+              >
+                <b-icon icon="linkedin"></b-icon>
+              </a>
+            </div>
+            <div class="contributor__footer">
+              <p v-if="edge.node.fields.Skill" class="contributor__skill">
+                {{ edge.node.fields.Skill }}
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>

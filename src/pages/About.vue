@@ -9,7 +9,7 @@
         the virus.
       </PageHeader>
 
-      <section class="section about__overview about__text alternateBackground">
+      <section class="section about__overview about__text">
         <div class="container container__large-margins">
           <div class="columns">
             <div class="column">
@@ -49,7 +49,7 @@
         </div>
       </section>
 
-      <section class="section about__figure about__text">
+      <section class="section about__figure about__text alternateBackground">
         <div class="container container__large-margins">
           <div class="about__figure-heading">
             <h2 class="title">Total Confirmed Cases of Covid 19</h2>
