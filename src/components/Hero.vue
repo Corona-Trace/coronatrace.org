@@ -39,18 +39,13 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import TraceBubbles from '~/assets/images/TraceBubbles.svg'
 import PushNotification from '~/assets/images/PushNotification.svg'
 
-const options = {
-  renderText: text =>
-    text.split('\n').flatMap((text, i) => [i > 0 && <br />, text])
-}
-
 export default {
   components: {
     TraceBubbles,
     PushNotification
   },
   methods: {
-    richtextToHTML(content, options) {
+    richtextToHTML(content) {
       const newContent = content.content
 
       var text = newContent.map(function(content) {
@@ -65,13 +60,6 @@ export default {
 
       var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
       return final
-    }
-  },
-  computed: {
-    headline(content) {
-      const raw = documentToHtmlString(content)
-      var strippedString = raw.replace(/(<([^>]+)>)/gi, '')
-      return strippedString
     }
   }
 }
