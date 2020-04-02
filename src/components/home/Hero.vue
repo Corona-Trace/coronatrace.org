@@ -4,16 +4,17 @@
       <div class="columns">
         <div class="column is-5 hero__left">
           <div class="hero__text">
-            <h1 class="title is-1">
-              Get Connected.<br />
-              Get Notified.<br />
-              Save Lives.<br />
-            </h1>
-            <p class="subtitle">
-              Instantly & anonymously learn if you’ve come into contact with
-              someone infected with CoronaVirus. Avoid further contact. Get
-              help. Save lives.
-            </p>
+            <div
+              v-html="
+                richtextToHTML(
+                  $static.allContentfulHomeHero.edges[0].node.headline
+                )
+              "
+            ></div>
+            <p
+              class="subtitle"
+              v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
+            ></p>
           </div>
 
           <div class="hero__cta">
@@ -34,6 +35,7 @@
 </template>
 
 <script>
+import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import TraceBubbles from '~/assets/images/TraceBubbles.svg'
 import PushNotification from '~/assets/images/PushNotification.svg'
 
@@ -41,9 +43,45 @@ export default {
   components: {
     TraceBubbles,
     PushNotification
+  },
+  methods: {
+    richtextToHTML(content) {
+      const newContent = content.content
+
+      var text = newContent.map(function(content) {
+        return content.content[0].value
+      })
+
+      var notEmptyText = text.filter(function(text) {
+        return text.length > 0
+      })
+
+      notEmptyText = notEmptyText.join('<br />')
+
+      var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
+      return final
+    }
   }
 }
 </script>
+
+<static-query>
+query HomeHero {
+  allContentfulHomeHero(sortBy: "id", order: ASC, limit: 1) {
+    edges {
+      node {
+        id,
+        title,
+        date,
+        hero,
+        heroCta,
+        subheading,
+        headline
+      }
+    }
+  }
+}
+</static-query>
 
 <style lang="scss" scoped>
 .hero {

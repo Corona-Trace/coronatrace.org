@@ -21,10 +21,10 @@
 </template>
 
 <script>
-import VueFaqAccordion from '~/components/VueFAQAccordion.vue'
+import FaqAccordion from '~/components/faq/FAQAccordion.vue'
 export default {
   components: {
-    VueFaqAccordion
+    FaqAccordion
   },
   data() {
     return {

@@ -58,6 +58,13 @@ module.exports = {
         cacheTime: 600000, // default
         exclude: ['/donate', '/faqs']
       }
+    },
+    {
+      use: '@gridsome/source-contentful',
+      options: {
+        space: 'ns2fx9vns4i8', // required
+        accessToken: 'GxR06QUAejxt5g87V8G5eXRJqXqaboECVhG_prQejH8' // required
+      }
     }
   ],
 
