@@ -3,11 +3,15 @@
     <div class="container">
       <div class="call-to-action__heading">
         <CoronaBadge class="corona-badge" />
-        <h2 class="title is-3">Get Protected with <br />CoronaTrace</h2>
-        <p>
-          Download the app and get alerted when you cross paths with someone
-          infected with Coronavirus.
-        </p>
+        <h2
+          class="title is-3"
+          v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
+        ></h2>
+        <p
+          v-text="
+            $static.allContentfulHomeCallToAction.edges[0].node.subheading
+          "
+        ></p>
       </div>
       <div class="call-to-action__badges">
         <!-- <BadgeApple class="badge" /> <BadgeGoogle class="badge" /> -->
@@ -31,6 +35,20 @@ export default {
 }
 </script>
 
+<static-query>
+query HomeCTA {
+  allContentfulHomeCallToAction {
+    edges {
+      node {
+        id,
+        heading,
+        subheading
+      }
+    }
+  }
+}
+</static-query>
+
 <style lang="scss" scoped>
 .section {
   padding-top: 9rem;
@@ -41,7 +59,12 @@ export default {
   text-align: center;
 
   &__heading {
-    padding-bottom: 4rem;
+    padding-bottom: 2rem;
+
+    h2 {
+      max-width: 32rem;
+      margin: 0 auto 1.5rem auto;
+    }
 
     p {
       max-width: 550px;
