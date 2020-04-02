@@ -5,69 +5,41 @@
         <h2 class="is-2">How It Works</h2>
       </div>
       <div class="columns">
-        <div class="column how-it-works__item">
+        <div
+          class="column how-it-works__item"
+          v-for="edge in $static.allContentfulHowItWorksItem.edges"
+          :key="edge.node.id"
+        >
           <b-icon
             class="how-it-works__icon"
             size="is-large"
-            icon="cellphone-arrow-down"
+            :icon="edge.node.iconHandle"
           >
           </b-icon>
           <div class="item__text">
-            <h4>Download App</h4>
-            <p>
-              Go to Apple app store, download the app, and create an account
-            </p>
-          </div>
-        </div>
-        <div class="column how-it-works__item">
-          <b-icon
-            class="how-it-works__icon"
-            size="is-large"
-            icon="tooltip-account"
-          >
-          </b-icon>
-          <div class="item__text">
-            <h4>Securely Share Location History</h4>
-            <p>
-              Follow a few easy steps to securely and anonymously share your
-              location history.
-            </p>
-          </div>
-        </div>
-        <div class="column how-it-works__item">
-          <b-icon
-            class="how-it-works__icon"
-            size="is-large"
-            icon="clipboard-pulse-outline"
-          >
-          </b-icon>
-          <div class="item__text">
-            <h4>Share If You’ve Been Tested</h4>
-            <p>
-              We’ll ask you if you’ve been tested and whether or not you’ve
-              tested positive for CoronaVirus.
-            </p>
-          </div>
-        </div>
-        <div class="column how-it-works__item">
-          <b-icon
-            class="how-it-works__icon"
-            size="is-large"
-            icon="message-text-outline"
-          >
-          </b-icon>
-          <div class="item__text">
-            <h4>Get Notified</h4>
-            <p>
-              We’ll use that data that you and others have shared to notify you
-              if you’ve unknowingly come into contact with the virus.
-            </p>
+            <h4 v-text="edge.node.heading"></h4>
+            <p v-text="edge.node.text"></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
+
+<static-query>
+query HowItWorksItems {
+  allContentfulHowItWorksItem(sortBy: "order", order: ASC) {
+    edges {
+      node {
+        id,
+        iconHandle,
+        heading,
+        text
+      }
+    }
+  }
+}
+</static-query>
 
 <script>
 export default {}
