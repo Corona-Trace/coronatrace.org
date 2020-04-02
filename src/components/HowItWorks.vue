@@ -29,7 +29,7 @@
           <div class="item__text">
             <h4>Securely Share Location History</h4>
             <p>
-              Follow a few easy steps to securly and anonymously share your
+              Follow a few easy steps to securely and anonymously share your
               location history.
             </p>
           </div>
