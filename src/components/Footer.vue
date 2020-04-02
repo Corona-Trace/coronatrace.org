@@ -7,6 +7,7 @@
         </div>
         <div class="column footer__item footer__top-middle">
           <g-link to="/about">About</g-link>
+          <g-link to="/contributors">Contributors</g-link>
         </div>
         <div class="column footer__item footer__top-right">
           <div class="column">&copy; {{ currentYear }} CoronaTrace</div>

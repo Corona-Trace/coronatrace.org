@@ -1,10 +1,16 @@
 <template>
   <Layout>
     <div class="about">
-      <PageHeader />
+      <PageHeader title="About CoronaTrace" largeMargins>
+        Help stop the spread of COVID-19. A single answer saves lives.
+        CoronaTrace is a privacy-centric, real-time location-based contact
+        tracer that alerts you about possible contact with other CoronaTrace
+        users who have tested positive for COVID-19 and helps stop the spread of
+        the virus.
+      </PageHeader>
 
-      <section class="section about__overview about__text alternateBackground">
-        <div class="container">
+      <section class="section about__overview about__text">
+        <div class="container container__large-margins">
           <div class="columns">
             <div class="column">
               <h2 class="title">Overview</h2>
@@ -43,8 +49,8 @@
         </div>
       </section>
 
-      <section class="section about__figure about__text">
-        <div class="container">
+      <section class="section about__figure about__text alternateBackground">
+        <div class="container container__large-margins">
           <div class="about__figure-heading">
             <h2 class="title">Total Confirmed Cases of Covid 19</h2>
             <p class="subtitle">
@@ -64,7 +70,7 @@
       </section>
 
       <section class="section about__privacy about__text  alternateBackground">
-        <div class="container">
+        <div class="container container__large-margins">
           <div class="columns">
             <div class="column">
               <h2 class="title">Our Philosophy on Privacy</h2>
@@ -110,7 +116,7 @@
       </section>
 
       <section class="section about__contribute about__text">
-        <div class="container">
+        <div class="container container__large-margins">
           <h2 class="title">Want to Contribute?</h2>
           <p class="subtitle">
             Visit our community site for more information on how you can join
@@ -140,7 +146,7 @@ export default {
   metaInfo: {
     title: 'About',
     description:
-      'Learn more about Coronatrace, our mission, and our philosophy on privacy.'
+      'Learn more about CoronaTrace, our mission, and our philosophy on privacy.'
   }
 }
 </script>
@@ -153,10 +159,6 @@ export default {
 
 .about {
   &__text {
-    .container {
-      max-width: 720px;
-    }
-
     .title {
       margin-bottom: 2rem;
     }

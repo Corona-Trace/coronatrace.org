@@ -1,13 +1,14 @@
 <template>
-  <section class="section page-header">
-    <div class="container">
+  <section class="section page-header alternateBackground">
+    <div
+      class="container"
+      :class="{ 'container__large-margins': largeMargins }"
+    >
       <div class="columns">
         <div class="column">
-          <h1 class="title is-1">About Coronatrace</h1>
+          <h1 class="title is-1">{{ title }}</h1>
           <p class="subtitle">
-            Our mission is to limit the spread of Covid-19 and save lives by
-            using decentralized contact-tracing using mobile phones and GPS.
-            Prioritize saving lives over privacy.
+            <slot />
           </p>
         </div>
       </div>
@@ -16,23 +17,23 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    title: String,
+    largeMargins: Boolean
+  }
+}
 </script>
 
 <style lang="scss" scoped>
 .section {
   padding-top: 9rem !important;
+  padding-bottom: 6rem !important;
 }
 
 .page-header {
   h1 {
     padding-bottom: 2rem;
-  }
-}
-
-.about {
-  .container {
-    max-width: 720px;
   }
 }
 </style>

@@ -7,7 +7,7 @@
             <div class="faqs__heading">
               <h1 class="title">Frequently Asked Questions</h1>
               <p class="subtitle">
-                Here's some questions that people often ask about Coronatrace.
+                Here's some questions that people often ask about CoronaTrace.
               </p>
             </div>
             <div class="faqs__container">
