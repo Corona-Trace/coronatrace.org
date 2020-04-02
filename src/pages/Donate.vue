@@ -23,7 +23,7 @@
 
 <script>
 import PageHeader from '~/components/PageHeader.vue'
-import DonationWidget from '~/components/DonationWidget.vue'
+import DonationWidget from '~/components/donate/DonationWidget.vue'
 
 export default {
   components: {

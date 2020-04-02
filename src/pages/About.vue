@@ -26,14 +26,12 @@
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import PageHeader from '~/components/PageHeader.vue'
-import ConfirmedCases from '~/assets/images/ConfirmedCases.svg'
-import AboutContentBlock from '~/components/AboutContentBlock.vue'
-import AboutCallToAction from '~/components/AboutCallToAction.vue'
+import AboutContentBlock from '~/components/about/AboutContentBlock.vue'
+import AboutCallToAction from '~/components/about/AboutCallToAction.vue'
 
 export default {
   components: {
     PageHeader,
-    ConfirmedCases,
     AboutContentBlock,
     AboutCallToAction
   },

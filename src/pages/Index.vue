@@ -6,15 +6,15 @@
 
     <HomeContent />
 
-    <CallToAction />
+    <HomeCallToAction />
   </Layout>
 </template>
 
 <script>
-import Hero from '~/components/Hero.vue'
-import HowItWorks from '~/components/HowItWorks.vue'
-import HomeContent from '~/components/HomeContent.vue'
-import CallToAction from '~/components/CallToAction.vue'
+import Hero from '~/components/home/Hero.vue'
+import HowItWorks from '~/components/home/HowItWorks.vue'
+import HomeContent from '~/components/home/HomeContent.vue'
+import HomeCallToAction from '~/components/home/HomeCallToAction.vue'
 
 export default {
   metaInfo: {
@@ -24,7 +24,7 @@ export default {
     Hero,
     HowItWorks,
     HomeContent,
-    CallToAction
+    HomeCallToAction
   }
 }
 </script>
