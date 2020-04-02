@@ -40,6 +40,17 @@ module.exports = {
         apiKey: 'keybBJVYYSFfewGKk',
         base: 'appTO372xh9fsnSNQ'
       }
+    },
+    {
+      use: 'gridsome-plugin-robots-txt',
+      options: {
+        policy: [
+          {
+            userAgent: '*',
+            disallow: '/donate'
+          }
+        ]
+      }
     }
   ],
 
