@@ -816,6 +816,11 @@
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
   integrity sha512-YPdYqGmWiGAood7ri2BUXfPQKNthkQYV1rmQdaq4UAxWK5NLB5NXckaUYLbohqhHKtrq4tnfzVn+ePWID7Dzbg==
 
+"@contentful/rich-text-types@^14.1.0":
+  version "14.1.0"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-14.1.0.tgz#e76938005e59fafb5da353646393fcd354ed4d64"
+  integrity sha512-dqb9U+eMthGl8wJhOM5PGV0MOLxFNMJjMgVU600uHJ4Z4u39iXpdFR1VXbaownuvhJyR+9V+VLEFXNZJ1veGZg==
+
 "@gridsome/cli@^0.3.1":
   version "0.3.1"
   resolved "https://registry.yarnpkg.com/@gridsome/cli/-/cli-0.3.1.tgz#8bdf97facddb3ab5338eb57521bc0bf5808561d2"

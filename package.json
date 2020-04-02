@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^14.1.0",
     "@gridsome/plugin-critical": "^0.1.6",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/plugin-sitemap": "^0.2.3",
