@@ -1,5 +1,5 @@
 <template>
-  <section class="section page-header">
+  <section class="section page-header alternateBackground">
     <div
       class="container"
       :class="{ 'container__large-margins': largeMargins }"
@@ -28,6 +28,7 @@ export default {
 <style lang="scss" scoped>
 .section {
   padding-top: 9rem !important;
+  padding-bottom: 6rem !important;
 }
 
 .page-header {

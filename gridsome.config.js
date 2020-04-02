@@ -33,6 +33,13 @@ module.exports = {
       options: {
         id: 'UA-162082305-1'
       }
+    },
+    {
+      use: '~/src/sources/contributors',
+      options: {
+        apiKey: 'keybBJVYYSFfewGKk',
+        base: 'appTO372xh9fsnSNQ'
+      }
     }
   ],
 
