@@ -7,9 +7,11 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@contentful/rich-text-html-renderer": "^13.4.0",
     "@gridsome/plugin-critical": "^0.1.6",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/plugin-sitemap": "^0.2.3",
+    "@gridsome/source-contentful": "^0.5.2",
     "@mdi/font": "^5.0.45",
     "airtable": "^0.8.1",
     "buefy": "^0.8.13",
