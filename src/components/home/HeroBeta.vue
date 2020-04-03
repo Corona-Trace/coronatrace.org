@@ -1,43 +1,59 @@
 <template>
-  <section class="section hero">
-    <div class="container">
-      <div class="columns">
-        <div class="column is-5 hero__left">
-          <div class="hero__text">
-            <div
-              v-html="
-                richtextToHTML(
-                  $static.allContentfulHomeHero.edges[0].node.headline
-                )
-              "
-            ></div>
-            <p
-              class="subtitle"
-              v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
-            ></p>
-          </div>
+  <div>
+    <section class="section hero">
+      <div class="container">
+        <div class="columns">
+          <div class="column is-5 hero__left">
+            <div class="hero__text">
+              <div
+                v-html="
+                  richtextToHTML(
+                    $static.allContentfulHomeHero.edges[0].node.headline
+                  )
+                "
+              ></div>
+              <p
+                class="subtitle"
+                v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
+              ></p>
+            </div>
 
-          <div class="hero__cta">
-            <b-button
-              href="https://coronatrace.typeform.com/to/mPXhhr"
-              tag="a"
-              target="_blank"
-              type="is-primary"
-              >Join the Beta</b-button
-            >
+            <div class="hero__cta">
+              <b-button
+                href="https://coronatrace.typeform.com/to/mPXhhr"
+                tag="a"
+                target="_blank"
+                type="is-primary"
+                >Join the Beta</b-button
+              >
+            </div>
+          </div>
+          <div class="column is-7 hero__right">
+            <TraceBubbles class="bubbles" />
+            <g-image
+              class="push-notification"
+              :immediate="true"
+              src="~/assets/images/PushNotification.png"
+            ></g-image>
           </div>
         </div>
-        <div class="column is-7 hero__right">
-          <TraceBubbles class="bubbles" />
-          <g-image
-            class="push-notification"
-            :immediate="true"
-            src="~/assets/images/PushNotification.png"
-          ></g-image>
-        </div>
+        <b-notification
+          type="is-info"
+          has-icon
+          aria-close-label="Close notification"
+        >
+          An important note about security: No information about who you are
+          will be collected from you or your phone. During this beta, we have
+          engaged the security community to find vulnerabilities in our security
+          system so we can fix them. While security audits are underway, we
+          haven’t completed the rigorous security audits that we plan to
+          complete before going live on the App Stores.
+        </b-notification>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <SecurityAnnouncement />
+  </div>
 </template>
 
 <script>
@@ -179,6 +195,10 @@ query HomeHero {
         width: auto;
       }
     }
+  }
+
+  .notification {
+    @include box_shadow(3);
   }
 }
 </style>
