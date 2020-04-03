@@ -18,7 +18,13 @@
           </div>
 
           <div class="hero__cta">
-            <b-button type="is-primary">Join the Beta</b-button>
+            <b-button
+              href="https://coronatrace.typeform.com/to/mPXhhr"
+              tag="a"
+              target="_blank"
+              type="is-primary"
+              >Join the Beta</b-button
+            >
           </div>
         </div>
         <div class="column is-7 hero__right">
