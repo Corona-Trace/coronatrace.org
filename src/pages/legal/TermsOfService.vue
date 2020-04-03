@@ -1,16 +1,16 @@
 <template>
   <layout>
-    <div class="privacy-policy">
+    <div class="terms-of-service">
       <PageHeader
         :title="$static.contentfulSinglePageBasic.heading"
-        class="privacy-policy__heading"
+        class="terms-of-service__heading"
       >
       </PageHeader>
 
-      <section class="section single-page__basic privacy-policy">
+      <section class="section single-page__basic terms-of-service">
         <div class="container">
           <div
-            class="privacy-policy__content"
+            class="terms-of-service__content"
             v-html="richTextToHTML($static.contentfulSinglePageBasic.content)"
           ></div>
         </div>
@@ -45,7 +45,7 @@ export default {
 <static-query>
 
 query PrivacyPolicy {
-  contentfulSinglePageBasic(id: "36mjC4nP4JV7D5wWwMMety"){	
+  contentfulSinglePageBasic(id: "3nb5uEjXxyT6Ya17JKJgni"){	
 		title,
         heading,
 		content
