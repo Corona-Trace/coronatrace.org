@@ -27,6 +27,20 @@
                 >Join the Beta</b-button
               >
             </div>
+            <b-notification
+              class="is-hidden-desktop"
+              type="is-info"
+              style="margin: 3rem 0 0;"
+              has-icon
+              aria-close-label="Close notification"
+            >
+              An important note about security: No information about who you are
+              will be collected from you or your phone. During this beta, we
+              have engaged the security community to find vulnerabilities in our
+              security system so we can fix them. While security audits are
+              underway, we haven’t completed the rigorous security audits that
+              we plan to complete before going live on the App Stores.
+            </b-notification>
           </div>
           <div class="column is-7 hero__right">
             <TraceBubbles class="bubbles" />
@@ -38,6 +52,7 @@
           </div>
         </div>
         <b-notification
+          class="is-hidden-touch"
           type="is-info"
           has-icon
           aria-close-label="Close notification"
