@@ -74,3 +74,10 @@ p {
     border: none !important;
   }
 }
+
+section.single-page {
+  &__basic {
+    padding-top: 9rem;
+    padding-bottom: 6rem;
+  }
+}
