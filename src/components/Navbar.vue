@@ -23,7 +23,14 @@
 
       <b-navbar-item tag="div">
         <div class="buttons">
-          <a class="button is-primary" disabled>
+          <a
+            href="https://coronatrace.typeform.com/to/mPXhhr"
+            v-if="$route.path.includes('beta')"
+            class="button is-primary"
+          >
+            Join the Beta
+          </a>
+          <a v-else class="button is-primary" disabled>
             Coming Soon
           </a>
         </div>

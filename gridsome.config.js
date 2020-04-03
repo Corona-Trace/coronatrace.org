@@ -47,7 +47,7 @@ module.exports = {
         policy: [
           {
             userAgent: '*',
-            disallow: ['/donate', '/faqs']
+            disallow: ['/donate', '/faqs', '/beta']
           }
         ]
       }
@@ -56,7 +56,7 @@ module.exports = {
       use: '@gridsome/plugin-sitemap',
       options: {
         cacheTime: 600000, // default
-        exclude: ['/donate', '/faqs']
+        exclude: ['/donate', '/faqs', '/beta']
       }
     },
     {

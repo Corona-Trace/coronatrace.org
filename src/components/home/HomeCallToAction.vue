@@ -15,7 +15,16 @@
       </div>
       <div class="call-to-action__badges">
         <!-- <BadgeApple class="badge" /> <BadgeGoogle class="badge" /> -->
-        <b-button type="is-primary" disabled>Coming Soon</b-button>
+
+        <b-button
+          v-if="$route.path.includes('beta')"
+          type="is-primary"
+          tag="a"
+          href="https://coronatrace.typeform.com/to/mPXhhr"
+          target="blank"
+          >Join the Beta</b-button
+        >
+        <b-button v-else type="is-primary" disabled>Coming Soon</b-button>
       </div>
     </div>
   </section>

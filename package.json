@@ -15,6 +15,7 @@
     "@gridsome/source-contentful": "^0.5.2",
     "@mdi/font": "^5.0.45",
     "airtable": "^0.8.1",
+    "axios": "^0.19.2",
     "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
