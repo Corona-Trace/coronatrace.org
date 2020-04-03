@@ -20,7 +20,7 @@
           v-if="$route.path.includes('beta')"
           type="is-primary"
           tag="a"
-          href="https://coronatrace.typeform.com/to/mPXhhr"
+          href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
           target="blank"
           >Join the Beta</b-button
         >

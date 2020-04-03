@@ -20,7 +20,7 @@
 
             <div class="hero__cta">
               <b-button
-                href="https://coronatrace.typeform.com/to/mPXhhr"
+                href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
                 tag="a"
                 target="_blank"
                 type="is-primary"
