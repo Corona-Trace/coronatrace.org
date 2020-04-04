@@ -11,7 +11,7 @@
               </p>
             </div>
             <div class="faqs__container">
-              <VueFaqAccordion :items="myItems" borderColor="#fff" />
+              <FaqAccordion :items="myItems" borderColor="#fff" />
             </div>
           </div>
         </div>
