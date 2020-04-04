@@ -34,7 +34,7 @@
                 <b-field v-show="donationAmountSelected == 'Other Amount'" label-position="on-border" label="Other Amount" class="donation-input-container">
                     <b-input
                     class="donation-input"
-                    placeholder="Numeral"
+
                     v-cleave="masks.numeral"
                     v-model="customDonationAmount"
                     custom-class="donation-currency-input">
