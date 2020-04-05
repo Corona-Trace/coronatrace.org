@@ -29,8 +29,39 @@
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
             </p>
           </div>
-          <div class="how-it-works__controls">
+          <div class="how-it-works__indicator">
 
+            <span
+              class="current-item"
+              v-text="activeCarouselItem + 1"
+            ></span>
+            <div class="indicator__container">
+              <div
+                v-for="(n,index) in totalCarouselItems"
+                class="indicator__item"
+                :data-index="index"
+                :class="{ active: index <= activeCarouselItem}"
+              ><svg
+                  height="2"
+                  width="16"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="indicator"
+                >
+                  <line
+                    x1="0"
+                    y1="0"
+                    x2="16"
+                    y2="0"
+                  />
+                </svg>
+              </div>
+            </div>
+            <span
+              class="total-items"
+              v-text="totalCarouselItems"
+            ></span>
+            <b-icon icon="arrow-left-drop-circle-outline"></b-icon>
+            <b-icon icon="arrow-right-drop-circle-outline"></b-icon>
           </div>
         </div>
       </div>
@@ -51,7 +82,7 @@ export default {
   },
   data() {
     return {
-      activeCarouselItem: 0
+      activeCarouselItem: 1
     }
   },
   methods: {
@@ -66,6 +97,10 @@ export default {
       const heading =
         $static.allContentfulHowItWorksCarousel.edges[i].node.heading
       return heading
+    },
+    totalCarouselItems() {
+      const length = this.$static.allContentfulHowItWorksCarousel.edges.length
+      return length
     }
   }
 }
@@ -101,7 +136,8 @@ query HowItWorksCarousel {
 
   &__body {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__heading {
@@ -123,6 +159,10 @@ query HowItWorksCarousel {
       color: #666666;
     }
   }
+
+  &__indicator {
+    display: flex;
+  }
 }
 
 .iphone {
@@ -134,6 +174,28 @@ query HowItWorksCarousel {
     right: 0;
     left: 40px;
     bottom: 0;
+  }
+}
+
+.indicator {
+  &__container {
+    display: flex;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    line {
+      stroke: $black;
+      stroke-width: 2;
+    }
+
+    &.active {
+      line {
+        stroke-width: 4;
+      }
+    }
   }
 }
 </style>
