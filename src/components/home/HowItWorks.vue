@@ -1,24 +1,36 @@
 <template>
   <section class="section how-it-works home-section">
     <div class="container">
-      <div class="how-it-works__heading">
-        <h2 class="is-2">How It Works</h2>
-      </div>
       <div class="columns">
-        <div
-          class="column how-it-works__item"
-          v-for="edge in $static.allContentfulHowItWorksItem.edges"
-          :key="edge.node.id"
-        >
-          <b-icon
-            class="how-it-works__icon"
-            size="is-large"
-            :icon="edge.node.iconHandle"
-          >
-          </b-icon>
-          <div class="item__text">
-            <h4 v-text="edge.node.heading"></h4>
-            <p v-text="edge.node.text"></p>
+        <div class="column how-it-works__device-container">
+          <div class="iphone">
+            <iPhone />
+            <b-carousel
+              class="iphone__image"
+              @change="carouselChange"
+            >
+              <b-carousel-item
+                v-for="(item, i) in $static.allContentfulHowItWorksCarousel
+                  .edges"
+                :key="i"
+              >
+                <g-image :src="item.node.image.file.url"></g-image>
+              </b-carousel-item>
+            </b-carousel>
+          </div>
+        </div>
+        <div class="column how-it-works__body">
+          <div class="how-it-works__heading">
+            <h2>How It Works</h2>
+            <h3 class="title is-3">
+              {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.heading }}
+            </h3>
+            <p class="text">
+              {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
+            </p>
+          </div>
+          <div class="how-it-works__controls">
+
           </div>
         </div>
       </div>
@@ -26,90 +38,102 @@
   </section>
 </template>
 
+
+
+<script>
+import iPhone from '~/assets/images/iPhone.svg'
+import Slider1 from '~/assets/images/slider-1.svg'
+
+export default {
+  components: {
+    iPhone,
+    Slider1
+  },
+  data() {
+    return {
+      activeCarouselItem: 0
+    }
+  },
+  methods: {
+    carouselChange(itemNumber) {
+      this.activeCarouselItem = itemNumber
+    }
+  },
+  computed: {
+    currentHeading() {
+      const carousel = $static.allContentfulHowItWorksCarousel
+      const i = this.activeCarouselItem
+      const heading =
+        $static.allContentfulHowItWorksCarousel.edges[i].node.heading
+      return heading
+    }
+  }
+}
+</script>
+
 <static-query>
-query HowItWorksItems {
-  allContentfulHowItWorksItem(sortBy: "order", order: ASC) {
+query HowItWorksCarousel {
+  allContentfulHowItWorksCarousel {
     edges {
       node {
         id,
-        iconHandle,
+        title,
         heading,
-        text
+        text,
+        image {
+          title,
+          file {
+            url
+          }
+        }
       }
     }
   }
 }
 </static-query>
 
-<script>
-export default {}
-</script>
-
 <style lang="scss" scoped>
-.section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
-}
 .how-it-works {
-  background-color: $blue-light;
+  &__device-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+  }
 
   &__heading {
-    text-align: center;
-    margin-bottom: 4rem;
-
-    @include from($desktop) {
-      margin-bottom: 8rem;
-    }
+    display: flex;
+    flex-direction: column;
 
     h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-
-      @include from($desktop) {
-        font-weight: 3rem;
-      }
-    }
-  }
-
-  &__item {
-    padding: 2rem;
-    display: flex;
-    flex-direction: row;
-
-    @include from($desktop) {
-      padding: 0 2.75rem;
-      flex-direction: column;
+      padding: 0.25rem 1rem;
+      color: $green;
+      background-color: $green-light;
+      border-radius: 50px;
+      width: fit-content;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
     }
 
-    h4 {
-      font-weight: 700;
+    p.text {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-
-      @include from($desktop) {
-        margin-bottom: 2rem;
-      }
+      color: #666666;
     }
   }
+}
 
-  &__icon {
-    padding-right: 1.5rem;
-    color: $blue;
-    margin-bottom: 0.5rem;
-    height: 6rem;
-    width: 6rem;
+.iphone {
+  position: relative;
 
-    @include from($desktop) {
-      padding-right: 0;
-      height: 3rem;
-      width: 3rem;
-    }
-
-    i {
-      &::before {
-        font-size: 6rem;
-      }
-    }
+  &__image {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 40px;
+    bottom: 0;
   }
 }
 </style>
