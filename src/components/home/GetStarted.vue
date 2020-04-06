@@ -51,8 +51,6 @@ export default {}
   padding-bottom: 9rem;
 }
 .get-started {
-  background-color: $blue-light;
-
   &__heading {
     text-align: center;
     margin-bottom: 4rem;

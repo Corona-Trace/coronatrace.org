@@ -1,5 +1,5 @@
 <template>
-  <section class="section how-it-works home-section">
+  <section class="section how-it-works home-section alternateBackground">
     <div class="container">
       <div class="columns how-it-works__carousel-container">
 
@@ -150,7 +150,7 @@ export default {
 
 <static-query>
 query HowItWorksCarousel {
-  allContentfulHowItWorksCarousel {
+  allContentfulHowItWorksCarousel(sortBy: "order", order: ASC) {
     edges {
       node {
         id,
@@ -221,8 +221,13 @@ query HowItWorksCarousel {
     }
 
     p.text {
-      font-size: 1.5rem;
+      font-size: 1.25rem;
       color: #666666;
+
+      @include from($desktop) {
+        font-size: 1.5rem;
+        color: #666666;
+      }
     }
   }
 
