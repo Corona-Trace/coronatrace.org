@@ -18,6 +18,10 @@ or NPM if you prefer
 
 `cd coronatrace.org && npm install`
 
-### 3. Run locally
+### 3. Create a .env file
+
+Ping us for guidance on what should be included. You can probably infer the required keys in the gridsome config file.
+
+### 4. Run locally
 
 Run `gridsome develop` to start a local dev server at `http://localhost:8080`
