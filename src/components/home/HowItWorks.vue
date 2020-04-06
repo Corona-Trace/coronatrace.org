@@ -14,11 +14,13 @@
           <div class="how-it-works__device-inner-container">
             <div class="iphone">
               <iPhone />
+
               <b-carousel
                 class="iphone__image"
                 @change="carouselChange"
                 :indicator="false"
                 :arrow="false"
+                :interval="5000"
                 ref="hiwCarousel"
               >
                 <b-carousel-item
