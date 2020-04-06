@@ -1,24 +1,61 @@
 <template>
   <section class="section how-it-works home-section">
     <div class="container">
-      <div class="columns">
+      <div class="columns how-it-works__carousel-container">
+
         <div class="column how-it-works__device-container">
-          <div class="iphone">
-            <iPhone />
-            <b-carousel
-              class="iphone__image"
-              @change="carouselChange"
-            >
-              <b-carousel-item
-                v-for="(item, i) in $static.allContentfulHowItWorksCarousel
-                  .edges"
-                :key="i"
+          <b-icon
+            icon="chevron-left"
+            @click.native="prev"
+            class="carousel-control is-hidden-desktop"
+            size="is-large"
+          ></b-icon>
+
+          <div class="how-it-works__device-inner-container">
+            <div class="iphone">
+              <iPhone />
+              <b-carousel
+                class="iphone__image"
+                @change="carouselChange"
+                :indicator="false"
+                :arrow="false"
+                ref="hiwCarousel"
               >
-                <g-image :src="item.node.image.file.url"></g-image>
-              </b-carousel-item>
-            </b-carousel>
+                <b-carousel-item
+                  v-for="(item, i) in $static.allContentfulHowItWorksCarousel
+                  .edges"
+                  :key="i"
+                >
+                  <g-image :src="item.node.image.file.url"></g-image>
+                </b-carousel-item>
+              </b-carousel>
+            </div>
+            <div class="indicator__container is-hidden-desktop">
+              <span
+                class="current-item"
+                v-text="activeCarouselItem + 1"
+              ></span>
+              <div class="indicator__progress">
+                <b-progress
+                  size="is-small"
+                  :value="((activeCarouselItem + 1) / totalCarouselItems) * 100"
+                ></b-progress>
+              </div>
+              <span
+                class="total-items"
+                v-text="totalCarouselItems"
+              ></span>
+            </div>
           </div>
+
+          <b-icon
+            icon="chevron-right"
+            @click.native="next"
+            class="carousel-control is-hidden-desktop"
+            size="is-large"
+          ></b-icon>
         </div>
+
         <div class="column how-it-works__body">
           <div class="how-it-works__heading">
             <h2>How It Works</h2>
@@ -29,41 +66,40 @@
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
             </p>
           </div>
-          <div class="how-it-works__indicator">
-
-            <span
-              class="current-item"
-              v-text="activeCarouselItem + 1"
-            ></span>
+          <div class="how-it-works__indicator indicator is-hidden-touch">
             <div class="indicator__container">
-              <div
-                v-for="(n,index) in totalCarouselItems"
-                class="indicator__item"
-                :data-index="index"
-                :class="{ active: index <= activeCarouselItem}"
-              ><svg
-                  height="2"
-                  width="16"
-                  xmlns="http://www.w3.org/2000/svg"
-                  class="indicator"
-                >
-                  <line
-                    x1="0"
-                    y1="0"
-                    x2="16"
-                    y2="0"
-                  />
-                </svg>
+              <span
+                class="current-item"
+                v-text="activeCarouselItem + 1"
+              ></span>
+              <div class="indicator__progress">
+                <b-progress
+                  size="is-small"
+                  :value="((activeCarouselItem + 1) / totalCarouselItems) * 100"
+                ></b-progress>
               </div>
+              <span
+                class="total-items"
+                v-text="totalCarouselItems"
+              ></span>
             </div>
-            <span
-              class="total-items"
-              v-text="totalCarouselItems"
-            ></span>
-            <b-icon icon="arrow-left-drop-circle-outline"></b-icon>
-            <b-icon icon="arrow-right-drop-circle-outline"></b-icon>
+            <div class="indicator__controls">
+              <b-icon
+                class="carousel-control"
+                @click.native="prev"
+                icon="arrow-left-drop-circle-outline"
+                size="is-medium"
+              ></b-icon>
+              <b-icon
+                icon="arrow-right-drop-circle-outline"
+                @click.native="next"
+                class="carousel-control"
+                size="is-medium"
+              ></b-icon>
+            </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -86,7 +122,13 @@ export default {
     }
   },
   methods: {
-    carouselChange(itemNumber) {
+    next: function() {
+      this.$refs.hiwCarousel.next()
+    },
+    prev: function() {
+      this.$refs.hiwCarousel.prev()
+    },
+    carouselChange: function(itemNumber) {
       this.activeCarouselItem = itemNumber
     }
   },
@@ -129,9 +171,33 @@ query HowItWorksCarousel {
 
 <style lang="scss" scoped>
 .how-it-works {
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+
+  &__carousel-container {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include from($desktop) {
+      flex-direction: row;
+    }
+  }
+
   &__device-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 2 rem;
+
+    @include from($desktop) {
+      padding-top: 0;
+    }
+  }
+
+  &__device-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__body {
@@ -178,24 +244,40 @@ query HowItWorksCarousel {
 }
 
 .indicator {
+  padding-top: 2rem;
+
   &__container {
     display: flex;
+    align-items: center;
+    padding-top: 1rem;
+
+    @include from($desktop) {
+      padding-top: 0;
+    }
+
+    span {
+      font-size: 1.25rem;
+    }
   }
 
-  &__item {
+  &__progress {
+    padding: 0 0.75rem;
+    width: 10rem;
+  }
+
+  &__controls {
     display: flex;
     align-items: center;
+    margin-left: 0.5rem;
 
-    line {
-      stroke: $black;
-      stroke-width: 2;
-    }
-
-    &.active {
-      line {
-        stroke-width: 4;
-      }
+    .icon {
+      margin: 0 0.125rem;
     }
   }
+}
+
+.carousel-control {
+  z-index: 10;
+  cursor: pointer;
 }
 </style>
