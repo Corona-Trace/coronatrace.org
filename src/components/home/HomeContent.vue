@@ -3,7 +3,7 @@
     <ContentWithImage
       v-for="edge in $static.allContentfulHomeContentBlock.edges"
       :key="edge.node.id"
-      :alternateBackground="edge.node.alignImageRight"
+      :alternateBackground="!edge.node.alignImageRight"
       :imagePushed="edge.node.alignImageRight"
     >
       <template v-slot:heading>{{ edge.node.heading }}</template>
@@ -16,8 +16,7 @@
           :href="edge.node.linkDestination"
           v-text="edge.node.linkText"
           target="_blank"
-          >See Latest Data</a
-        >
+        >See Latest Data</a>
       </template>
       <template v-slot:image>
         <g-image

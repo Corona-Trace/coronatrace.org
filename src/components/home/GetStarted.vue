@@ -7,7 +7,7 @@
       <div class="columns">
         <div
           class="column get-started__item"
-          v-for="edge in $static.allContentfulHowItWorksItem.edges"
+          v-for="edge in $static.allContentfulGetStartedItem.edges"
           :key="edge.node.id"
         >
           <b-icon
@@ -27,8 +27,8 @@
 </template>
 
 <static-query>
-query HowItWorksItems {
-  allContentfulHowItWorksItem(sortBy: "order", order: ASC) {
+query GetStartedItems {
+  allContentfulGetStartedItem(sortBy: "order", order: ASC) {
     edges {
       node {
         id,

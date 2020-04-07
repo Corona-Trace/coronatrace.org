@@ -1,5 +1,5 @@
 <template>
-  <section class="section call-to-action alternateBackground">
+  <section class="section call-to-action">
     <div class="container">
       <div class="call-to-action__heading">
         <CoronaBadge class="corona-badge" />
@@ -7,11 +7,9 @@
           class="title is-3"
           v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
         ></h2>
-        <p
-          v-text="
+        <p v-text="
             $static.allContentfulHomeCallToAction.edges[0].node.subheading
-          "
-        ></p>
+          "></p>
       </div>
       <div class="call-to-action__badges">
         <!-- <BadgeApple class="badge" /> <BadgeGoogle class="badge" /> -->
@@ -22,9 +20,12 @@
           tag="a"
           href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
           target="blank"
-          >Join the Beta</b-button
-        >
-        <b-button v-else type="is-primary" disabled>Coming Soon</b-button>
+        >Join the Beta</b-button>
+        <b-button
+          v-else
+          type="is-primary"
+          disabled
+        >Coming Soon</b-button>
       </div>
     </div>
   </section>
