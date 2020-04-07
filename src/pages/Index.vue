@@ -2,7 +2,7 @@
   <Layout>
     <Hero />
 
-    <HowItWorks />
+    <!-- <HowItWorks /> -->
 
     <GetStarted />
 
