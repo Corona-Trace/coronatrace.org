@@ -1,0 +1,239 @@
+<template>
+  <Layout>
+
+    <section class="hero hero--dark">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="subtitle is-light">
+                    A LOW TECH GUIDE
+                </h2>
+                 <h1 class="title is-white">
+                    DIY Contact Tracing
+                </h1>
+                <a href="#track" class="button--stack">
+                    Find your iPhone and Google Maps location history 
+                </a>
+                <a href="#track" class="button--stack">
+                    Contact the people and businesses you visited while you were infectious
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="subtitle">
+                    STEP ONE
+                </h2>
+                <h1 class="title">
+                    Make a list of people and places
+                </h1>
+                <p>
+                    First we are going to make a list of every place we visited and every person we had close contact with.   
+                </p>
+                <p>
+                    When we contact places we visited we will need to let them know when we visited.
+                </p>
+                <p>
+                    Two weeks is a long time to remember exactly when you visited the grocery store.  
+                </p>
+                <p>
+                    This is perhaps the first time you'll feel deeply relieved that your phone tracks most of the places you go. 
+                </p>
+
+                <a href="#" class="button--double">
+                    <span class="is-uppercase">I use an Iphone</span><br>
+                    <span class="is-small">Find your Significant Places timeline</span>
+                </a>
+
+                <a href="#" class="button--double">
+                    <span class="is-uppercase">I USE GOOGLE MAPS</span><br>
+                    <span class="is-small">Open my Timeline Map</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero hero--dark">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="subtitle">
+                   YOUR LIST CONTAINS
+                </h2>
+                <a href="#track" class="button--stack space-between">
+                    <span class="is-uppercase">PEOPLE</span>
+                    <span class="is-small">Everyone with close contact</span>
+                </a>
+
+                <a href="#track" class="button--stack space-between">
+                    <span class="is-uppercase">PLACES</span>
+                    <span class="is-small">The date and time you visited</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section faqs">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <h2 class="subtitle">
+                STEP TWO
+            </h2>
+            <h1 class="title">
+                Contact them directly or anonymously
+            </h1>
+            <p>
+                We recommend direct, personal contact with everyone on your list.  
+            </p>
+            <p>
+                To help you with this task we've prepared a few starter scripts to make this email, text, or conversation easier.
+            </p>
+        </div>
+        <div class="column">
+
+            <div class="field">
+                <b-switch size="is-large">Tested Positive</b-switch>
+            </div>
+
+            <div class="faqs__container">
+              <FaqAccordion :items="myItems" borderColor="#fff" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero hero--dark">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="subtitle">
+                   ANONYMOUS OPTIONS
+                </h2>
+                <p>
+                    While we recommend personal contact we recognize situations where that may not be possible.  Anonymous notification is better than no information.  
+                </p>
+                <a href="#track" class="button--stack space-between">
+                    <span class="is-uppercase">33MAIL</span>
+                    <span class="is-small">Anonymous mail forwarding</span>
+                </a>
+
+                <a href="#track" class="button--stack space-between">
+                    <span class="is-uppercase">BURNER</span>
+                    <span class="is-small">Anonymous text messages</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="hero hero--dots">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    Your are doing the right thing
+                </h1>
+                <p>
+                    Every prevented infection saves lives
+                </p>
+            </div>
+        </div>
+    </section>
+
+    </Layout>
+</template>
+
+<script>
+import FaqAccordion from '~/components/faq/FAQAccordion.vue'
+export default {
+  components: {
+    FaqAccordion
+  },
+  data() {
+    return {
+      myItems: [
+        {
+          title: 'Close freind or relative',
+          value: 'I visited your store on Monday April 4 at 5:35 PM.  Today I tested positive for COVID-19. I touched the freezer door to buy ice cream, the dairy door to buy yogurt and I checked out at the stall furthest from the fresh fruits and vegetables. Please get in touch if you have any questions.  Here are some resources to help you sanitize your store.  https://bit.ly/covid-clean',
+        },
+        {
+          title: 'Colleague or business associate',
+          value:
+            'I visited your store on Monday April 4 at 5:35 PM.  Today I tested positive for COVID-19. I touched the freezer door to buy ice cream, the dairy door to buy yogurt and I checked out at the stall furthest from the fresh fruits and vegetables. Please get in touch if you have any questions.  Here are some resources to help you sanitize your store.  https://bit.ly/covid-clean'
+        },
+        {
+          title: 'Your employer',
+          value:
+            'I visited your store on Monday April 4 at 5:35 PM.'
+        },
+        {
+          title: 'Your landlord or building manager',
+          value:
+            'I visited your store on Monday April 4 at 5:35 PM.'
+        },
+        {
+          title: 'Grocery Store',
+          value:
+            'I visited your store on Monday April 4 at 5:35 PM.'
+        }
+      ]
+    }
+  }
+}
+</script>
+
+<style scoped lang="scss">
+.hero--dark {
+    background-color: #191C50;
+    color: #fff;
+    .subtitle{
+        color: $grey-light;
+    }
+    .title{
+        color: $white;
+    }
+}
+.subtitle, 
+.is-uppercase{
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+}
+.is-small{
+    font-size: 0.75rem;
+    color: $grey-light;
+}
+.title{
+    font-weight: 500;
+}
+.button--double{
+    border: 1px solid #191C50;
+    padding: 15px;
+    color: #191C50;
+    margin: 10px 0;
+    display: grid;
+}
+.button--stack{
+    padding: 14px;
+    color: #fff;
+    background-color: rgba(255,255,255, 0.05);
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    &:hover{
+        color: #fff;
+        background-color: rgba(255,255,255, 0.1);
+    }
+}
+.button--stack:first-of-type{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.button--stack:last-of-type{
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+</style>
