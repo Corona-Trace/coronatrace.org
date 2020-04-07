@@ -4,6 +4,8 @@
 
     <HowItWorks />
 
+    <GetStarted />
+
     <HomeContent />
 
     <HomeCallToAction />
@@ -13,6 +15,7 @@
 <script>
 import Hero from '~/components/home/Hero.vue'
 import HowItWorks from '~/components/home/HowItWorks.vue'
+import GetStarted from '~/components/home/GetStarted.vue'
 import HomeContent from '~/components/home/HomeContent.vue'
 import HomeCallToAction from '~/components/home/HomeCallToAction.vue'
 
@@ -23,6 +26,7 @@ export default {
   components: {
     Hero,
     HowItWorks,
+    GetStarted,
     HomeContent,
     HomeCallToAction
   }
