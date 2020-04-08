@@ -1,56 +1,74 @@
 <template>
   <Layout>
+    <header class="hero hero--dark">
+        <div class="hero-body">
+            <div class="container logo--top">
+                <LogoInverse />
+            </div>
+        </div>
+    </header>
 
     <section class="hero hero--dark">
         <div class="hero-body">
+
             <div class="container">
-                <h2 class="subtitle is-light">
-                    A LOW TECH GUIDE
-                </h2>
-                 <h1 class="title is-white">
-                    DIY Contact Tracing
-                </h1>
-                <a href="#track" class="button--stack">
-                    Find your iPhone and Google Maps location history 
-                </a>
-                <a href="#track" class="button--stack">
-                    Contact the people and businesses you visited while you were infectious
-                </a>
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="subtitle is-light">
+                            A LOW TECH GUIDE
+                        </h2>
+                        <h1 class="title is-white">
+                            DIY Contact Tracing
+                        </h1>
+                    </div>
+                    <div class="column">
+                        <a href="#track" class="button--stack">
+                            Find your iPhone and Google Maps location history 
+                        </a>
+                        <a href="#track" class="button--stack">
+                            Contact the people and businesses you visited while you were infectious
+                        </a>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <section class="container">
         <div class="hero-body">
-            <div class="container">
-                <h2 class="subtitle">
-                    STEP ONE
-                </h2>
-                <h1 class="title">
-                    Make a list of people and places
-                </h1>
-                <p>
-                    First we are going to make a list of every place we visited and every person we had close contact with.   
-                </p>
-                <p>
-                    When we contact places we visited we will need to let them know when we visited.
-                </p>
-                <p>
-                    Two weeks is a long time to remember exactly when you visited the grocery store.  
-                </p>
-                <p>
-                    This is perhaps the first time you'll feel deeply relieved that your phone tracks most of the places you go. 
-                </p>
+            <div class="columns">
+                <div class="column">
+                    <h2 class="subtitle">
+                        STEP ONE
+                    </h2>
+                    <h1 class="title">
+                        Make a list of people and places
+                    </h1>
+                    <p>
+                        First we are going to make a list of every <strong>place</strong> we visited and every <strong>person</strong> we had close contact with.   
+                    </p>
+                    <p>
+                        When we contact places we visited we will need to let them know <strong>when</strong> we visited.
+                    </p>
+                    <p>
+                        Two weeks is a long time to remember exactly when you visited the grocery store.  
+                    </p>
+                    <p>
+                        This is perhaps the first time you'll feel deeply relieved that your phone tracks most of the places you go. 
+                    </p>
+                </div>
+                <div class="column">
+                    <a href="#" class="button--double">
+                        <span class="is-uppercase">I use an Iphone</span><br>
+                        <span class="is-small">Find your Significant Places timeline</span>
+                    </a>
 
-                <a href="#" class="button--double">
-                    <span class="is-uppercase">I use an Iphone</span><br>
-                    <span class="is-small">Find your Significant Places timeline</span>
-                </a>
-
-                <a href="#" class="button--double">
-                    <span class="is-uppercase">I USE GOOGLE MAPS</span><br>
-                    <span class="is-small">Open my Timeline Map</span>
-                </a>
+                    <a href="#" class="button--double">
+                        <span class="is-uppercase">I USE GOOGLE MAPS</span><br>
+                        <span class="is-small">Open my Timeline Map</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -58,6 +76,7 @@
     <section class="hero hero--dark">
         <div class="hero-body">
             <div class="container">
+                <div class="is-narrow-desktop">
                 <h2 class="subtitle">
                    YOUR LIST CONTAINS
                 </h2>
@@ -70,6 +89,7 @@
                     <span class="is-uppercase">PLACES</span>
                     <span class="is-small">The date and time you visited</span>
                 </a>
+                </div>
             </div>
         </div>
     </section>
@@ -145,8 +165,13 @@
 
 <script>
 import FaqAccordion from '~/components/faq/FAQAccordion.vue'
+import Layout from '~/layouts/Blank.vue'
+import LogoInverse from '~/assets/images/LogoInverse.svg'
+
 export default {
   components: {
+    Layout,
+    LogoInverse,
     FaqAccordion
   },
   data() {
@@ -193,10 +218,16 @@ export default {
         color: $white;
     }
 }
+.title{
+    font-size: 1.5rem;
+}
+p{
+    font-size: 0.875    rem;
+}
 .subtitle, 
 .is-uppercase{
     text-transform: uppercase;
-    font-size: 0.875rem;
+    font-size: 10px;
     font-weight: 500;
     letter-spacing: 2px;
 }
