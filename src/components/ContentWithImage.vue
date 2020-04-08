@@ -17,7 +17,10 @@
           </div>
           <div class="content-with-image__link cta-link">
             <slot name="link"> </slot>
-            <b-icon size="is-small" icon="arrow-right"></b-icon>
+            <b-icon
+              size="is-small"
+              icon="arrow-right"
+            ></b-icon>
           </div>
         </div>
         <div class="column content-with-image__image-container">
@@ -47,6 +50,7 @@ export default {
 .section {
   padding-top: 9rem;
   padding-bottom: 9rem;
+  overflow: hidden;
 }
 
 .columns {

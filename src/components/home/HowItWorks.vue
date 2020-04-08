@@ -4,13 +4,6 @@
       <div class="columns how-it-works__carousel-container">
 
         <div class="column how-it-works__device-container">
-          <b-icon
-            icon="chevron-left"
-            @click.native="prev"
-            class="carousel-control is-hidden-desktop"
-            size="is-large"
-          ></b-icon>
-
           <div class="how-it-works__device-inner-container">
             <div class="iphone">
               <iPhone />
@@ -32,30 +25,39 @@
                 </b-carousel-item>
               </b-carousel>
             </div>
-            <div class="indicator__container is-hidden-desktop">
-              <span
-                class="current-item"
-                v-text="activeCarouselItem + 1"
-              ></span>
-              <div class="indicator__progress">
-                <b-progress
-                  size="is-small"
-                  :value="((activeCarouselItem + 1) / totalCarouselItems) * 100"
-                ></b-progress>
+
+            <div class="indicator__container indicator__container-mobile is-hidden-desktop">
+
+              <b-icon
+                icon="chevron-left"
+                @click.native="prev"
+                class="carousel-control is-hidden-desktop"
+                size="is-large"
+              ></b-icon>
+              <div>
+                <span
+                  class="current-item"
+                  v-text="activeCarouselItem + 1"
+                ></span>
+                <div class="indicator__progress">
+                  <b-progress
+                    size="is-small"
+                    :value="((activeCarouselItem + 1) / totalCarouselItems) * 100"
+                  ></b-progress>
+                </div>
+                <span
+                  class="total-items"
+                  v-text="totalCarouselItems"
+                ></span>
               </div>
-              <span
-                class="total-items"
-                v-text="totalCarouselItems"
-              ></span>
+              <b-icon
+                icon="chevron-right"
+                @click.native="next"
+                class="carousel-control is-hidden-desktop"
+                size="is-large"
+              ></b-icon>
             </div>
           </div>
-
-          <b-icon
-            icon="chevron-right"
-            @click.native="next"
-            class="carousel-control is-hidden-desktop"
-            size="is-large"
-          ></b-icon>
         </div>
 
         <div class="column how-it-works__body">
@@ -272,6 +274,15 @@ query HowItWorksCarousel {
 
     span {
       font-size: 1.25rem;
+    }
+
+    &-mobile {
+      justify-content: space-between;
+      width: 100%;
+
+      > div {
+        display: flex;
+      }
     }
   }
 
