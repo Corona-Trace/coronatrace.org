@@ -25,7 +25,7 @@
                         <a href="#track" class="button--stack">
                             Find your iPhone and Google Maps location history 
                         </a>
-                        <a href="#track" class="button--stack">
+                        <a href="#list" class="button--stack">
                             Contact the people and businesses you visited while you were infectious
                         </a>
                     </div>
@@ -35,14 +35,14 @@
         </div>
     </section>
 
-    <section class="container">
+    <section class="container" id="track">
         <div class="hero-body">
             <div class="columns">
                 <div class="column">
                     <h2 class="subtitle">
                         STEP ONE
                     </h2>
-                    <h1 class="title">
+                    <h1 class="title is-light">
                         Make a list of people and places
                     </h1>
                     <p>
@@ -59,14 +59,19 @@
                     </p>
                 </div>
                 <div class="column">
-                    <a href="#" class="button--double">
-                        <span class="is-uppercase">I use an Iphone</span><br>
-                        <span class="is-small">Find your Significant Places timeline</span>
+                    <a href="https://google.com/maps/timeline" class="button--double">
+                        <div class="stack">
+                            <span class="is-uppercase">I USE GOOGLE MAPS</span>
+                            <span class="is-small">Open my Timeline Map</span>
+                        </div>
+                        <b-icon size="is-small" icon="chevron-right"></b-icon>
                     </a>
-
                     <a href="#" class="button--double">
-                        <span class="is-uppercase">I USE GOOGLE MAPS</span><br>
-                        <span class="is-small">Open my Timeline Map</span>
+                        <div class="stack">
+                            <span class="is-uppercase">I use an Iphone</span>
+                            <span class="is-small">Find your Significant Places timeline</span>
+                        </div>
+                        <b-icon size="is-small" icon="chevron-right"></b-icon>
                     </a>
                 </div>
             </div>
@@ -77,7 +82,7 @@
         <div class="hero-body">
             <div class="container">
                 <div class="is-narrow-desktop">
-                <h2 class="subtitle">
+                <h2 class="subtitle is-light">
                    YOUR LIST CONTAINS
                 </h2>
                 <a href="#track" class="button--stack space-between">
@@ -94,7 +99,7 @@
         </div>
     </section>
 
-    <section class="section faqs">
+    <section class="section faqs" id="list">
       <div class="container">
         <div class="columns">
           <div class="column">
@@ -105,20 +110,15 @@
                 Contact them directly or anonymously
             </h1>
             <p>
-                We recommend direct, personal contact with everyone on your list.  
+                We recommend <strong>direct, personal contact</strong> with everyone on your list.  
             </p>
             <p>
                 To help you with this task we've prepared a few starter scripts to make this email, text, or conversation easier.
             </p>
         </div>
         <div class="column">
-
-            <div class="field">
-                <b-switch size="is-large">Tested Positive</b-switch>
-            </div>
-
-            <div class="faqs__container">
-              <FaqAccordion :items="myItems" borderColor="#fff" />
+            <div class="scripts__container">
+              <CallScripts :items="myItems" borderColor="#fff" />
             </div>
           </div>
         </div>
@@ -134,12 +134,12 @@
                 <p>
                     While we recommend personal contact we recognize situations where that may not be possible.  Anonymous notification is better than no information.  
                 </p>
-                <a href="#track" class="button--stack space-between">
+                <a href="https://33mail.com/" class="button--stack space-between">
                     <span class="is-uppercase">33MAIL</span>
                     <span class="is-small">Anonymous mail forwarding</span>
                 </a>
 
-                <a href="#track" class="button--stack space-between">
+                <a href="https://www.burnerapp.com/" class="button--stack space-between">
                     <span class="is-uppercase">BURNER</span>
                     <span class="is-small">Anonymous text messages</span>
                 </a>
@@ -149,7 +149,7 @@
 
     <section class="hero hero--dots">
         <div class="hero-body">
-            <div class="container">
+            <div class="container has-text-centered">
                 <h1 class="title">
                     Your are doing the right thing
                 </h1>
@@ -159,12 +159,19 @@
             </div>
         </div>
     </section>
+    <footer class="hero hero--dark">
+        <div class="hero-body">
+            <div class="container logo--top">
+                <LogoInverse />
+            </div>
+        </div>
+    </footer>
 
     </Layout>
 </template>
 
 <script>
-import FaqAccordion from '~/components/faq/FAQAccordion.vue'
+import CallScripts from '~/components/call-scripts/CallScripts.vue'
 import Layout from '~/layouts/Blank.vue'
 import LogoInverse from '~/assets/images/LogoInverse.svg'
 
@@ -172,7 +179,7 @@ export default {
   components: {
     Layout,
     LogoInverse,
-    FaqAccordion
+    CallScripts
   },
   data() {
     return {
@@ -220,9 +227,16 @@ export default {
 }
 .title{
     font-size: 1.5rem;
+    font-weight: 600;
+    @include media-query($small) {
+        font-size: 1.2rem
+    }
 }
-p{
-    font-size: 0.875    rem;
+body, p, a{
+    font-size: 0.875rem;
+    @include media-query($small) {
+        font-size: 0.8rem
+    }
 }
 .subtitle, 
 .is-uppercase{
@@ -230,6 +244,9 @@ p{
     font-size: 10px;
     font-weight: 500;
     letter-spacing: 2px;
+    @include media-query($small) {
+        font-weight: bold;
+    }
 }
 .is-small{
     font-size: 0.75rem;
@@ -243,7 +260,17 @@ p{
     padding: 15px;
     color: #191C50;
     margin: 10px 0;
-    display: grid;
+    display: flex;
+    justify-content: space-between;
+    .stack{
+        display: grid;
+    }
+    .icon{
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
 }
 .button--stack{
     padding: 14px;
@@ -253,6 +280,7 @@ p{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
     &:hover{
         color: #fff;
         background-color: rgba(255,255,255, 0.1);
@@ -267,4 +295,13 @@ p{
     border-bottom-right-radius: 3px;
 }
 
+
+</style>
+
+<style lang="scss">
+.faq >>> .accordion__title {
+    padding: 5px 25px;
+    font-weight: bold;
+    font-size: 1em;
+}
 </style>
