@@ -191,6 +191,10 @@ query HowItWorksCarousel {
     align-items: center;
     padding-top: 2 rem;
 
+    @include until($desktop) {
+      flex: 1 0 auto;
+    }
+
     @include from($desktop) {
       padding-top: 0;
     }
@@ -206,6 +210,10 @@ query HowItWorksCarousel {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @include until($desktop) {
+      flex: 1 0 auto;
+    }
   }
 
   &__heading {
@@ -240,6 +248,7 @@ query HowItWorksCarousel {
 
 .iphone {
   position: relative;
+  display: flex;
 
   &__image {
     position: absolute;
