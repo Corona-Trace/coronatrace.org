@@ -248,7 +248,6 @@ query HowItWorksCarousel {
 
 .iphone {
   position: relative;
-  display: flex;
 
   &__image {
     position: absolute;
