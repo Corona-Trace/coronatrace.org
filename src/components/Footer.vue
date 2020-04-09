@@ -89,13 +89,11 @@ export default {
   }
 
   &__right {
-    .column {
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
 
-      @include from($desktop) {
-        justify-content: flex-end;
-      }
+    @include from($desktop) {
+      justify-content: flex-end;
     }
   }
 
@@ -112,8 +110,7 @@ export default {
     justify-content: center;
 
     a {
-      color: $white;
-      opacity: 80%;
+      color: rgba(255, 255, 255, 0.7);
     }
 
     .column {
