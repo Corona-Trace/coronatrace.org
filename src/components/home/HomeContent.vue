@@ -44,7 +44,7 @@ export default {
       return documentToHtmlString(content)
     },
     renderOptimizedImage(src) {
-      return renderImage({ src, fit: 'fill', w: 1024, h: 1024 })
+      return renderImage({ src, fit: 'fill', w: 640, h: 640 })
     }
   }
 }
