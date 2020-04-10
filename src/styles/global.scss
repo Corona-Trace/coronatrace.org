@@ -13,6 +13,7 @@ body,
 }
 main {
   flex: 1 0 auto;
+  min-height: 80vh;
 }
 .footer {
   flex-shrink: 0;
