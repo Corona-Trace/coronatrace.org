@@ -113,12 +113,10 @@
 
 <script>
 import iPhone from '~/assets/images/iPhone.svg'
-import Slider1 from '~/assets/images/slider-1.svg'
 
 export default {
   components: {
-    iPhone,
-    Slider1
+    iPhone
   },
   data() {
     return {
