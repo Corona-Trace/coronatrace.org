@@ -8,9 +8,9 @@
 
       <CoreContributors />
 
-      <!-- <CorporateContributors />
+      <CorporateContributors />
 
-      <IndividualContributors /> -->
+      <!-- <IndividualContributors /> -->
     </div>
   </layout>
 </template>
