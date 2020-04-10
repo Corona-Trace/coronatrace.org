@@ -8,6 +8,7 @@
         <div class="column footer__item footer__middle">
           <g-link to="/about">About</g-link>
           <g-link to="/contributors">Contributors</g-link>
+          <g-link to="/support">Support</g-link>
         </div>
         <div class="column footer__item footer__right">
           <div>&copy; {{ currentYear }} CoronaTrace</div>
