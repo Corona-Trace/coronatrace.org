@@ -29,12 +29,14 @@ import PageHeader from '~/components/PageHeader.vue'
 import AboutContentBlock from '~/components/about/AboutContentBlock.vue'
 import AboutCallToAction from '~/components/about/AboutCallToAction.vue'
 import { renderImage } from '~/helpers/contentful'
+import VLazyImage from 'v-lazy-image'
 
 export default {
   components: {
     PageHeader,
     AboutContentBlock,
-    AboutCallToAction
+    AboutCallToAction,
+    VLazyImage
   },
   metaInfo: {
     title: 'About',
