@@ -19,32 +19,33 @@
         >See Latest Data</a>
       </template>
       <template v-slot:image>
-        <g-image
+        <v-lazy-image
           :src="renderOptimizedImage(edge.node.image.file.url)"
           :alt="edge.node.image.title"
-          fit="contain"
-          height="600"
-        ></g-image>
+          src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+        />
       </template>
     </ContentWithImage>
   </div>
 </template>
 
 <script>
+import VLazyImage from 'v-lazy-image'
 import ContentWithImage from '~/components/ContentWithImage.vue'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
-    ContentWithImage
+    ContentWithImage,
+    VLazyImage
   },
   methods: {
     richtextToHTML(content) {
       return documentToHtmlString(content)
     },
     renderOptimizedImage(src) {
-      return renderImage({ src, fit: 'fill', w: 1024, h: 1024 })
+      return renderImage({ src, fit: 'fill', w: 640, h: 640 })
     }
   }
 }
