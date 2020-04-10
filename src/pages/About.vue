@@ -28,6 +28,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import PageHeader from '~/components/PageHeader.vue'
 import AboutContentBlock from '~/components/about/AboutContentBlock.vue'
 import AboutCallToAction from '~/components/about/AboutCallToAction.vue'
+import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
@@ -41,11 +42,16 @@ export default {
       'Learn more about CoronaTrace, our mission, and our philosophy on privacy.'
   },
   methods: {
+    renderOptimizedImage(src) {
+      return renderImage({ src, fit: 'fill', w: 720, h: 440 })
+    },
     richTextToHTML(content) {
       return documentToHtmlString(content, {
         renderNode: {
           [BLOCKS.EMBEDDED_ASSET]: node => {
-            return `<img src="${node.data.target.fields.file.url}" alt="${node.data.target.fields.title}" />`
+            const imageSrc = 'https:' + node.data.target.fields.file.url
+            const optimzedImage = this.renderOptimizedImage(imageSrc)
+            return `<img src="${optimzedImage}" alt="${node.data.target.fields.title}" />`
           }
         }
       })
