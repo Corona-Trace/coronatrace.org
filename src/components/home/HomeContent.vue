@@ -20,7 +20,7 @@
       </template>
       <template v-slot:image>
         <g-image
-          :src="edge.node.image.file.url"
+          :src="renderOptimizedImage(edge.node.image.file.url)"
           :alt="edge.node.image.title"
           fit="contain"
           height="600"
@@ -33,6 +33,7 @@
 <script>
 import ContentWithImage from '~/components/ContentWithImage.vue'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
@@ -41,6 +42,9 @@ export default {
   methods: {
     richtextToHTML(content) {
       return documentToHtmlString(content)
+    },
+    renderOptimizedImage(src) {
+      return renderImage({ src, fit: 'fill', w: 1024, h: 1024 })
     }
   }
 }
