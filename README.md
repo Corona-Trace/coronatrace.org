@@ -1,6 +1,6 @@
-# Marketing Site for CoronaTrace.org
+# Marketing Site for TraceToZero.org
 
-This project is meant to support the CoronaTrace effort. It was built using [Gridsome](https://gridsome.org) using the [Buefy](https://buefy.org/) component library for the popular [Bulma](https://bulma.io) CSS framework. It's currently hosted on Netlify.
+This project is meant to support the TraceToZero effort. It was built using [Gridsome](https://gridsome.org) using the [Buefy](https://buefy.org/) component library for the popular [Bulma](https://bulma.io) CSS framework. It's currently hosted on Netlify.
 
 If you have any comments or notice any issues please open up an issue!
 
