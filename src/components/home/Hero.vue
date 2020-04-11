@@ -4,13 +4,11 @@
       <div class="columns">
         <div class="column is-5 hero__left">
           <div class="hero__text">
-            <div
-              v-html="
+            <div v-html="
                 richtextToHTML(
                   $static.allContentfulHomeHero.edges[0].node.headline
                 )
-              "
-            ></div>
+              "></div>
             <p
               class="subtitle"
               v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
@@ -18,7 +16,10 @@
           </div>
 
           <div class="hero__cta">
-            <b-button type="is-primary" disabled>Coming Soon</b-button>
+            <b-button
+              type="is-primary"
+              disabled
+            >Coming Soon</b-button>
           </div>
         </div>
         <div class="column is-7 hero__right">
