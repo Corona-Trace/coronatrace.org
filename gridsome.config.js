@@ -28,7 +28,7 @@ function addStyleResource(rule) {
 module.exports = {
   siteName: 'Corona Trace',
   siteDescription:
-    'CoronaTrace is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
+    'TraceToZero is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
   siteUrl: 'https://www.coronatrace.org',
   plugins: [
     {

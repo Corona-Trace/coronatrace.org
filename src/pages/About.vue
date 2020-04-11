@@ -41,7 +41,7 @@ export default {
   metaInfo: {
     title: 'About',
     description:
-      'Learn more about CoronaTrace, our mission, and our philosophy on privacy.'
+      'Learn more about TraceToZero, our mission, and our philosophy on privacy.'
   },
   methods: {
     renderOptimizedImage(src) {

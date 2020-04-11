@@ -7,11 +7,14 @@
             <div class="faqs__heading">
               <h1 class="title">Frequently Asked Questions</h1>
               <p class="subtitle">
-                Here's some questions that people often ask about CoronaTrace.
+                Here's some questions that people often ask about TraceToZero.
               </p>
             </div>
             <div class="faqs__container">
-              <FaqAccordion :items="myItems" borderColor="#fff" />
+              <FaqAccordion
+                :items="myItems"
+                borderColor="#fff"
+              />
             </div>
           </div>
         </div>

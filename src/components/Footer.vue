@@ -10,7 +10,7 @@
         </div>
         <div class="column">
           <div class="footer__heading">
-            <h4>CoronaTrace</h4>
+            <h4>TraceToZero</h4>
           </div>
           <div class="footer__body">
             <g-link
@@ -53,7 +53,7 @@
       <div class="footer__bottom">
         <div class="footer__bottom--left">
           <div>
-            &copy; {{ currentYear }} CoronaTrace
+            &copy; {{ currentYear }} TraceToZero
           </div>
         </div>
         <div class="footer__bottom--right">
