@@ -91,3 +91,9 @@ section.single-page {
 .v-lazy-image-loaded {
   filter: blur(0);
 }
+
+.email-signup-modal {
+  .modal-content {
+    overflow: visible;
+  }
+}

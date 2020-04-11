@@ -19,8 +19,7 @@ function addStyleResource(rule) {
           __dirname,
           './node_modules/bulma-scss/utilities/_variables.scss'
         ),
-        path.resolve(__dirname, './src/styles/main.scss'),
-        path.resolve(__dirname, './node_modules/bulma-scss/utilities/_all.scss')
+        path.resolve(__dirname, './src/styles/main.scss')
       ]
     })
 }

@@ -32,6 +32,17 @@
         </div>
       </div>
     </div>
+
+    <b-modal
+      :active.sync="emailSignupActive"
+      trap-focus
+      aria-role="dialog"
+      aria-modal
+      scroll="keep"
+      class="email-signup-modal"
+    >
+      <email-signup></email-signup>
+    </b-modal>
   </section>
 </template>
 
@@ -39,11 +50,18 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import TraceBubbles from '~/assets/images/TraceBubbles.svg'
 import PushNotification from '~/assets/images/PushNotification.svg'
+import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
 
 export default {
   components: {
     TraceBubbles,
-    PushNotification
+    PushNotification,
+    EmailSignup
+  },
+  data() {
+    return {
+      emailSignupActive: true
+    }
   },
   methods: {
     richtextToHTML(content) {
@@ -174,6 +192,12 @@ query HomeHero {
         width: auto;
       }
     }
+  }
+}
+
+.email-signup-modal {
+  .modal-content {
+    overflow: visible;
   }
 }
 </style>
