@@ -2,8 +2,14 @@
   <div class="email-signup">
     <div class="email-signup__container-outer">
       <div class="email-signup__container-inner">
-        <email-form v-if="currentStep == 1"></email-form>
-        <confirmation v-if="currentStep == 2"></confirmation>
+        <email-form
+          v-if="currentStep == 1"
+          v-on:advance-form="advanceForm"
+        ></email-form>
+        <confirmation
+          v-if="currentStep == 2"
+          v-on:close-modal="closeModal"
+        ></confirmation>
       </div>
     </div>
   </div>
@@ -22,6 +28,14 @@ export default {
   data() {
     return {
       currentStep: 1
+    }
+  },
+  methods: {
+    advanceForm() {
+      this.currentStep++
+    },
+    closeModal() {
+      this.$parent.close()
     }
   }
 }

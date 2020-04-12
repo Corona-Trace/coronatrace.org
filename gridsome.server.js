@@ -6,8 +6,6 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = function(api) {
-  process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-
   api.loadSource(({ addCollection }) => {
     // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
   })

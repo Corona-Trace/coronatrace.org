@@ -9,7 +9,7 @@
         <b-button
           class="is-primary"
           expanded
-          @click="this.$emit('close')"
+          @click="$emit('close-modal')"
         >SOUNDS GOOD</b-button>
       </div>
     </div>

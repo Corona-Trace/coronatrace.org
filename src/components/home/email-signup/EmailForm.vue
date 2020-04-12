@@ -25,12 +25,17 @@
           </option>
         </b-select>
       </b-field>
-      <b-button
-        class="is-primary"
-        expanded
-        :disabled="!formData.email || !formData.selectedState"
-        @click="subscribe"
-      >SIGN UP</b-button>
+      <div>
+        <b-button
+          class="is-primary"
+          expanded
+          :disabled="!formData.email || !formData.selectedState"
+          @click="subscribe"
+          :loading="isLoading"
+        >SIGN UP</b-button>
+        <div class="email-signup__privacy-message">Don’t worry, we won’t share your email address with any third-parties.</div>
+      </div>
+
     </div>
   </div>
 
@@ -45,9 +50,10 @@ export default {
   data() {
     return {
       formData: {
-        email: 'phjohnson08@gmail.com',
-        selectedState: 'Texas'
-      }
+        email: null,
+        selectedState: null
+      },
+      isLoading: false
     }
   },
   computed: {
@@ -57,20 +63,36 @@ export default {
   },
   methods: {
     subscribe() {
-      process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
-
       const formData = this.formData
+      this.isLoading = true
 
-      const instance = axios.create({
-        httpsAgent: new https.Agent({
-          rejectUnauthorized: false
-        })
+      axios({
+        method: 'post',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        url: '/.netlify/functions/subscribe',
+        data: formData
       })
-      instance.post('/.netlify/functions/subscribe')
+        .then(function(response) {
+          console.log(response.data)
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+        .finally(() => {
+          this.isLoading = false
+          this.$emit('advance-form')
+        })
     }
   }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.email-signup {
+  &__privacy-message {
+    font-size: 0.75rem;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
 </style>
