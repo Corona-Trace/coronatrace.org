@@ -33,7 +33,6 @@
   },
   "devDependencies": {
     "chokidar": "^3.3.1",
-    "fsevents": "^2.1.2",
     "gridsome-plugin-purgecss": "^1.0.12",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
