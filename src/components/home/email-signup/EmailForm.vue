@@ -20,7 +20,10 @@
           v-model="formData.selectedState"
           :expanded="true"
         >
-          <option v-for="state in states">
+          <option
+            v-for="state in states"
+            :value="state.abbreviation"
+          >
             {{ state.name }}
           </option>
         </b-select>
