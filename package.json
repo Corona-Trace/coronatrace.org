@@ -2,8 +2,10 @@
   "name": "coronatrace.org",
   "private": true,
   "scripts": {
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions",
     "build": "gridsome build",
-    "develop": "gridsome develop",
+    "develop": "concurrently 'gridsome develop' 'yarn run lambda-serve'",
     "explore": "gridsome explore"
   },
   "dependencies": {
@@ -20,13 +22,18 @@
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
     "cleave.js": "^1.5.8",
+    "concurrently": "^5.1.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-robots-txt": "^1.0.2",
+    "mailchimp-api-v3": "^1.13.1",
+    "netlify-lambda": "^1.6.3",
     "v-lazy-image": "^1.4.0",
     "vue-faq-accordion": "^1.5.0",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
+    "chokidar": "^3.3.1",
+    "fsevents": "^2.1.2",
     "gridsome-plugin-purgecss": "^1.0.12",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",

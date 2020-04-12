@@ -17,9 +17,9 @@
 
           <div class="hero__cta">
             <b-button
+              @click="showModal"
               type="is-primary"
-              disabled
-            >Coming Soon</b-button>
+            >Join Waitlist</b-button>
           </div>
         </div>
         <div class="column is-7 hero__right">
@@ -60,7 +60,7 @@ export default {
   },
   data() {
     return {
-      emailSignupActive: true
+      emailSignupActive: false
     }
   },
   methods: {
@@ -79,6 +79,9 @@ export default {
 
       var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
       return final
+    },
+    showModal() {
+      this.emailSignupActive = true
     }
   }
 }

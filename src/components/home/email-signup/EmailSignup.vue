@@ -13,7 +13,6 @@
 <script>
 import EmailForm from '~/components/home/email-signup/EmailForm.vue'
 import Confirmation from '~/components/home/email-signup/Confirmation.vue'
-import axios from 'axios'
 
 export default {
   components: {
