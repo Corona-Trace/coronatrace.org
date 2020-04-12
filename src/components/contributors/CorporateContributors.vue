@@ -10,13 +10,18 @@
           v-for="edge in $static.allCorporate.edges"
           :key="edge.node.id"
           class="column is-2"
+          v-if="edge.node.fields.Logo.length > 0"
         >
           <div class="contributor">
-            <a target="_blank" :href="edge.node.fields.Website_URL">
+            <a
+              target="_blank"
+              :href="edge.node.fields.Website_URL"
+            >
               <g-image
                 v-if="edge.node.fields.Logo[0]"
                 :src="edge.node.fields.Logo[0].url"
                 :alt="edge.node.fields.Name + ' Logo'"
+                width="280"
               >
               </g-image>
             </a>

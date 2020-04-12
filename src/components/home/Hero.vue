@@ -4,13 +4,11 @@
       <div class="columns">
         <div class="column is-5 hero__left">
           <div class="hero__text">
-            <div
-              v-html="
+            <div v-html="
                 richtextToHTML(
                   $static.allContentfulHomeHero.edges[0].node.headline
                 )
-              "
-            ></div>
+              "></div>
             <p
               class="subtitle"
               v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
@@ -18,7 +16,10 @@
           </div>
 
           <div class="hero__cta">
-            <b-button type="is-primary" disabled>Coming Soon</b-button>
+            <b-button
+              @click="showModal"
+              type="is-primary"
+            >Join Waitlist</b-button>
           </div>
         </div>
         <div class="column is-7 hero__right">
@@ -31,6 +32,17 @@
         </div>
       </div>
     </div>
+
+    <b-modal
+      :active.sync="emailSignupActive"
+      trap-focus
+      aria-role="dialog"
+      aria-modal
+      scroll="keep"
+      class="email-signup-modal"
+    >
+      <email-signup></email-signup>
+    </b-modal>
   </section>
 </template>
 
@@ -38,11 +50,18 @@
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import TraceBubbles from '~/assets/images/TraceBubbles.svg'
 import PushNotification from '~/assets/images/PushNotification.svg'
+import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
 
 export default {
   components: {
     TraceBubbles,
-    PushNotification
+    PushNotification,
+    EmailSignup
+  },
+  data() {
+    return {
+      emailSignupActive: false
+    }
   },
   methods: {
     richtextToHTML(content) {
@@ -60,6 +79,9 @@ export default {
 
       var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
       return final
+    },
+    showModal() {
+      this.emailSignupActive = true
     }
   }
 }
@@ -173,6 +195,12 @@ query HomeHero {
         width: auto;
       }
     }
+  }
+}
+
+.email-signup-modal {
+  .modal-content {
+    overflow: visible;
   }
 }
 </style>

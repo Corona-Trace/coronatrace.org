@@ -112,7 +112,16 @@ query {
 <style lang="scss" scoped>
 #main-nav {
   transition: box-shadow 0.3s;
-  padding: 0.5rem 0;
+
+  .navbar-item {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-weight: 600;
+
+    &:hover {
+      background-color: transparent;
+    }
+  }
 
   &.scrolled {
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
