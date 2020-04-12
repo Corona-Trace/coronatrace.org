@@ -66,7 +66,7 @@ export default {
           rejectUnauthorized: false
         })
       })
-      instance.post('https://localhost:9000/.netlify/functions/subscribe')
+      instance.post('/.netlify/functions/subscribe')
     }
   }
 }
