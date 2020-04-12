@@ -18,7 +18,9 @@ exports.handler = function(event, context, callback) {
         '/lists/' + mailChimpListID + '/members?skip_merge_validation=true',
         {
           email_address: data.email,
-          state: data.selectedState,
+          merge_fields: {
+            STATE: data.selectedState
+          },
           status: 'subscribed'
         }
       )
