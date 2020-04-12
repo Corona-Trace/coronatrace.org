@@ -80,7 +80,7 @@ export default {}
     }
 
     h4 {
-      font-weight: 700;
+      font-weight: bold;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
 
