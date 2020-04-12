@@ -63428,7 +63428,7 @@ exports.handler = function (event, context, callback) {
 
       },
       body: JSON.stringify({
-        message: 'Hello World!'
+        message: 'Success!'
       })
     };
     callback(null, response);

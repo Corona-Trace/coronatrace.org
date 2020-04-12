@@ -37,7 +37,7 @@ exports.handler = function(event, context, callback) {
         'Access-Control-Allow-Origin': '*', // Required for CORS support to work
         'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
       },
-      body: JSON.stringify({ message: 'Hello World!' })
+      body: JSON.stringify({ message: 'Success!' })
     }
     callback(null, response)
   } else {

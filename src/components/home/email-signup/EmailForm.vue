@@ -72,12 +72,10 @@ export default {
       axios({
         method: 'post',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        url: '/.netlify/functions/subscribe',
+        url: 'http://localhost:9000/.netlify/functions/subscribe',
         data: formData
       })
-        .then(function(response) {
-          console.log(response.data)
-        })
+        .then(response => {})
         .catch(function(error) {
           console.log(error)
         })
