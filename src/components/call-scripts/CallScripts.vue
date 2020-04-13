@@ -277,6 +277,9 @@ button {
     transition: all 0.3s;
     color: $black;
     font-weight: bold;
+    @include media-query($medium-up) {
+      padding: 8px 0;
+    }
 
     &_active {
       color: $blue;
@@ -301,6 +304,9 @@ button {
 
   &__value {
     padding: 0 25px 25px 25px;
+    @include media-query($medium-up) {
+      padding: 0 0 8px 0;
+    }
     text-align: left;
     color: $black;
     @extend p;

@@ -60,20 +60,30 @@
             </p>
           </div>
           <div class="column">
-            <a href="https://google.com/maps/timeline" class="button--double">
-              <div class="stack">
-                <span class="is-uppercase">I USE GOOGLE MAPS</span>
-                <span class="is-small">Open my Timeline Map</span>
-              </div>
-              <b-icon size="is-small" icon="chevron-right"></b-icon>
-            </a>
-            <a href="#" class="button--double">
-              <div class="stack">
-                <span class="is-uppercase">I use an Iphone</span>
-                <span class="is-small">Find your Significant Places timeline</span>
-              </div>
-              <b-icon size="is-small" icon="chevron-right"></b-icon>
-            </a>
+            <div class="has-double-buttons">
+              <a href="https://google.com/maps/timeline" target="blank" class="button--double">
+                <div class="stack">
+                  <span class="is-uppercase">I USE GOOGLE MAPS</span>
+                  <span class="is-small">Open my Timeline Map</span>
+                </div>
+                <b-icon size="is-small" icon="chevron-right"></b-icon>
+              </a>
+              <button class="button--double" @click="isImageModalActive = true">
+                <div class="stack">
+                  <span class="is-uppercase">I use an iPhone</span>
+                  <span class="is-small">Find your Significant Places timeline</span>
+                </div>
+                <b-icon size="is-small" icon="chevron-right"></b-icon>
+              </button>
+              <b-modal :active.sync="isImageModalActive">
+                <div class="has-video">
+                  <video controls autoplay playsinline="playsinline" aria-label="Video showing how to navigate to Significant Places on an iPhone" loop="">
+                    <source src="@/assets/videos/location.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+              </b-modal>
+            </div>
           </div>
         </div>
       </div>
@@ -116,6 +126,7 @@
           </p>
           <p>
             To help you with this task we've prepared a few starter scripts to make this email, text, or conversation easier.
+            We reccomend adding details about when and where you came into contact.
           </p>
         </div>
         <div class="column">
@@ -130,21 +141,23 @@
   <section class="hero hero--dark">
     <div class="hero-body">
       <div class="container">
-        <h2 class="subtitle">
-          ANONYMOUS OPTIONS
-        </h2>
-        <p>
-          While we recommend personal contact we recognize situations where that may not be possible. Anonymous notification is better than no information.
-        </p>
-        <a href="https://33mail.com/" class="button--stack space-between">
-          <span class="is-uppercase">33MAIL</span>
-          <span class="is-small">Anonymous mail forwarding</span>
-        </a>
+        <div class="is-narrow-desktop">
+          <h2 class="subtitle">
+            ANONYMOUS OPTIONS
+          </h2>
+          <p>
+            While we recommend personal contact we recognize situations where that may not be possible. Anonymous notification is better than no information.
+          </p>
+          <a href="https://33mail.com/" target="blank" class="button--stack space-between">
+            <span class="is-uppercase">33MAIL</span>
+            <span class="is-small">Anonymous mail forwarding</span>
+          </a>
 
-        <a href="https://www.burnerapp.com/" class="button--stack space-between">
-          <span class="is-uppercase">BURNER</span>
-          <span class="is-small">Anonymous text messages</span>
-        </a>
+          <a href="https://www.burnerapp.com/" target="blank" class="button--stack space-between">
+            <span class="is-uppercase">BURNER</span>
+            <span class="is-small">Anonymous text messages</span>
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -185,25 +198,26 @@ export default {
   },
   data() {
     return {
+      isImageModalActive: false,
       myItems: [{
           title: 'Close freind or relative',
-          value: 'I visited your store on Monday April 4 at 5:35 PM.  Today I tested positive for COVID-19. I touched the freezer door to buy ice cream, the dairy door to buy yogurt and I checked out at the stall furthest from the fresh fruits and vegetables. Please get in touch if you have any questions.  Here are some resources to help you sanitize your store.  https://bit.ly/covid-clean',
+          value: 'I was diagnosed with COVID-19 today.  You were exposed but we will now know for two weeks if you were infected. It is not clear how likely it is, but you should take extra precautions for 14 days and pay extra attention to symptoms like a dry cough or loss of smell.',
         },
         {
           title: 'Colleague or business associate',
-          value: 'I visited your store on Monday April 4 at 5:35 PM.  Today I tested positive for COVID-19. I touched the freezer door to buy ice cream, the dairy door to buy yogurt and I checked out at the stall furthest from the fresh fruits and vegetables. Please get in touch if you have any questions.  Here are some resources to help you sanitize your store.  https://bit.ly/covid-clean'
+          value: 'I was diagnosed with COVID-19 today. You were exposed but we will now know for two weeks if you were infected. It is not clear how likely it is, but you should take extra precautions for 14 days and pay extra attention to symptoms like a dry cough or loss of smell. '
         },
         {
           title: 'Your employer',
-          value: 'I visited your store on Monday April 4 at 5:35 PM.'
+          value: 'I was diagnosed with COVID-19 today. Please inform everyone at the office to take extra precautions for 14 days and make sure my work area is disinfected.'
         },
         {
           title: 'Your landlord or building manager',
-          value: 'I visited your store on Monday April 4 at 5:35 PM.'
+          value: 'I was diagnosed with COVID-19 today. Please make sure any public areas are disinfected an inform the others in the building to take extra precautions for 14 days.'
         },
         {
           title: 'Grocery Store',
-          value: 'I visited your store on Monday April 4 at 5:35 PM.'
+          value: 'I visited your store recently, and today I tested positive for COVID-19. I touched the freezer door to buy ice cream, the dairy door to buy yogurt and I checked out at the stall furthest from the fresh fruits and vegetables. Please get in touch if you have any questions.'
         }
       ]
     }
@@ -225,6 +239,27 @@ export default {
   }
 }
 
+.is-narrow-desktop{
+  @include media-query($medium-up) {
+    width: 50%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.has-double-buttons{
+  @include media-query($medium-up) {
+    height: 100%;
+    display: grid;
+    align-content: center;
+    justify-content: center;
+    a, button{
+      width: 300px;
+    }
+  }
+}
+
 .title {
   font-size: 1.5rem;
   font-weight: 600;
@@ -239,6 +274,14 @@ p {
   font-size: 0.875rem;
   @include media-query($small) {
     font-size: 0.8rem;
+  }
+}
+
+.has-video{
+  display: grid;
+  place-items: center;
+  video{
+    max-height: 95vh;
   }
 }
 
@@ -269,7 +312,15 @@ p {
   margin: 10px 0;
   display: flex;
   justify-content: space-between;
-
+  width: 100%;
+  text-align: left;
+  .is-uppercase{
+    font-weight: bold;
+  }
+  .is-uppercase,
+  .is-small{
+    padding: 2px 0;
+  }
   .stack {
     display: grid;
   }
