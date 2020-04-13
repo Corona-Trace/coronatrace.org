@@ -79,6 +79,10 @@ module.exports = {
           './src/**/*.pug',
           './src/**/*.md'
         ],
+        css: ['./dist/**/*.css'],
+        fontFace: true,
+        variables: true,
+        rejected: true,
         defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
       }
     }
