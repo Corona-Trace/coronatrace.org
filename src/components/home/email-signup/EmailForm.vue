@@ -43,7 +43,7 @@
         <b-button
           class="is-primary"
           expanded
-          :disabled="!formData.email || !formData.selectedState"
+          :disabled="(!formData.email || !formData.selectedState)"
           @click="subscribe"
           :loading="isLoading"
         >SIGN UP</b-button>
@@ -99,8 +99,11 @@ export default {
             this.$emit('advance-form')
           }
         })
-        .catch(function(error) {
+        .catch(error => {
           console.log(error)
+          this.error.status = 'Error'
+          this.error.title = 'Oops! Something went wrong'
+          this.error.detail = 'Please refresh the page and try again.'
         })
         .finally(() => {
           this.isLoading = false
