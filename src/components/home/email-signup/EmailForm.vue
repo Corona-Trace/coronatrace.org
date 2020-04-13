@@ -5,6 +5,17 @@
         Is Available</h3>
       <p class="subtitle">TraceToZero is not yet available, but we’re launching soon! Enter your email addrress to get notified when we do.</p>
     </div>
+    <div class="email-signup__error">
+      <b-message
+        :title="error.title"
+        type="is-danger"
+        aria-close-label="Close message"
+        v-if="error.status"
+        @close="clearError"
+      >
+        {{ error.detail }}
+      </b-message>
+    </div>
     <div class="email-signup__form">
       <b-field label-position="inside">
         <b-input
@@ -53,10 +64,11 @@ export default {
   data() {
     return {
       formData: {
-        email: null,
-        selectedState: null
+        email: 'phjohnson08@gmail.com',
+        selectedState: 'TX'
       },
-      isLoading: false
+      isLoading: false,
+      error: {}
     }
   },
   computed: {
@@ -75,14 +87,27 @@ export default {
         url: '/.netlify/functions/subscribe',
         data: formData
       })
-        .then(response => {})
+        .then(response => {
+          console.log(response)
+
+          if (response.data.status == 'Error') {
+            console.error('Error!')
+            this.error.status = response.data.status
+            this.error.title = response.data.title
+            this.error.detail = response.data.detail
+          } else {
+            this.$emit('advance-form')
+          }
+        })
         .catch(function(error) {
           console.log(error)
         })
         .finally(() => {
           this.isLoading = false
-          this.$emit('advance-form')
         })
+    },
+    clearError() {
+      this.error = {}
     }
   }
 }
@@ -94,6 +119,10 @@ export default {
     font-size: 0.75rem;
     text-align: center;
     margin-top: 0.5rem;
+  }
+
+  .message {
+    margin-bottom: 1rem;
   }
 }
 </style>
