@@ -26,7 +26,8 @@
           <TraceBubbles class="bubbles" />
           <g-image
             class="push-notification"
-            :immediate="true"
+            width="359"
+            height="157"
             src="~/assets/images/PushNotification.png"
           ></g-image>
         </div>
