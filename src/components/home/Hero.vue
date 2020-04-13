@@ -27,7 +27,7 @@
           <g-image
             class="push-notification"
             width="359"
-            height="217"
+            height="157"
             src="~/assets/images/PushNotification.png"
           ></g-image>
         </div>
@@ -108,8 +108,12 @@ query HomeHero {
 
 <style lang="scss" scoped>
 .hero {
-  padding-top: 8rem;
+  padding-top: 4rem;
   padding-bottom: 8rem;
+
+  @include from($tablet) {
+    padding-top: 8rem;
+  }
 
   &__left {
     display: flex;
