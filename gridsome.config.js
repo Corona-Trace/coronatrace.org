@@ -6,6 +6,9 @@
 
 const path = require('path')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin
+
 function addStyleResource(rule) {
   rule
     .use('style-resource')
@@ -16,8 +19,7 @@ function addStyleResource(rule) {
           __dirname,
           './node_modules/bulma-scss/utilities/_variables.scss'
         ),
-        path.resolve(__dirname, './src/styles/main.scss'),
-        path.resolve(__dirname, './node_modules/bulma-scss/utilities/_all.scss')
+        path.resolve(__dirname, './src/styles/main.scss')
       ]
     })
 }
@@ -25,7 +27,7 @@ function addStyleResource(rule) {
 module.exports = {
   siteName: 'Corona Trace',
   siteDescription:
-    'CoronaTrace is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
+    'TraceToZero is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
   siteUrl: 'https://www.coronatrace.org',
   plugins: [
     {
@@ -65,12 +67,30 @@ module.exports = {
         space: 'ns2fx9vns4i8', // required
         accessToken: 'GxR06QUAejxt5g87V8G5eXRJqXqaboECVhG_prQejH8' // required
       }
+    },
+    {
+      use: 'gridsome-plugin-purgecss',
+      // default options, the following will be included if you don't provide anything
+      options: {
+        content: [
+          './src/**/*.vue',
+          './src/**/*.js',
+          './src/**/*.jsx',
+          './src/**/*.pug',
+          './src/**/*.md'
+        ],
+        defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+      }
     }
   ],
 
   chainWebpack(config) {
     // Load variables for all vue-files
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+    // config
+    //   .plugin('BundleAnalyzerPlugin')
+    //   .use(BundleAnalyzerPlugin, [{ analyzerMode: 'static' }])
 
     types.forEach(type => {
       addStyleResource(config.module.rule('scss').oneOf(type))

@@ -6,7 +6,7 @@
           <div class="column">
             <h1 class="title is-1">Donate Now</h1>
             <p class="subtitle">
-              Your donation will help save lives. CoronaTrace is completely a
+              Your donation will help save lives. TraceToZero is completely a
               volunteer effort made possible by dozen’s of folks who want to
               make a difference. Every penny will go toward operating expenses
               like server costs, development, and distribution.

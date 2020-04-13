@@ -21,7 +21,11 @@
                   .edges"
                   :key="i"
                 >
-                  <g-image :src="item.node.image.file.url"></g-image>
+                  <v-lazy-image
+                    :src="item.node.image.file.url"
+                    :alt="item.node.image.title"
+                    src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                  />
                 </b-carousel-item>
               </b-carousel>
             </div>
@@ -109,16 +113,14 @@
   </section>
 </template>
 
-
-
 <script>
 import iPhone from '~/assets/images/iPhone.svg'
-import Slider1 from '~/assets/images/slider-1.svg'
+import VLazyImage from 'v-lazy-image'
 
 export default {
   components: {
     iPhone,
-    Slider1
+    VLazyImage
   },
   data() {
     return {

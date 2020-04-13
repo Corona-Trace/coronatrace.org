@@ -13,6 +13,7 @@ body,
 }
 main {
   flex: 1 0 auto;
+  min-height: 80vh;
 }
 .footer {
   flex-shrink: 0;
@@ -79,5 +80,20 @@ section.single-page {
   &__basic {
     padding-top: 9rem;
     padding-bottom: 6rem;
+  }
+}
+
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+
+.email-signup-modal {
+  .modal-content {
+    overflow: visible;
   }
 }

@@ -2,8 +2,10 @@
   "name": "coronatrace.org",
   "private": true,
   "scripts": {
-    "build": "gridsome build",
-    "develop": "gridsome develop",
+    "lambda-serve": "netlify-lambda serve functions",
+    "lambda-build": "netlify-lambda build functions",
+    "build": "NODE_ENV=production gridsome build",
+    "develop": "NODE_ENV=development concurrently \"gridsome develop\" \"yarn run lambda-serve\"",
     "explore": "gridsome explore"
   },
   "dependencies": {
@@ -19,17 +21,24 @@
     "buefy": "^0.8.13",
     "bulma": "^0.8.0",
     "bulma-scss": "^0.8.1",
-    "cleave.js": "^1.5.8",
+    "cleave.js": "^1.5.10",
+    "concurrently": "^5.1.0",
     "gridsome": "^0.7.0",
     "gridsome-plugin-robots-txt": "^1.0.2",
+    "mailchimp-api-v3": "^1.13.1",
+    "netlify-lambda": "^1.6.3",
+    "v-lazy-image": "^1.4.0",
     "vue-faq-accordion": "^1.5.0",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
+    "chokidar": "^3.3.1",
+    "gridsome-plugin-purgecss": "^1.0.12",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "style-resources-loader": "^1.3.3",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "webpack-bundle-analyzer": "^3.6.1"
   }
 }

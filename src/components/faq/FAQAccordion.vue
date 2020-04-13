@@ -1,7 +1,13 @@
 <template>
-  <section class="faq" ref="rootEl">
+  <section
+    class="faq"
+    ref="rootEl"
+  >
     <div class="faq-wrapper">
-      <nav v-if="hasNavigation" class="faq__nav">
+      <nav
+        v-if="hasNavigation"
+        class="faq__nav"
+      >
         <div
           v-for="(category, i) in categories"
           :key="`category-${i}`"
@@ -11,14 +17,23 @@
         ></div>
       </nav>
 
-      <transition name="accordion-fade-slide" mode="out-in">
-        <div v-if="showAccordion" class="accordion">
+      <transition
+        name="accordion-fade-slide"
+        mode="out-in"
+      >
+        <div
+          v-if="showAccordion"
+          class="accordion"
+        >
           <div
             class="accordion__item"
             v-for="(item, i) in categoryItems"
             :key="`accordion-item-${i}`"
           >
-            <div :class="generateQuestionClasses(i)" @click="makeActive(i)">
+            <div
+              :class="generateQuestionClasses(i)"
+              @click="makeActive(i)"
+            >
               <p
                 class="accordion__title-text"
                 v-html="item[questionProperty]"
@@ -203,7 +218,6 @@ button {
     align-items: center;
     border-right: 2px solid $grey-lighter;
     cursor: pointer;
-    font-weight: 600;
     transition: all 0.3s;
     text-align: center;
     user-select: none;
