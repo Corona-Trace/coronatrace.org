@@ -64,8 +64,8 @@ export default {
   data() {
     return {
       formData: {
-        email: 'phjohnson08@gmail.com',
-        selectedState: 'TX'
+        email: null,
+        selectedState: null
       },
       isLoading: false,
       error: {}
