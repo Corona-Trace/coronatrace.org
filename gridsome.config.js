@@ -77,13 +77,24 @@ module.exports = {
           './src/**/*.js',
           './src/**/*.jsx',
           './src/**/*.pug',
-          './src/**/*.md'
+          './src/**/*.md',
+          './dist/**/*.html'
         ],
-        css: ['./dist/**/*.css'],
+        css: ['./dist/assets/css/*.css'],
         fontFace: true,
         variables: true,
-        rejected: true,
-        defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+        printRejected: true,
+        defaultExtractor(content) {
+          const contentWithoutStyleBlocks = content.replace(
+            /<style[^]+?<\/style>/gi,
+            ''
+          )
+          return (
+            contentWithoutStyleBlocks.match(
+              /[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g
+            ) || []
+          )
+        }
       }
     }
   ],
