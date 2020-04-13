@@ -7,8 +7,9 @@ module.exports = {
     './dist/assets/fonts/*'
   ],
   css: ['./dist/assets/css/*.css'],
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
   rejected: true,
   fontFace: true,
-  variables: true
+  variables: true,
+  whitelistPatterns: [/.mdi.*/],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 }
