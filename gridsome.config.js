@@ -67,35 +67,6 @@ module.exports = {
         space: 'ns2fx9vns4i8', // required
         accessToken: 'GxR06QUAejxt5g87V8G5eXRJqXqaboECVhG_prQejH8' // required
       }
-    },
-    {
-      use: 'gridsome-plugin-purgecss',
-      // default options, the following will be included if you don't provide anything
-      options: {
-        content: [
-          './src/**/*.vue',
-          './src/**/*.js',
-          './src/**/*.jsx',
-          './src/**/*.pug',
-          './src/**/*.md',
-          './dist/**/*.html'
-        ],
-        css: ['./dist/assets/css/*.css'],
-        fontFace: true,
-        variables: true,
-        printRejected: true,
-        defaultExtractor(content) {
-          const contentWithoutStyleBlocks = content.replace(
-            /<style[^]+?<\/style>/gi,
-            ''
-          )
-          return (
-            contentWithoutStyleBlocks.match(
-              /[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g
-            ) || []
-          )
-        }
-      }
     }
   ],
 
