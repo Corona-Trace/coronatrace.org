@@ -1,28 +1,30 @@
 module.exports = {
   content: [
     './src/**/*.vue',
-    './src/**/*.js',
+    './src/**/*.scss',
     './dist/**/*.html',
-    './dist/assets/js/*.js',
-    './dist/assets/fonts/*'
+    './node_modules/buefy/carousel/*.(vue|js)',
+    './node_modules/buefy/dropdown/*.(vue|js)',
+    './node_modules/buefy/field/*.(vue|js)',
+    './node_modules/buefy/modal/*.(vue|js)',
+    './node_modules/buefy/navbar/*.(vue|js)',
+    './node_modules/buefy/message/*.(vue|js)',
+    './node_modules/buefy/input/*.(vue|js)',
+    './node_modules/buefy/select/*.(vue|js)',
+    './node_modules/v-lazy-image/dist/*.js',
+    './node_modules/bulma-scss/components/modal/*.scss'
   ],
   css: ['./dist/assets/css/*.css'],
-  defaultExtractor: content => {
-    const contentWithoutStyleBlocks = content.replace(
-      /<style[^]+?<\/style>/gi,
-      ''
-    )
-    return (
-      contentWithoutStyleBlocks.match(/[A-Za-z0-9-_/:]*[A-Za-z0-9-_/]+/g) || []
-    )
-  },
   whitelistPatterns: [
     /-(leave|enter|appear)(|-(to|from|active))$/,
     /^(?!cursor-move).+-move$/,
     /^router-link(|-exact)-active$/,
-    /^g-link.+/
+    /^g-link.+/,
+    /^modal.*/,
+    /^is-active.*/,
+    /^email-signup.*/
   ],
   rejected: true,
-  variables: true,
-  whitelistPatterns: [/\.mdi.*/]
+  keyframes: true,
+  variables: true
 }
