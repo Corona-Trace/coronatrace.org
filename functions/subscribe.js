@@ -26,20 +26,37 @@ exports.handler = function(event, context, callback) {
       )
       .then(function(results) {
         console.log(results)
+        const response = {
+          statusCode: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+            'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
+          },
+          body: JSON.stringify({ status: 'Success!' })
+        }
+        callback(null, response)
       })
       .catch(function(err) {
         console.log(err)
-      })
 
-    const response = {
-      statusCode: 200,
-      headers: {
-        'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-        'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
-      },
-      body: JSON.stringify({ message: 'Success!' })
-    }
-    callback(null, response)
+        if (err.title == 'Member Exists') {
+          err.detail = 'This email address is already subscribed.'
+        }
+
+        const response = {
+          statusCode: 200,
+          headers: {
+            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
+            'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
+          },
+          body: JSON.stringify({
+            status: 'Error',
+            title: err.title,
+            detail: err.detail
+          })
+        }
+        callback(null, response)
+      })
   } else {
     const response = {
       statusCode: 400,
@@ -48,7 +65,8 @@ exports.handler = function(event, context, callback) {
         'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
       },
       body: JSON.stringify({
-        message: 'Error. Looks like one or more fields are missing'
+        status: 'Error',
+        message: 'One or more fields are missing'
       })
     }
     callback(null, response)

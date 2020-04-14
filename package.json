@@ -4,9 +4,10 @@
   "scripts": {
     "lambda-serve": "netlify-lambda serve functions",
     "lambda-build": "netlify-lambda build functions",
-    "build": "NODE_ENV=production gridsome build",
+    "build": "NODE_ENV=production gridsome build && yarn run purgecss",
     "develop": "NODE_ENV=development concurrently \"gridsome develop\" \"yarn run lambda-serve\"",
-    "explore": "gridsome explore"
+    "explore": "gridsome explore",
+    "purgecss": "node_modules/purgecss/bin/purgecss --config ./purgecss.config.js --output ./dist/assets/css"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.4.0",
@@ -27,13 +28,13 @@
     "gridsome-plugin-robots-txt": "^1.0.2",
     "mailchimp-api-v3": "^1.13.1",
     "netlify-lambda": "^1.6.3",
+    "purgecss": "^2.1.2",
     "v-lazy-image": "^1.4.0",
     "vue-faq-accordion": "^1.5.0",
     "vue2-transitions": "^0.3.0"
   },
   "devDependencies": {
     "chokidar": "^3.3.1",
-    "gridsome-plugin-purgecss": "^1.0.12",
     "node-sass": "^4.13.1",
     "sass-loader": "^8.0.2",
     "style-resources-loader": "^1.3.3",
