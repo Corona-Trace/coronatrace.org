@@ -108,7 +108,7 @@ query HomeHero {
 
 <style lang="scss" scoped>
 .hero {
-  padding-top: 4rem;
+  padding-top: 6rem;
   padding-bottom: 8rem;
 
   @include from($tablet) {
@@ -128,7 +128,13 @@ query HomeHero {
 
   &__text {
     .title {
-      font-size: 3rem;
+      font-size: 2.5rem;
+    }
+
+    @include from($desktop) {
+      .title.is-1 {
+        font-size: 3rem;
+      }
     }
 
     .subtitle {
