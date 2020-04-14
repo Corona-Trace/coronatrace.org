@@ -67,6 +67,14 @@ module.exports = {
         space: 'ns2fx9vns4i8', // required
         accessToken: 'GxR06QUAejxt5g87V8G5eXRJqXqaboECVhG_prQejH8' // required
       }
+    },
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        paths: ['/'],
+        width: 1440,
+        height: 900
+      }
     }
   ],
 
