@@ -2,7 +2,7 @@
   <section class="section call-to-action primary-section">
     <div class="container">
       <div class="call-to-action__heading">
-        <CoronaBadge class="corona-badge" />
+        <div class="call-to-action__dot"></div>
         <h2
           class="title section-title"
           v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
@@ -19,12 +19,14 @@
           type="is-primary"
           tag="a"
           href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
-          target="blank"
+          target="_blank"
+          rounded
         >Join the Beta</b-button>
         <b-button
           v-else
           type="is-primary"
           disabled
+          rounded
         >Coming Soon</b-button>
       </div>
     </div>
@@ -32,13 +34,11 @@
 </template>
 
 <script>
-import CoronaBadge from '~/assets/images/CoronaBadge.svg'
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
 
 export default {
   components: {
-    CoronaBadge,
     BadgeApple,
     BadgeGoogle
   }
@@ -73,7 +73,7 @@ query HomeCTA {
 
     h2 {
       max-width: 32rem;
-      margin: 0 auto 1.5rem auto;
+      margin: 1rem auto 1.5rem auto;
     }
 
     p {
@@ -100,10 +100,15 @@ query HomeCTA {
       }
     }
   }
-}
 
-.corona-badge {
-  width: 64px;
+  &__dot {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: $blue-gradiant;
+    margin: auto;
+    @include box_shadow(2);
+  }
 }
 
 .coming-soon {

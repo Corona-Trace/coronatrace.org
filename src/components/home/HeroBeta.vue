@@ -3,7 +3,7 @@
     <section class="section hero-beta">
       <div class="container">
         <div class="columns">
-          <div class="column is-8 hero__left">
+          <div class="column is-7 hero__left">
             <div class="hero__text">
               <div v-html="
                   richtextToHTML(
@@ -39,7 +39,7 @@
               we plan to complete before going live on the App Stores.
             </b-notification>
           </div>
-          <div class="column is-4 hero__right">
+          <div class="column is-5 hero__right">
             <g-image
               width="403"
               height="403"
@@ -183,7 +183,7 @@ query HomeHero {
 
   &__right {
     position: relative;
-    text-align: right;
+    text-align: center;
     overflow: visible;
 
     @include from($desktop) {

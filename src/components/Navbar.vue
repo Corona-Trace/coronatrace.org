@@ -35,13 +35,13 @@
           <a
             href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
             v-if="$route.path.includes('beta')"
-            class="button is-primary"
+            class="button is-primary is-rounded"
           >
             Join the Beta
           </a>
           <a
             v-else
-            class="button is-primary"
+            class="button is-primary is-rounded"
             disabled
           >
             Coming Soon

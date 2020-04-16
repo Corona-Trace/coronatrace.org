@@ -4,7 +4,9 @@
       <div class="columns">
         <div class="column">
           <div class="footer__heading">
-            <LogoInverse />
+            <g-link to="/">
+              <Logo />
+            </g-link>
           </div>
           <div class="footer__body"></div>
         </div>
@@ -43,7 +45,7 @@
           <BadgeGoogle class="badge" /> -->
             <div class="footer__item">
               <b-button
-                type="is-light"
+                type="is-primary is-rounded"
                 disabled
               >Coming Soon</b-button>
             </div>
@@ -66,13 +68,13 @@
 </template>
 
 <script>
-import LogoInverse from '~/assets/images/LogoInverse.svg'
+import Logo from '~/assets/images/Logo.svg'
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
 
 export default {
   components: {
-    LogoInverse,
+    Logo,
     BadgeApple,
     BadgeGoogle
   },
@@ -89,8 +91,8 @@ export default {
 .footer {
   padding-top: 6rem;
   padding-bottom: 6rem;
-  background-color: $blue;
-  color: $white;
+  background-color: $gray-bg;
+  color: $gray-logo;
 
   &__heading {
     padding-bottom: 1rem;
@@ -111,13 +113,17 @@ export default {
   }
 
   a {
-    color: $white;
+    color: $gray-dark;
+
+    &:hover {
+      color: $gray-logo;
+    }
   }
 
   &__bottom {
     padding-top: 3rem;
     margin-top: 3rem;
-    border-top: 1px solid lighten($blue, 15%);
+    border-top: 1px solid $gray;
     display: flex;
     flex-grow: 1;
     justify-content: center;
@@ -136,7 +142,7 @@ export default {
       @include from($desktop) {
         flex-direction: row;
         padding-right: 0.5rem;
-        border-right: 2px solid lighten($blue, 15%);
+        border-right: 1px solid $gray;
       }
 
       > * {
