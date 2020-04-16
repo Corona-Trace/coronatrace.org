@@ -1,12 +1,25 @@
 <template>
-  <section class="section how-it-works home-section alternateBackground">
+  <section class="section how-it-works primary-section">
     <div class="container">
       <div class="columns how-it-works__carousel-container">
 
         <div class="column how-it-works__device-container">
           <div class="how-it-works__device-inner-container">
+            <g-image
+              src="~/assets/images/hiw-blob.svg"
+              width="458"
+              height="488"
+              class="iphone__blob is-hidden-touch"
+            ></g-image>
+
             <div class="iphone">
-              <iPhone />
+              <g-image
+                width="318"
+                height="616"
+                src="~/assets/images/iPhone.svg"
+                class="iphone__device"
+              >
+              </g-image>
 
               <b-carousel
                 class="iphone__image"
@@ -67,7 +80,7 @@
         <div class="column how-it-works__body">
           <div class="how-it-works__heading">
             <h2>How It Works</h2>
-            <h3 class="title is-3">
+            <h3 class="title section-title">
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.heading }}
             </h3>
             <p class="text">
@@ -177,9 +190,6 @@ query HowItWorksCarousel {
 
 <style lang="scss" scoped>
 .how-it-works {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
-
   &__carousel-container {
     display: flex;
     flex-direction: column-reverse;
@@ -193,7 +203,7 @@ query HowItWorksCarousel {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-top: 2 rem;
+    padding-top: 2rem;
 
     @include until($desktop) {
       flex: 1 0 auto;
@@ -213,7 +223,8 @@ query HowItWorksCarousel {
   &__body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
+    flex-grow: 1;
 
     @include until($desktop) {
       flex: 1 0 auto;
@@ -252,8 +263,21 @@ query HowItWorksCarousel {
 
 .iphone {
   position: relative;
+  z-index: 20;
+  opacity: 0.99;
+
+  &__device {
+    display: flex;
+  }
+
+  &__blob {
+    position: absolute;
+    z-index: 10;
+    top: -6rem;
+  }
 
   &__image {
+    z-index: 30;
     position: absolute;
     top: 20px;
     right: 0;

@@ -2,7 +2,7 @@
   <section class="section hero">
     <div class="container">
       <div class="columns">
-        <div class="column is-5 hero__left">
+        <div class="column is-8 hero__left">
           <div class="hero__text">
             <div v-html="
                 richtextToHTML(
@@ -19,16 +19,16 @@
             <b-button
               @click="showModal"
               type="is-primary"
+              size="is-large"
             >Join Waitlist</b-button>
           </div>
         </div>
-        <div class="column is-7 hero__right">
-          <TraceBubbles class="bubbles" />
+        <div class="column is-4 hero__right">
+
           <g-image
-            class="push-notification"
-            width="359"
-            height="157"
-            src="~/assets/images/PushNotification.png"
+            width="403"
+            height="403"
+            src="~/assets/images/blue-dot.svg"
           ></g-image>
         </div>
       </div>
@@ -49,14 +49,10 @@
 
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import TraceBubbles from '~/assets/images/TraceBubbles.svg'
-import PushNotification from '~/assets/images/PushNotification.svg'
 import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
 
 export default {
   components: {
-    TraceBubbles,
-    PushNotification,
     EmailSignup
   },
   data() {
@@ -78,7 +74,7 @@ export default {
 
       notEmptyText = notEmptyText.join('<br />')
 
-      var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
+      var final = '<h1 class="title">' + notEmptyText + '</h1>'
       return final
     },
     showModal() {
@@ -106,13 +102,14 @@ query HomeHero {
 }
 </static-query>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero {
   padding-top: 6rem;
-  padding-bottom: 8rem;
+  padding-bottom: 6rem;
 
   @include from($tablet) {
-    padding-top: 8rem;
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
 
   &__left {
@@ -128,18 +125,22 @@ query HomeHero {
 
   &__text {
     .title {
-      font-size: 2.5rem;
-    }
+      font-size: 2.75rem;
 
-    @include from($desktop) {
-      .title.is-1 {
-        font-size: 3rem;
+      @include from($desktop) {
+        font-size: 5.25rem;
       }
     }
 
     .subtitle {
-      padding: 2rem 0;
+      font-size: 1.15rem;
+      padding: 2rem 0 3rem;
+      margin: 0;
       line-height: 1.6;
+
+      @include from($desktop) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -163,7 +164,7 @@ query HomeHero {
       }
 
       &.is-primary {
-        @include box_shadow(1);
+        @include box_shadow(2);
 
         @include from($desktop) {
           margin-right: 1rem;
@@ -182,30 +183,9 @@ query HomeHero {
       height: auto;
       overflow: hidden;
     }
-
-    .bubbles {
-      width: 100%;
-      overflow: visible;
-
-      @include from($desktop) {
-        width: auto;
-        height: auto;
-        overflow: hidden;
-      }
-    }
-
-    .push-notification {
-      position: absolute;
-      top: 4rem;
-      left: 8rem;
-      width: 65%;
-
-      @include from($desktop) {
-        top: 9rem;
-        left: 8rem;
-        width: auto;
-      }
-    }
+  }
+  .notification {
+    @include box_shadow(3);
   }
 }
 

@@ -1,10 +1,10 @@
 <template>
-  <section class="section call-to-action">
+  <section class="section call-to-action primary-section">
     <div class="container">
       <div class="call-to-action__heading">
         <CoronaBadge class="corona-badge" />
         <h2
-          class="title is-3"
+          class="title section-title"
           v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
         ></h2>
         <p v-text="

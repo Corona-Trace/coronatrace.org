@@ -95,11 +95,6 @@ query AboutContentBlock {
 </static-query>
 
 <style lang="scss" scoped>
-.section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
 .about {
   &__text {
     .title {

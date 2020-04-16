@@ -1,1 +1,44 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat:500,700|Open+Sans:400,400i,700&display=swap');
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Bold'), local('HelveticaNeue-Bold'),
+    url('/assets/fonts/HelveticaNeue-Bold.woff2') format('woff2'),
+    url('/assets/fonts/HelveticaNeue-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Light'), local('HelveticaNeue-Light'),
+    url('/assets/fonts/HelveticaNeue-Light.woff2') format('woff2'),
+    url('/assets/fonts/HelveticaNeue-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Italic'), local('HelveticaNeue-Italic'),
+    url('/assets/fonts/HelveticaNeue-Italic.woff2') format('woff2'),
+    url('/assets/fonts/HelveticaNeue-Italic.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue'), local('HelveticaNeue'),
+    url('/assets/fonts/HelveticaNeue.woff2') format('woff2'),
+    url('/assets/fonts/HelveticaNeue.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  src: local('Helvetica Neue Light Italic'), local('HelveticaNeue-LightItalic'),
+    url('/assets/fonts/HelveticaNeue-LightItalic.woff2') format('woff2'),
+    url('/assets/fonts/HelveticaNeue-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}

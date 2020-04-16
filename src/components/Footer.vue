@@ -117,7 +117,7 @@ export default {
   &__bottom {
     padding-top: 3rem;
     margin-top: 3rem;
-    border-top: 1px solid #4b58d7;
+    border-top: 1px solid lighten($blue, 15%);
     display: flex;
     flex-grow: 1;
     justify-content: center;
@@ -136,7 +136,7 @@ export default {
       @include from($desktop) {
         flex-direction: row;
         padding-right: 0.5rem;
-        border-right: 2px solid #4b58d7;
+        border-right: 2px solid lighten($blue, 15%);
       }
 
       > * {
