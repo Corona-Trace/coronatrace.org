@@ -94,3 +94,7 @@ section.single-page {
 .button {
   @include box_shadow(2);
 }
+
+body.has-navbar-fixed-top {
+  padding-top: $navbar-height;
+}

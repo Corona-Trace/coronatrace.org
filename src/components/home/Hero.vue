@@ -141,6 +141,10 @@ query HomeHero {
     justify-content: center;
     padding-bottom: 4rem;
 
+    @include until($desktop) {
+      flex: 1 auto;
+    }
+
     @include from($desktop) {
       padding-bottom: 0;
     }
@@ -199,6 +203,10 @@ query HomeHero {
   &__right {
     position: relative;
     overflow: visible !important;
+
+    @include until($desktop) {
+      flex: 1 auto;
+    }
 
     @include from($desktop) {
       width: auto;
