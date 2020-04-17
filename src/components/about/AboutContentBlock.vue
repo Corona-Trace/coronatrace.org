@@ -1,6 +1,6 @@
 <template>
   <section
-    class="section about__overview about__text"
+    class="section primary-section about__overview about__text"
     :class="{ alternateBackground: alternateBackground }"
   >
     <div class="container container__large-margins">

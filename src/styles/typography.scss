@@ -1,0 +1,61 @@
+body {
+  font-family: $body-font;
+  font-weight: $body-font-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $heading-font;
+  font-weight: $heading-font-weight;
+}
+
+p {
+  font-size: 1.15rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+
+  @include from($desktop) {
+    font-size: 1.25rem;
+    line-height: 1.75;
+  }
+}
+
+.title {
+  font-weight: $heading-font-weight;
+  color: $gray-logo;
+}
+
+.subtitle {
+  line-height: 1.6;
+  font-weight: 300;
+}
+
+.cta-link {
+  padding-top: 1.5rem;
+
+  a {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-decoration: underline;
+
+    @include from($desktop) {
+      font-size: 1.375rem;
+    }
+  }
+
+  .icon {
+    margin-left: 0.5rem;
+    color: $blue;
+  }
+}
+
+.message-header {
+  p {
+    font-size: 1rem;
+    margin: 0;
+  }
+}

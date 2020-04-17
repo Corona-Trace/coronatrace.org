@@ -6,19 +6,34 @@
 
 // Colors
 $white: #fff;
-$black: #16162c;
-$gray-dark: lighten($black, 10%);
+$black: #181818;
 
-$blue: #313ebd;
+$gray: #b2b2b5;
+$gray-dark: #7e7e83;
+$gray-light: #d8d8dd;
+$gray-logo: #394a59;
+$gray-bg: #e6edeb;
+
+$blue: #2869e5;
 $blue-light: #f5f5fc;
 $coral: #ff564a;
+$orange: #ea8757;
+$red: #c25153;
+$trace-green: #3d9c76;
 $green: #009f32;
 $green-light: #d6fde2;
+
+$blue-gradiant: linear-gradient(45deg, #0f119b 0%, #0a79ff 100%);
 
 $primary: $blue;
 
 // Fonts
-$heading-font: 'Montserrat', sans-serif;
-$body-font: 'Open Sans', sans-serif;
+$heading-font: 'Helvitica Neue', sans-serif;
+$heading-font-weight: 300;
+
+$body-font: 'Helvitica Neue', sans-serif;
+$body-font-weight: 300;
 
 $border-radius-global: 6px;
+
+$navbar-height: 4.5rem;

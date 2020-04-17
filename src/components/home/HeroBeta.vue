@@ -1,17 +1,15 @@
 <template>
   <div>
-    <section class="section hero">
+    <section class="section hero-beta">
       <div class="container">
         <div class="columns">
-          <div class="column is-5 hero__left">
+          <div class="column is-7 hero__left">
             <div class="hero__text">
-              <div
-                v-html="
+              <div v-html="
                   richtextToHTML(
                     $static.allContentfulHomeHero.edges[0].node.headline
                   )
-                "
-              ></div>
+                "></div>
               <p
                 class="subtitle"
                 v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
@@ -24,8 +22,7 @@
                 tag="a"
                 target="_blank"
                 type="is-primary"
-                >Join the Beta</b-button
-              >
+              >Join the Beta</b-button>
             </div>
             <b-notification
               class="is-hidden-desktop"
@@ -42,12 +39,11 @@
               we plan to complete before going live on the App Stores.
             </b-notification>
           </div>
-          <div class="column is-7 hero__right">
-            <TraceBubbles class="bubbles" />
+          <div class="column is-5 hero__right">
             <g-image
-              class="push-notification"
-              :immediate="true"
-              src="~/assets/images/PushNotification.png"
+              width="403"
+              height="403"
+              src="~/assets/images/blue-dot.svg"
             ></g-image>
           </div>
         </div>
@@ -73,14 +69,9 @@
 
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import TraceBubbles from '~/assets/images/TraceBubbles.svg'
-import PushNotification from '~/assets/images/PushNotification.svg'
 
 export default {
-  components: {
-    TraceBubbles,
-    PushNotification
-  },
+  components: {},
   methods: {
     richtextToHTML(content) {
       const newContent = content.content
@@ -95,7 +86,7 @@ export default {
 
       notEmptyText = notEmptyText.join('<br />')
 
-      var final = '<h1 class="title is-1">' + notEmptyText + '</h1>'
+      var final = '<h1 class="title">' + notEmptyText + '</h1>'
       return final
     }
   }
@@ -120,10 +111,14 @@ query HomeHero {
 }
 </static-query>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .hero {
-  padding-top: 8rem;
-  padding-bottom: 8rem;
+  padding-top: 6rem;
+  padding-bottom: 9rem;
+
+  @include from($tablet) {
+    padding-top: 9rem;
+  }
 
   &__left {
     display: flex;
@@ -138,12 +133,22 @@ query HomeHero {
 
   &__text {
     .title {
-      font-size: 3rem;
+      font-size: 2.75rem;
+
+      @include from($desktop) {
+        font-size: 5.25rem;
+      }
     }
 
     .subtitle {
-      padding: 2rem 0;
+      font-size: 1.25rem;
+      padding: 2rem 0 3rem;
+      margin: 0;
       line-height: 1.6;
+
+      @include from($desktop) {
+        font-size: 2rem;
+      }
     }
   }
 
@@ -167,7 +172,7 @@ query HomeHero {
       }
 
       &.is-primary {
-        @include box_shadow(1);
+        @include box_shadow(2);
 
         @include from($desktop) {
           margin-right: 1rem;
@@ -178,7 +183,7 @@ query HomeHero {
 
   &__right {
     position: relative;
-    text-align: right;
+    text-align: center;
     overflow: visible;
 
     @include from($desktop) {
@@ -186,34 +191,15 @@ query HomeHero {
       height: auto;
       overflow: hidden;
     }
-
-    .bubbles {
-      width: 100%;
-      overflow: visible;
-
-      @include from($desktop) {
-        width: auto;
-        height: auto;
-        overflow: hidden;
-      }
-    }
-
-    .push-notification {
-      position: absolute;
-      top: 4rem;
-      left: 8rem;
-      width: 65%;
-
-      @include from($desktop) {
-        top: 9rem;
-        left: 8rem;
-        width: auto;
-      }
-    }
   }
-
   .notification {
     @include box_shadow(3);
+  }
+}
+
+.email-signup-modal {
+  .modal-content {
+    overflow: visible;
   }
 }
 </style>

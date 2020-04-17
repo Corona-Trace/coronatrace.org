@@ -5,6 +5,7 @@
 
 // Import any variables we want to use to customize the project
 @import 'variables';
+@import 'shadows';
 
 // Import Bulma's core
 // @import '~bulma-scss/utilities/_all';
@@ -13,5 +14,5 @@
 @import '~bulma-scss';
 @import '~buefy/src/scss/buefy';
 
+@import 'typography';
 @import 'global';
-@import 'shadows';

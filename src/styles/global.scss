@@ -1,60 +1,28 @@
-body {
-  font-family: $body-font;
-}
-
 html,
 body,
 .layout {
   height: 100%;
 }
+
+.body {
+}
+
 .layout {
   display: flex;
   flex-direction: column;
 }
+
 main {
   flex: 1 0 auto;
   min-height: 80vh;
 }
+
 .footer {
   flex-shrink: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $heading-font;
-}
-
 .alternateBackground {
   background-color: $blue-light;
-}
-
-p {
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1.2rem;
-}
-
-.subtitle {
-  line-height: 1.6;
-}
-
-.cta-link {
-  padding-top: 1.5rem;
-
-  a {
-    font-size: 1.25rem;
-    font-weight: bold;
-    text-decoration: underline;
-  }
-
-  .icon {
-    margin-left: 0.5rem;
-    color: $blue;
-  }
 }
 
 .container {
@@ -63,9 +31,34 @@ p {
   }
 }
 
+.primary-section {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  @include from($tablet) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @include from($tablet) {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+
+  @include from($desktop) {
+    font-size: 3.875rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
 .donation-currency-input {
   border: none !important;
-  color: #313ebd;
+  color: $blue;
   font-weight: bold;
   font-size: 1.25rem !important;
 
@@ -98,9 +91,6 @@ section.single-page {
   }
 }
 
-.message-header {
-  p {
-    font-size: 1rem;
-    margin: 0;
-  }
+.button {
+  @include box_shadow(2);
 }

@@ -35,13 +35,13 @@
           <a
             href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
             v-if="$route.path.includes('beta')"
-            class="button is-primary"
+            class="button is-primary is-rounded"
           >
             Join the Beta
           </a>
           <a
             v-else
-            class="button is-primary"
+            class="button is-primary is-rounded"
             disabled
           >
             Coming Soon
@@ -116,7 +116,7 @@ query {
   .navbar-item {
     padding-top: 1rem;
     padding-bottom: 1rem;
-    font-weight: bold;
+    font-weight: 400;
 
     &:hover {
       background-color: transparent;
@@ -126,6 +126,10 @@ query {
   &.scrolled {
     box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
     transition: box-shadow 0.3s;
+  }
+
+  .button {
+    @include box_shadow(2);
   }
 }
 </style>

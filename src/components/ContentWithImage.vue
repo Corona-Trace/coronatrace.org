@@ -1,15 +1,12 @@
 <template>
-  <section
-    class="section content-with-image"
-    :class="{ alternateBackground: alternateBackground }"
-  >
+  <section class="section content-with-image primary-section">
     <div class="container">
       <div
         class="columns is-variable is-8"
         :class="{ rowReverse: imagePushed }"
       >
         <div class="column content-with-image__content">
-          <h2 class="title is-1">
+          <h2 class="title section-title">
             <slot name="heading"></slot>
           </h2>
           <div class="content-with-image__body-text">
@@ -48,8 +45,6 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
   overflow: hidden;
 }
 
@@ -102,6 +97,7 @@ export default {
   &__image-container {
     width: 100%;
     padding-bottom: 6rem;
+    position: relative;
 
     @include from($desktop) {
       padding-bottom: 0;
@@ -111,12 +107,20 @@ export default {
   &__image {
     border-radius: 6px;
     overflow: hidden;
-    @include box_shadow(2);
+    @include box_shadow(3);
 
     img {
       object-fit: cover;
       object-position: center;
+      z-index: 20;
     }
+  }
+
+  .blob {
+    position: absolute;
+    z-index: 10;
+    top: -3rem;
+    left: -3rem;
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <section class="section get-started home-section">
+  <section class="section get-started primary-section">
     <div class="container">
       <div class="get-started__heading">
-        <h2 class="is-2">Get Started</h2>
+        <h2 class="section-title">Get Started</h2>
       </div>
       <div class="columns">
         <div
@@ -46,10 +46,6 @@ export default {}
 </script>
 
 <style lang="scss" scoped>
-.section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
-}
 .get-started {
   &__heading {
     text-align: center;
@@ -57,15 +53,6 @@ export default {}
 
     @include from($desktop) {
       margin-bottom: 8rem;
-    }
-
-    h2 {
-      font-size: 2.5rem;
-      font-weight: bold;
-
-      @include from($desktop) {
-        font-weight: 3rem;
-      }
     }
   }
 
@@ -80,12 +67,13 @@ export default {}
     }
 
     h4 {
-      font-weight: bold;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
 
       @include from($desktop) {
+        font-size: 2rem;
         margin-bottom: 2rem;
+        min-height: 6rem;
       }
     }
   }
