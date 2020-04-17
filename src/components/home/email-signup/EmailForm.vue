@@ -84,7 +84,7 @@ export default {
       axios({
         method: 'post',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        url: 'http://localhost:9000/.netlify/functions/subscribe',
+        url: '/.netlify/functions/subscribe',
         data: formData
       })
         .then(response => {
