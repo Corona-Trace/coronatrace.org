@@ -65,7 +65,7 @@ export default {
 }
 
 .rowReverse {
-  @include from($tablet {
+  @include from($tablet) {
     flex-direction: row-reverse;
   }
 }

@@ -44,8 +44,13 @@ export default {}
     align-items: center;
     flex: 0 0 50% !important;
 
+    img {
+      max-height: 6rem;
+      padding: 1rem 0;
+    }
+
     @include from($desktop) {
-      flex: none !important;
+      justify-content: flex-start;
     }
   }
 }
