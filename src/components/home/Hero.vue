@@ -199,7 +199,7 @@ query HomeHero {
       font-size: 1.25rem;
       margin: 0.5rem 0;
 
-      @include from($desktop) {
+      @include from($tablet) {
         width: auto;
       }
 
