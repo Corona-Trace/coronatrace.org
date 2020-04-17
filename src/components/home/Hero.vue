@@ -1,7 +1,7 @@
 <template>
   <section class="section hero">
     <div class="container">
-      <div class="columns">
+      <div class="columns hero__columns">
         <div class="column is-7 hero__left">
           <div class="hero__text">
             <div v-html="
@@ -30,6 +30,7 @@
             width="403"
             height="403"
             src="~/assets/images/blue-dot.svg"
+            class="hero__dot"
           ></g-image>
         </div>
       </div>
@@ -105,12 +106,32 @@ query HomeHero {
 
 <style lang="scss">
 .hero {
-  padding-top: 6rem;
+  padding-top: 4rem;
   padding-bottom: 6rem;
 
   @include from($tablet) {
     padding-top: 9rem;
     padding-bottom: 9rem;
+  }
+
+  &__columns {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include from($tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__dot {
+    border-radius: 50%;
+    @include box_shadow(3);
+
+    @include until($tablet) {
+      @include box_shadow(1);
+      height: 13vh;
+      width: auto;
+    }
   }
 
   &__left {
@@ -176,8 +197,7 @@ query HomeHero {
 
   &__right {
     position: relative;
-    text-align: center;
-    overflow: visible;
+    overflow: visible !important;
 
     @include from($desktop) {
       width: auto;
