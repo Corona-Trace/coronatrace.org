@@ -84,12 +84,10 @@ export default {
       axios({
         method: 'post',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        url: '/.netlify/functions/subscribe',
+        url: 'http://localhost:9000/.netlify/functions/subscribe',
         data: formData
       })
         .then(response => {
-          console.log(response)
-
           if (response.data.status == 'Error') {
             console.error('Error!')
             this.error.status = response.data.status
@@ -97,6 +95,7 @@ export default {
             this.error.detail = response.data.detail
           } else {
             this.$emit('advance-form')
+            this.$ga.event('Wait List', 'Signup')
           }
         })
         .catch(error => {

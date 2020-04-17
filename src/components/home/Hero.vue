@@ -117,6 +117,7 @@ query HomeHero {
   &__columns {
     display: flex;
     flex-direction: column-reverse;
+    align-items: flex-start;
 
     @include from($tablet) {
       flex-direction: row;
