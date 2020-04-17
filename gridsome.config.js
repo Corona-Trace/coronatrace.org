@@ -25,11 +25,11 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-  siteName: 'Corona Trace',
+  siteName: 'TraceToZero',
   siteDescription:
     'TraceToZero is a platform to facilitate decentralized contact tracing for confirmed Covid-19 patients.',
   siteUrl: 'https://www.tracetozero.org',
-  titleTemplate: '<siteName> | %s',
+  titleTemplate: 'TraceToZero | %s',
   plugins: [
     {
       use: '@gridsome/plugin-google-analytics',
