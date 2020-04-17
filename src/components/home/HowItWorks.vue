@@ -9,7 +9,7 @@
               src="~/assets/images/hiw-blob.svg"
               width="458"
               height="488"
-              class="iphone__blob is-hidden-touch"
+              class="iphone__blob is-hidden-mobile"
             ></g-image>
 
             <div class="iphone">
@@ -43,12 +43,12 @@
               </b-carousel>
             </div>
 
-            <div class="indicator__container indicator__container-mobile is-hidden-desktop">
+            <div class="indicator__container indicator__container-mobile is-hidden-tablet">
 
               <b-icon
                 icon="chevron-left"
                 @click.native="prev"
-                class="carousel-control is-hidden-desktop"
+                class="carousel-control is-hidden-tablet"
                 size="is-large"
               ></b-icon>
               <div>
@@ -70,7 +70,7 @@
               <b-icon
                 icon="chevron-right"
                 @click.native="next"
-                class="carousel-control is-hidden-desktop"
+                class="carousel-control is-hidden-tablet"
                 size="is-large"
               ></b-icon>
             </div>
@@ -87,7 +87,7 @@
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
             </p>
           </div>
-          <div class="how-it-works__indicator indicator is-hidden-touch">
+          <div class="how-it-works__indicator indicator is-hidden-mobile">
             <div class="indicator__container">
               <span
                 class="current-item"
@@ -194,7 +194,7 @@ query HowItWorksCarousel {
     display: flex;
     flex-direction: column-reverse;
 
-    @include from($desktop) {
+    @include from($tablet) {
       flex-direction: row;
     }
   }
@@ -205,11 +205,11 @@ query HowItWorksCarousel {
     align-items: center;
     padding-top: 2rem;
 
-    @include until($desktop) {
+    @include until($tablet) {
       flex: 1 0 auto;
     }
 
-    @include from($desktop) {
+    @include from($tablet) {
       padding-top: 0;
     }
   }
@@ -226,7 +226,7 @@ query HowItWorksCarousel {
     justify-content: space-around;
     flex-grow: 1;
 
-    @include until($desktop) {
+    @include until($tablet) {
       flex: 1 0 auto;
     }
   }
@@ -245,11 +245,15 @@ query HowItWorksCarousel {
       margin-top: 0.5rem;
     }
 
+    .section-title {
+      font-size: 2.5rem;
+    }
+
     p.text {
       font-size: 1.25rem;
       color: #666666;
 
-      @include from($desktop) {
+      @include from($tablet) {
         font-size: 1.5rem;
         color: #666666;
       }
@@ -294,7 +298,7 @@ query HowItWorksCarousel {
     align-items: center;
     padding-top: 1rem;
 
-    @include from($desktop) {
+    @include from($tablet) {
       padding-top: 0;
     }
 

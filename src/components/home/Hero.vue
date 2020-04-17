@@ -2,7 +2,7 @@
   <section class="section hero">
     <div class="container">
       <div class="columns hero__columns">
-        <div class="column is-7 hero__left">
+        <div class="column is-8-tablet is-7-desktop hero__left">
           <div class="hero__text">
             <div v-html="
                 richtextToHTML(
@@ -24,7 +24,7 @@
             >Join Waitlist</b-button>
           </div>
         </div>
-        <div class="column is-5 hero__right">
+        <div class="column is-4-tablet is-5-desktop hero__right">
 
           <g-image
             width="403"
@@ -107,9 +107,14 @@ query HomeHero {
 <style lang="scss">
 .hero {
   padding-top: 4rem;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
 
   @include from($tablet) {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  @include from($desktop) {
     padding-top: 9rem;
     padding-bottom: 9rem;
   }
@@ -154,8 +159,12 @@ query HomeHero {
     .title {
       font-size: 2.75rem;
 
+      @include from($tablet) {
+        font-size: 4rem;
+      }
+
       @include from($desktop) {
-        font-size: 5.25rem;
+        font-size: 4.75rem;
       }
     }
 
@@ -165,8 +174,12 @@ query HomeHero {
       margin: 0;
       line-height: 1.6;
 
+      @include from($tablet) {
+        font-size: 1.5rem;
+      }
+
       @include from($desktop) {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
     }
   }

@@ -36,11 +36,11 @@ main {
   padding-bottom: 3rem;
 
   @include from($tablet) {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
-  @include from($tablet) {
+  @include from($desktop) {
     padding-top: 9rem;
     padding-bottom: 9rem;
   }
@@ -51,7 +51,7 @@ main {
   margin-bottom: 1rem;
 
   @include from($desktop) {
-    font-size: 3.875rem;
+    font-size: 3.5rem;
     margin-bottom: 1.5rem;
   }
 }

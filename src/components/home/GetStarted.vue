@@ -4,9 +4,9 @@
       <div class="get-started__heading">
         <h2 class="section-title">Get Started</h2>
       </div>
-      <div class="columns">
+      <div class="columns is-multiline">
         <div
-          class="column get-started__item"
+          class="column is-6-tablet is-3-desktop get-started__item"
           v-for="edge in $static.allContentfulGetStartedItem.edges"
           :key="edge.node.id"
         >

@@ -2,10 +2,10 @@
   <section class="section content-with-image primary-section">
     <div class="container">
       <div
-        class="columns is-variable is-8"
+        class="columns is-variable is-8-desktop"
         :class="{ rowReverse: imagePushed }"
       >
-        <div class="column content-with-image__content">
+        <div class="column content-with-image__content is-6-tablet is-6-desktop">
           <h2 class="title section-title">
             <slot name="heading"></slot>
           </h2>
@@ -20,7 +20,7 @@
             ></b-icon>
           </div>
         </div>
-        <div class="column content-with-image__image-container">
+        <div class="column content-with-image__image-container is-6-tablet is-6-desktop">
           <div class="content-with-image__image image is-square">
             <slot name="image"></slot>
           </div>
@@ -53,9 +53,14 @@ export default {
   display: flex;
   flex-direction: column-reverse;
 
-  @include from($desktop) {
+  @include from($tablet) {
     padding-bottom: 0;
     flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @include from($desktop) {
+    align-items: center;
   }
 }
 
