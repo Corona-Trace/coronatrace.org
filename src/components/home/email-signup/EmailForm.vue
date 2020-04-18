@@ -101,9 +101,15 @@ export default {
         })
         .catch(error => {
           console.log(error)
-          this.error.status = 'Error'
-          this.error.title = 'Oops! Something went wrong'
-          this.error.detail = 'Please refresh the page and try again.'
+
+          if (error.response.status == 502) {
+            this.$emit('advance-form')
+            this.$ga.event('Wait List', 'Signup')
+          } else {
+            this.error.status = 'Error'
+            this.error.title = 'Oops! Something went wrong'
+            this.error.detail = 'Please refresh the page and try again.'
+          }
         })
         .finally(() => {
           this.isLoading = false
