@@ -24,7 +24,7 @@
             >Join Waitlist</b-button>
           </div>
         </div>
-        <div class="column is-4-tablet is-5-desktop hero__right">
+        <div class="column is-4-tablet is-5-fullhd hero__right">
 
           <g-image
             width="403"
@@ -160,11 +160,18 @@ query HomeHero {
       font-size: 2.75rem;
 
       @include from($tablet) {
-        font-size: 4rem;
+        font-size: 3.5rem;
       }
 
       @include from($desktop) {
-        font-size: 4.75rem;
+        font-size: 4rem;
+      }
+
+      @include from($widescreen) {
+      }
+
+      @include from($fullhd) {
+        font-size: 4.5rem;
       }
     }
 
@@ -179,7 +186,11 @@ query HomeHero {
       }
 
       @include from($desktop) {
-        font-size: 1.5rem;
+        padding-right: 6rem;
+      }
+
+      @include from($fullhd) {
+        padding-right: 13rem;
       }
     }
   }

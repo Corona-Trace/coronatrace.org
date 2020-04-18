@@ -29,8 +29,8 @@ exports.handler = function(event, context, callback) {
         const response = {
           statusCode: 200,
           headers: {
-            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-            'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true
           },
           body: JSON.stringify({ status: 'Success!' })
         }
@@ -46,8 +46,8 @@ exports.handler = function(event, context, callback) {
         const response = {
           statusCode: 200,
           headers: {
-            'Access-Control-Allow-Origin': '*', // Required for CORS support to work
-            'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials': true
           },
           body: JSON.stringify({
             status: 'Error',
@@ -61,8 +61,8 @@ exports.handler = function(event, context, callback) {
     const response = {
       statusCode: 400,
       headers: {
-        'Access-Control -Allow-Origin': '*', // Required for CORS support to work
-        'Access-Control-Allow-Credentials': true // Required for cookies, authorization headers with HTTPS
+        'Access-Control -Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
       },
       body: JSON.stringify({
         status: 'Error',
