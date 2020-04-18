@@ -88,6 +88,7 @@ export default {
         data: formData
       })
         .then(response => {
+          console.log(response)
           if (response.data.status == 'Error') {
             console.error('Error!')
             this.error.status = response.data.status
