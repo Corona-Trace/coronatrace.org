@@ -246,16 +246,16 @@ query HowItWorksCarousel {
     }
 
     .section-title {
-      font-size: 2.5rem;
+      @include set_type(2.5rem);
     }
 
     p.text {
-      font-size: 1.25rem;
-      color: #666666;
+      @include set_type(1.25rem);
+      color: $gray-dark;
 
       @include from($tablet) {
-        font-size: 1.5rem;
-        color: #666666;
+        @include set_type(1.5rem, 'lg');
+        color: $gray-dark;
       }
     }
   }

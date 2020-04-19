@@ -11,16 +11,17 @@ h5,
 h6 {
   font-family: $heading-font;
   font-weight: $heading-font-weight;
+  color: $gray-logo;
 }
 
 p {
-  font-size: 1.15rem;
-  line-height: 1.5;
+  color: $gray-dark;
+
+  @include set_type(1.15rem);
   margin-bottom: 1.5rem;
 
   @include from($desktop) {
-    font-size: 1.25rem;
-    line-height: 1.75;
+    @include set_type(1.25rem);
   }
 }
 
@@ -30,8 +31,9 @@ p {
 }
 
 .subtitle {
-  line-height: 1.6;
+  line-height: 1.4;
   font-weight: 300;
+  color: $gray-dark;
 }
 
 .cta-link {
