@@ -254,7 +254,7 @@ query HowItWorksCarousel {
       color: $gray-dark;
 
       @include from($tablet) {
-        @include set_type(1.5rem, 'lg');
+        @include set_type(1.5rem);
         color: $gray-dark;
       }
     }
