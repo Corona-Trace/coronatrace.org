@@ -81,8 +81,7 @@ export default {
 
     p {
       margin-bottom: 1.5rem;
-      font-size: 1.2rem;
-      line-height: 1.6;
+      @include set_type(1.2rem);
     }
   }
 
