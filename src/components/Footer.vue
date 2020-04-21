@@ -21,6 +21,14 @@
             >About</g-link>
             <g-link
               class="footer__item"
+              to="/privacy"
+            >Your Privacy</g-link>
+            <g-link
+              class="footer__item"
+              to="/resources"
+            >Resources</g-link>
+            <g-link
+              class="footer__item"
               to="/contributors"
             >Contributors</g-link>
           </div>
@@ -34,6 +42,10 @@
               class="footer__item"
               to="/support"
             >Support</g-link>
+            <g-link
+              class="footer__item"
+              to="/public-health-partnerships"
+            >Public Health Partnerships</g-link>
           </div>
         </div>
         <div class="column">

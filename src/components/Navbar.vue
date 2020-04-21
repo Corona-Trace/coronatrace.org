@@ -25,6 +25,20 @@
 
       <b-navbar-item
         tag="g-link"
+        to="/privacy"
+      >
+        Your Privacy
+      </b-navbar-item>
+
+      <b-navbar-item
+        tag="g-link"
+        to="/resources"
+      >
+        Resources
+      </b-navbar-item>
+
+      <b-navbar-item
+        tag="g-link"
         to="/contributors"
       >
         Contributors

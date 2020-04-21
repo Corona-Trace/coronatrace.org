@@ -1,16 +1,16 @@
 <template>
   <layout>
-    <div class="privacy">
+    <div class="public-health">
       <PageHeader
         :title="$static.contentfulSinglePageBasic.heading"
-        class="privacy__heading"
+        class="public-health__heading"
       >
       </PageHeader>
 
-      <section class="section single-page__basic privacy">
+      <section class="section single-page__basic public-health">
         <div class="container">
           <div
-            class="privacy__content"
+            class="public-health__content"
             v-html="richTextToHTML($static.contentfulSinglePageBasic.content)"
           ></div>
         </div>
@@ -47,8 +47,8 @@ export default {
 
 <static-query>
 
-query Privacy {
-  contentfulSinglePageBasic(id: "7shq1B2zfeQ85BPI6IbELN"){	
+query PublicHealth {
+  contentfulSinglePageBasic(id: "2Yg71I9t7ikhRD51McUtq3"){	
 		title,
         heading,
 		content
