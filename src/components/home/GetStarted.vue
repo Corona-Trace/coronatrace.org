@@ -57,6 +57,8 @@ export default {}
   &__heading {
     text-align: center;
     margin-bottom: 4rem;
+    flex-direction: column;
+    align-items: center;
 
     @include from($desktop) {
       margin-bottom: 8rem;

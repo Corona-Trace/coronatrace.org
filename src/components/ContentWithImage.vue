@@ -6,6 +6,12 @@
         :class="{ rowReverse: imagePushed }"
       >
         <div class="column content-with-image__content is-6-tablet is-6-desktop">
+          <h3
+            class=""
+            :class="'content-with-image__heading-tag-' + tagColor"
+          >
+            <slot name="heading-tag"></slot>
+          </h3>
           <h2 class="title section-title">
             <slot name="heading"></slot>
           </h2>
@@ -39,6 +45,17 @@ export default {
   },
   data: function() {
     return {}
+  },
+  computed: {
+    tagColor() {
+      if (this.$attrs.index == 0) {
+        return 'orange'
+      } else if (this.$attrs.index == 1) {
+        return 'red'
+      } else if (this.$attrs.index == 2) {
+        return 'gray'
+      }
+    }
   }
 }
 </script>
@@ -111,7 +128,6 @@ export default {
   &__image {
     border-radius: 6px;
     overflow: hidden;
-    @include box_shadow(3);
 
     img {
       object-fit: cover;
@@ -125,6 +141,20 @@ export default {
     z-index: 10;
     top: -3rem;
     left: -3rem;
+  }
+
+  &__heading-tag {
+    &-red {
+      @include heading_tag($red);
+    }
+
+    &-orange {
+      @include heading_tag($orange);
+    }
+
+    &-gray {
+      @include heading_tag($gray);
+    }
   }
 }
 </style>

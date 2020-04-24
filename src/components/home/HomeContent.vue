@@ -1,11 +1,13 @@
 <template>
   <div>
     <ContentWithImage
-      v-for="edge in $static.allContentfulHomeContentBlock.edges"
+      v-for="(edge, index) in $static.allContentfulHomeContentBlock.edges"
       :key="edge.node.id"
+      :index="index"
       :alternateBackground="!edge.node.alignImageRight"
       :imagePushed="edge.node.alignImageRight"
     >
+      <template v-slot:heading-tag>{{ edge.node.headingTag }}</template>
       <template v-slot:heading>{{ edge.node.heading }}</template>
 
       <template v-slot:body-text>
@@ -23,6 +25,7 @@
           :src="renderOptimizedImage(edge.node.image.file.url)"
           :alt="edge.node.image.title"
           src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          :class="{imageBoxShadow: edge.node.imageBoxShadow}"
         />
       </template>
     </ContentWithImage>
@@ -66,11 +69,14 @@ query HomeContent {
             fileName
           }
         },
+        headingTag,
+        headingTagColor,
         heading,
         text,
         linkText,
         linkDestination,
         alignImageRight,
+        imageBoxShadow,
         order
       }
     }

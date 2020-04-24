@@ -1,21 +1,34 @@
 <template>
   <Layout>
     <div class="about">
-      <PageHeader
-        :title="$page.allContentfulAboutPage.edges[0].node.heading"
-        largeMargins
-      >
-        {{ $page.allContentfulAboutPage.edges[0].node.subheading }}
-      </PageHeader>
 
-      <AboutContentBlock
-        :title="edge.node.heading"
-        v-for="edge in $static.allContentfulAboutContentBlock.edges"
-        :key="edge.node.id"
-        :alternateBackground="edge.node.darkBackground"
-      >
-        <div v-html="richTextToHTML(edge.node.content)"></div>
-      </AboutContentBlock>
+      <div class="container">
+        <div
+          class="columns is-variable is-8-desktop"
+          :class="{ rowReverse: imagePushed }"
+        >
+          <div class="column content-with-image__content is-6-tablet is-6-desktop">
+            <h2 class="title section-title">
+              {{ $page.allContentfulAboutPage.edges[0].node.heading }}
+            </h2>
+            <div class="content-with-image__body-text">
+              {{$page.allContentfulAboutPage.edges[0].node.subheading}}
+            </div>
+            <div class="content-with-image__link cta-link">
+              <slot name="link"> </slot>
+              <b-icon
+                size="is-small"
+                icon="arrow-right"
+              ></b-icon>
+            </div>
+          </div>
+          <div class="column content-with-image__image-container is-6-tablet is-6-desktop">
+            <div class="content-with-image__image image is-square">
+              <slot name="image"></slot>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <AboutCallToAction />
     </div>
@@ -95,27 +108,89 @@ query AboutContentBlock {
 </static-query>
 
 <style lang="scss" scoped>
-.about {
-  &__text {
-    .title {
-      margin-bottom: 2rem;
+.section {
+  padding-top: 4rem;
+  padding-bottom: 3rem;
+
+  @include from($tablet) {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+  }
+
+  @include from($desktop) {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+  }
+}
+
+.columns {
+  align-items: center;
+  display: flex;
+  flex-direction: column-reverse;
+
+  @include from($tablet) {
+    padding-bottom: 0;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  @include from($desktop) {
+    align-items: center;
+  }
+}
+
+.rowReverse {
+  @include from($tablet) {
+    flex-direction: row-reverse;
+  }
+}
+
+.content-with-image {
+  .title {
+    margin-bottom: 0;
+  }
+
+  &__body-text {
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+
+    p {
+      margin-bottom: 1.5rem;
+      @include set_type(1.2rem);
     }
   }
 
-  &__figure-heading {
-    .subtitle {
-      padding-top: 2rem;
-      padding-bottom: 2rem;
-      margin: 0;
+  &__link {
+    a {
+      font-size: 1.25rem;
+      font-weight: bold;
+      text-decoration: underline;
+    }
+
+    .icon {
+      margin-left: 0.5rem;
+      color: $blue;
     }
   }
 
-  &__list {
-    padding-top: 1rem;
+  &__image-container {
+    width: 100%;
+    padding-bottom: 6rem;
+    position: relative;
 
-    li {
-      line-height: 1.6;
-      margin-bottom: 2rem;
+    @include from($desktop) {
+      padding-bottom: 0;
+    }
+  }
+
+  &__image {
+    border-radius: 6px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      object-position: center;
+      z-index: 20;
     }
   }
 }

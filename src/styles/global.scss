@@ -85,6 +85,10 @@ section.single-page {
   filter: blur(0);
 }
 
+.imageBoxShadow {
+  @include box_shadow(3);
+}
+
 .email-signup-modal {
   .modal-content {
     overflow: visible;
