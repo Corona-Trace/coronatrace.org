@@ -236,13 +236,7 @@ query HowItWorksCarousel {
     flex-direction: column;
 
     h2 {
-      padding: 0.25rem 1rem;
-      color: $green;
-      background-color: $green-light;
-      border-radius: 50px;
-      width: fit-content;
-      margin-bottom: 1rem;
-      margin-top: 0.5rem;
+      @include heading_tag($green);
     }
 
     .section-title {
