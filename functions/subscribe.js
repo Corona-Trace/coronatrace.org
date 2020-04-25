@@ -7,6 +7,11 @@ const mailChimpListID = process.env.MAILCHIMP_LIST_ID
 
 const mailchimp = new Mailchimp(mailChimpAPI)
 
+const headers = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Credentials': 'true'
+}
+
 exports.handler = function(event, context, callback) {
   const data = JSON.parse(event.body)
 
@@ -28,10 +33,7 @@ exports.handler = function(event, context, callback) {
         console.log(results)
         const response = {
           statusCode: 200,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true
-          },
+          headers: header,
           body: JSON.stringify({ status: 'Success!' })
         }
         callback(null, response)
@@ -45,10 +47,7 @@ exports.handler = function(event, context, callback) {
 
         const response = {
           statusCode: 200,
-          headers: {
-            'Access-Control-Allow-Origin': '*',
-            'Access-Control-Allow-Credentials': true
-          },
+          headers: header,
           body: JSON.stringify({
             status: 'Error',
             title: err.title,
@@ -60,10 +59,7 @@ exports.handler = function(event, context, callback) {
   } else {
     const response = {
       statusCode: 400,
-      headers: {
-        'Access-Control -Allow-Origin': '*',
-        'Access-Control-Allow-Credentials': true
-      },
+      headers: header,
       body: JSON.stringify({
         status: 'Error',
         message: 'One or more fields are missing'
