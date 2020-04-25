@@ -33,7 +33,7 @@ exports.handler = function(event, context, callback) {
         console.log(results)
         const response = {
           statusCode: 200,
-          headers: header,
+          headers: headers,
           body: JSON.stringify({ status: 'Success!' })
         }
         callback(null, response)
@@ -47,7 +47,7 @@ exports.handler = function(event, context, callback) {
 
         const response = {
           statusCode: 200,
-          headers: header,
+          headers: headers,
           body: JSON.stringify({
             status: 'Error',
             title: err.title,
@@ -59,7 +59,7 @@ exports.handler = function(event, context, callback) {
   } else {
     const response = {
       statusCode: 400,
-      headers: header,
+      headers: headers,
       body: JSON.stringify({
         status: 'Error',
         message: 'One or more fields are missing'
