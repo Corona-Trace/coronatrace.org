@@ -55,6 +55,7 @@ export default {}
 <style lang="scss" scoped>
 .get-started {
   &__heading {
+    display: flex;
     text-align: center;
     margin-bottom: 4rem;
     flex-direction: column;

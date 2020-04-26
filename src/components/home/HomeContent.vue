@@ -6,6 +6,7 @@
       :index="index"
       :alternateBackground="!edge.node.alignImageRight"
       :imagePushed="edge.node.alignImageRight"
+      :imageBoxShadow="edge.node.imageBoxShadow"
     >
       <template v-slot:heading-tag>{{ edge.node.headingTag }}</template>
       <template v-slot:heading>{{ edge.node.heading }}</template>
@@ -25,7 +26,6 @@
           :src="renderOptimizedImage(edge.node.image.file.url)"
           :alt="edge.node.image.title"
           src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
-          :class="{imageBoxShadow: edge.node.imageBoxShadow}"
         />
       </template>
     </ContentWithImage>

@@ -6,10 +6,7 @@
         :class="{ rowReverse: imagePushed }"
       >
         <div class="column content-with-image__content is-6-tablet is-6-desktop">
-          <h3
-            class=""
-            :class="'content-with-image__heading-tag-' + tagColor"
-          >
+          <h3 :class="'content-with-image__heading-tag-' + tagColor">
             <slot name="heading-tag"></slot>
           </h3>
           <h2 class="title section-title">
@@ -19,15 +16,19 @@
             <slot name="body-text"></slot>
           </div>
           <div class="content-with-image__link cta-link">
-            <slot name="link"> </slot>
+            <slot name="link"></slot>
             <b-icon
               size="is-small"
               icon="arrow-right"
+              v-if="hasLinkSlot"
             ></b-icon>
           </div>
         </div>
         <div class="column content-with-image__image-container is-6-tablet is-6-desktop">
-          <div class="content-with-image__image image is-square">
+          <div
+            class="content-with-image__image image is-square"
+            :class="{ imageBoxShadow: imageBoxShadow }"
+          >
             <slot name="image"></slot>
           </div>
         </div>
@@ -41,12 +42,16 @@ export default {
   props: {
     // Set to true if you want image to be pushed to the right
     imagePushed: Boolean,
-    alternateBackground: Boolean
+    alternateBackground: Boolean,
+    imageBoxShadow: Boolean
   },
   data: function() {
     return {}
   },
   computed: {
+    hasLinkSlot() {
+      return !!this.$slots.link
+    },
     tagColor() {
       if (this.$attrs.index == 0) {
         return 'orange'
@@ -123,6 +128,10 @@ export default {
     @include from($desktop) {
       padding-bottom: 0;
     }
+  }
+
+  .imageBoxShadow {
+    @include box_shadow(3);
   }
 
   &__image {
