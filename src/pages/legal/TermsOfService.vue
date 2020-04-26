@@ -4,6 +4,7 @@
       <PageHeader
         :title="$static.contentfulSinglePageBasic.heading"
         class="terms-of-service__heading"
+        alternateBackground
       >
       </PageHeader>
 

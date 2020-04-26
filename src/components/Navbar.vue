@@ -27,14 +27,7 @@
         tag="g-link"
         to="/privacy"
       >
-        Your Privacy
-      </b-navbar-item>
-
-      <b-navbar-item
-        tag="g-link"
-        to="/resources"
-      >
-        Resources
+        Privacy
       </b-navbar-item>
 
       <b-navbar-item

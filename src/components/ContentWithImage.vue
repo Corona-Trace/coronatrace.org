@@ -1,5 +1,8 @@
 <template>
-  <section class="section content-with-image primary-section">
+  <section
+    class="section content-with-image primary-section"
+    :class="{ alternateBackground: alternateBackground }"
+  >
     <div class="container">
       <div
         class="columns is-variable is-8-desktop"

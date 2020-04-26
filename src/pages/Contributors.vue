@@ -35,17 +35,26 @@ export default {
 
 <style lang="scss" scoped>
 .section {
-  padding-top: 9rem;
-  padding-bottom: 2rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 
-  &__contributors {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
+  @include from($tablet) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  @include from($desktop) {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
 }
 
 .contributors {
-  padding-bottom: 6rem;
+  text-align: center;
+
+  .page-header {
+    background-color: $off-white;
+  }
 
   .columns {
     align-items: center;

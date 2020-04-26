@@ -4,6 +4,7 @@
       <PageHeader
         :title="$static.contentfulSinglePageBasic.heading"
         class="privacy-policy__heading"
+        alternateBackground
       >
       </PageHeader>
 

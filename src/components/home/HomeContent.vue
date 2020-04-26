@@ -4,7 +4,7 @@
       v-for="(edge, index) in $static.allContentfulHomeContentBlock.edges"
       :key="edge.node.id"
       :index="index"
-      :alternateBackground="!edge.node.alignImageRight"
+      :alternateBackground="edge.node.alternateBackground"
       :imagePushed="edge.node.alignImageRight"
       :imageBoxShadow="edge.node.imageBoxShadow"
     >

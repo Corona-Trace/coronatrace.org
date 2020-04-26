@@ -152,11 +152,11 @@ export default {
 <style lang="scss" scoped>
 .section {
   padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 
   @include from($tablet) {
     padding-top: 6rem;
-    padding-bottom: 3rem;
+    padding-bottom: 6rem;
   }
 
   @include from($desktop) {

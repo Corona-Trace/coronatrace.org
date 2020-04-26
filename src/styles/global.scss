@@ -98,3 +98,8 @@ section.single-page {
 body.has-navbar-fixed-top {
   padding-top: $navbar-height;
 }
+
+.largeMargins {
+  max-width: 720px;
+  margin: auto;
+}
