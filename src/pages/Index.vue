@@ -9,6 +9,7 @@
     <HomeContent />
 
     <HomeCallToAction />
+
   </Layout>
 </template>
 

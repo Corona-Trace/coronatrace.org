@@ -48,10 +48,7 @@
             <!-- <BadgeApple class="badge" />
           <BadgeGoogle class="badge" /> -->
             <div class="footer__item">
-              <b-button
-                type="is-primary is-rounded"
-                disabled
-              >Coming Soon</b-button>
+              <JoinWaitlist />
             </div>
           </div>
         </div>
@@ -75,12 +72,14 @@
 import Logo from '~/assets/images/Logo.svg'
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
+import JoinWaitlist from '~/components/JoinWaitlist.vue'
 
 export default {
   components: {
     Logo,
     BadgeApple,
-    BadgeGoogle
+    BadgeGoogle,
+    JoinWaitlist
   },
   computed: {
     currentYear() {

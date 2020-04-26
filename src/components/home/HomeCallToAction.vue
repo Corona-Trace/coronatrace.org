@@ -22,12 +22,7 @@
           target="_blank"
           rounded
         >Join the Beta</b-button>
-        <b-button
-          v-else
-          type="is-primary"
-          disabled
-          rounded
-        >Coming Soon</b-button>
+        <JoinWaitlist />
       </div>
     </div>
   </section>
@@ -36,11 +31,13 @@
 <script>
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
+import JoinWaitlist from '~/components/JoinWaitlist.vue'
 
 export default {
   components: {
     BadgeApple,
-    BadgeGoogle
+    BadgeGoogle,
+    JoinWaitlist
   }
 }
 </script>

@@ -113,7 +113,12 @@ export default {
 
   &__body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+
+    @include from($tablet) {
+      flex-direction: row;
+      justify-content: center;
+    }
   }
 }
 </style>

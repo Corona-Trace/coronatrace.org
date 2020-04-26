@@ -16,12 +16,7 @@
           </div>
 
           <div class="hero__cta">
-            <b-button
-              @click="showModal"
-              type="is-primary"
-              size="is-large"
-              rounded
-            >Join Waitlist</b-button>
+            <JoinWaitlist />
           </div>
         </div>
         <div class="column is-4-tablet is-5-fullhd hero__right">
@@ -36,31 +31,16 @@
       </div>
     </div>
 
-    <b-modal
-      :active.sync="emailSignupActive"
-      trap-focus
-      aria-role="dialog"
-      aria-modal
-      scroll="keep"
-      class="email-signup-modal"
-    >
-      <email-signup></email-signup>
-    </b-modal>
   </section>
 </template>
 
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
+import JoinWaitlist from '~/components/JoinWaitlist.vue'
 
 export default {
   components: {
-    EmailSignup
-  },
-  data() {
-    return {
-      emailSignupActive: false
-    }
+    JoinWaitlist
   },
   methods: {
     richtextToHTML(content) {
@@ -78,9 +58,6 @@ export default {
 
       var final = '<h1 class="title">' + notEmptyText + '</h1>'
       return final
-    },
-    showModal() {
-      this.emailSignupActive = true
     }
   }
 }
