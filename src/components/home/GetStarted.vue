@@ -8,7 +8,7 @@
       <div class="columns is-multiline">
         <div
           class="column is-6-tablet is-3-desktop get-started__item"
-          v-for="edge in $static.allContentfulGetStartedItem.edges"
+          v-for="edge in $static.allContentfulFeatureListItem.edges"
           :key="edge.node.id"
         >
           <picture class="get-started__icon">
@@ -28,7 +28,7 @@
 
 <static-query>
 query GetStartedItems {
-  allContentfulGetStartedItem(sortBy: "order", order: ASC) {
+  allContentfulFeatureListItem(sortBy: "order", order: ASC) {
     edges {
       node {
         id,

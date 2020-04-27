@@ -1,7 +1,7 @@
 <template>
   <div>
     <ContentWithImage
-      v-for="(edge, index) in $static.allContentfulHomeContentBlock.edges"
+      v-for="(edge, index) in $static.allContentfulContentWithImage.edges"
       :key="edge.node.id"
       :index="index"
       :alternateBackground="edge.node.alternateBackground"
@@ -56,7 +56,7 @@ export default {
 
 <static-query>
 query HomeContent {
-  allContentfulHomeContentBlock(sortBy: "order", order: ASC) {
+  allContentfulContentWithImage(sortBy: "order", order: ASC) {
     edges {
       node {
         id,

@@ -30,7 +30,7 @@
                 ref="hiwCarousel"
               >
                 <b-carousel-item
-                  v-for="(item, i) in $static.allContentfulHowItWorksCarousel
+                  v-for="(item, i) in $static.allContentfulDeviceCarouselItem
                   .edges"
                   :key="i"
                 >
@@ -81,10 +81,10 @@
           <div class="how-it-works__heading">
             <h2>How It Works</h2>
             <h3 class="title section-title">
-              {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.heading }}
+              {{ $static.allContentfulDeviceCarouselItem.edges[activeCarouselItem].node.heading }}
             </h3>
             <p class="text">
-              {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
+              {{ $static.allContentfulDeviceCarouselItem.edges[activeCarouselItem].node.text }}
             </p>
           </div>
           <div class="how-it-works__indicator indicator is-hidden-mobile">
@@ -153,14 +153,14 @@ export default {
   },
   computed: {
     currentHeading() {
-      const carousel = $static.allContentfulHowItWorksCarousel
+      const carousel = $static.allContentfulDeviceCarouselItem
       const i = this.activeCarouselItem
       const heading =
-        $static.allContentfulHowItWorksCarousel.edges[i].node.heading
+        $static.allContentfulDeviceCarouselItem.edges[i].node.heading
       return heading
     },
     totalCarouselItems() {
-      const length = this.$static.allContentfulHowItWorksCarousel.edges.length
+      const length = this.$static.allContentfulDeviceCarouselItem.edges.length
       return length
     }
   }
@@ -169,7 +169,7 @@ export default {
 
 <static-query>
 query HowItWorksCarousel {
-  allContentfulHowItWorksCarousel(sortBy: "order", order: ASC) {
+  allContentfulDeviceCarouselItem(sortBy: "order", order: ASC) {
     edges {
       node {
         id,
