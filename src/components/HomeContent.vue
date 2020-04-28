@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ContentWithImageGrid
+    <ContentWithImage
       v-for="(edge, index) in $static.allContentfulContentWithImage.edges"
       :key="edge.node.id"
       :index="index"
@@ -28,19 +28,19 @@
           src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
         />
       </template>
-    </ContentWithImageGrid>
+    </ContentWithImage>
   </div>
 </template>
 
 <script>
 import VLazyImage from 'v-lazy-image'
-import ContentWithImageGrid from '~/components/ContentWithImageGrid.vue'
+import ContentWithImage from '~/components/ContentWithImageGrid.vue'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
-    ContentWithImageGrid,
+    ContentWithImage,
     VLazyImage
   },
   methods: {

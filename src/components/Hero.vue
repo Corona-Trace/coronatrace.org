@@ -19,7 +19,7 @@
             <JoinWaitlist />
           </div>
         </div>
-        <div class="column is-4-tablet is-5-fullhd hero__right">
+        <div class="column is-4-tablet is-5-desktop hero__right">
 
           <v-lazy-image
             :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
@@ -115,6 +115,7 @@ query HomeHero {
 
     @include from($tablet) {
       flex-direction: row;
+      align-items: center;
     }
   }
 
