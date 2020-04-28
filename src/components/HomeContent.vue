@@ -34,7 +34,7 @@
 
 <script>
 import VLazyImage from 'v-lazy-image'
-import ContentWithImage from '~/components/ContentWithImageGrid.vue'
+import ContentWithImage from '~/components/ContentWithImage.vue'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import { renderImage } from '~/helpers/contentful'
 
