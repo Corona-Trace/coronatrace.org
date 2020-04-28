@@ -945,6 +945,11 @@
     "@contentful/rich-text-types" "^13.4.0"
     escape-html "^1.0.3"
 
+"@contentful/rich-text-types@^12.1.2":
+  version "12.1.2"
+  resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-12.1.2.tgz#3ac70eb49e7636705e5b962d3c91e2cffbee5e5a"
+  integrity sha512-AFLfDBKEj/6zYg4srg0165d3zyw5iprVjyW/Mll0C8IXT1VPadXIhkcA28N5BKYzOtykuJ2wOYNqvs1zAkNpUQ==
+
 "@contentful/rich-text-types@^13.4.0":
   version "13.4.0"
   resolved "https://registry.yarnpkg.com/@contentful/rich-text-types/-/rich-text-types-13.4.0.tgz#a59c311ebd1b801ee00edbc08663c8d78da26171"
@@ -2820,6 +2825,13 @@ contentful-resolve-response@^1.1.4:
   integrity sha512-oFq6n6zjbiwD9/7mBa8YHPwvPM0B0D4uOgg1n/rVzpQPhCrzeIixNj6fbJAbDiJt05rZqxiY3K1Db7pPRhRaZw==
   dependencies:
     lodash "^4.17.4"
+
+contentful-rich-text-vue-renderer@^1.1.5:
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/contentful-rich-text-vue-renderer/-/contentful-rich-text-vue-renderer-1.1.5.tgz#ec9c072d026b5b7360d3b75ed3eafb1bd14e055e"
+  integrity sha512-3N9akWhEjG2absydDmgA9aN0dP7PK6GfNfemW2u8rgSHXOiieuTGdiMDL0tI/auTwiawOl7eIxI1jJyYV53kyQ==
+  dependencies:
+    "@contentful/rich-text-types" "^12.1.2"
 
 contentful-sdk-core@^6.0.1:
   version "6.4.1"

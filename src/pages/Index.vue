@@ -2,23 +2,23 @@
   <Layout>
     <Hero />
 
-    <HowItWorks />
+    <DeviceCarousel />
 
-    <GetStarted />
+    <FeatureList />
 
     <HomeContent />
 
-    <HomeCallToAction />
+    <CallToAction />
 
   </Layout>
 </template>
 
 <script>
-import Hero from '~/components/home/Hero.vue'
-import HowItWorks from '~/components/home/HowItWorks.vue'
-import GetStarted from '~/components/home/GetStarted.vue'
-import HomeContent from '~/components/home/HomeContent.vue'
-import HomeCallToAction from '~/components/home/HomeCallToAction.vue'
+import Hero from '~/components/Hero.vue'
+import DeviceCarousel from '~/components/DeviceCarousel.vue'
+import FeatureList from '~/components/FeatureList.vue'
+import HomeContent from '~/components/HomeContent.vue'
+import CallToAction from '~/components/CallToAction.vue'
 
 export default {
   metaInfo: {
@@ -26,10 +26,22 @@ export default {
   },
   components: {
     Hero,
-    HowItWorks,
-    GetStarted,
+    DeviceCarousel,
+    FeatureList,
     HomeContent,
-    HomeCallToAction
+    CallToAction
   }
 }
 </script>
+
+<page-query>
+query HomePage {
+  contentfulPage(id: "4hWifiNXmiEfiv2NFxI1R3") {
+    id,
+    title,
+    date,
+    name,
+    content
+  }
+}
+</page-query>

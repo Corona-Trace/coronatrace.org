@@ -24,6 +24,7 @@
     "bulma-scss": "^0.8.1",
     "cleave.js": "^1.5.10",
     "concurrently": "^5.1.0",
+    "contentful-rich-text-vue-renderer": "^1.1.5",
     "gridsome": "^0.7.0",
     "gridsome-plugin-robots-txt": "^1.0.2",
     "mailchimp-api-v3": "^1.13.1",
