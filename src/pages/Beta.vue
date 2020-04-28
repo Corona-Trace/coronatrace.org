@@ -4,9 +4,11 @@
 
     <DeviceCarousel />
 
+    <FeatureList />
+
     <HomeContent />
 
-    <CallToAction />
+    <CallToAction alternateBackground />
   </Layout>
 </template>
 
