@@ -101,7 +101,7 @@ export default {
 
 .content-with-image {
   &__content {
-    @include until($tablet) {
+    @include until($desktop) {
       padding: 4rem 2rem !important;
     }
   }
@@ -135,10 +135,10 @@ export default {
 
   &__image-container {
     width: 100%;
-    padding-bottom: 6rem;
+
     position: relative;
 
-    @include from($tablet) {
+    @include from($desktop) {
       padding-bottom: 0;
     }
   }
@@ -148,7 +148,7 @@ export default {
   }
 
   &__image {
-    @include from($tablet) {
+    @include from($desktop) {
       border-radius: 6px;
     }
 
