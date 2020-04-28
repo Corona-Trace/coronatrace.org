@@ -5,10 +5,10 @@
   >
     <div class="container">
       <div
-        class="columns is-variable is-8-desktop"
+        class="columns is-variable is-mobile-6 is-6-tablet is-8-desktop"
         :class="{ rowReverse: imagePushed }"
       >
-        <div class="column content-with-image__content is-6-tablet is-6-desktop">
+        <div class="column content-with-image__content is-12-tablet is-6-desktop">
           <h3 :class="'content-with-image__heading-tag-' + tagColor">
             <slot name="heading-tag"></slot>
           </h3>
@@ -27,7 +27,7 @@
             ></b-icon>
           </div>
         </div>
-        <div class="column content-with-image__image-container is-6-tablet is-6-desktop">
+        <div class="column content-with-image__image-container is-12-tablet is-6-desktop">
           <div
             class="content-with-image__image image is-square"
             :class="{ imageBoxShadow: imageBoxShadow }"
@@ -71,6 +71,10 @@ export default {
 <style lang="scss" scoped>
 .section {
   overflow: hidden;
+
+  @include until($desktop) {
+    padding: 0;
+  }
 }
 
 .columns {
@@ -78,7 +82,7 @@ export default {
   display: flex;
   flex-direction: column-reverse;
 
-  @include from($tablet) {
+  @include from($desktop) {
     padding-bottom: 0;
     flex-direction: row;
     align-items: flex-start;
@@ -90,12 +94,18 @@ export default {
 }
 
 .rowReverse {
-  @include from($tablet) {
+  @include from($desktop) {
     flex-direction: row-reverse;
   }
 }
 
 .content-with-image {
+  &__content {
+    @include until($tablet) {
+      padding: 4rem 2rem !important;
+    }
+  }
+
   .title {
     margin-bottom: 0;
   }
@@ -128,7 +138,7 @@ export default {
     padding-bottom: 6rem;
     position: relative;
 
-    @include from($desktop) {
+    @include from($tablet) {
       padding-bottom: 0;
     }
   }
@@ -138,7 +148,10 @@ export default {
   }
 
   &__image {
-    border-radius: 6px;
+    @include from($tablet) {
+      border-radius: 6px;
+    }
+
     overflow: hidden;
 
     img {
