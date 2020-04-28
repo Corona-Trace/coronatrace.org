@@ -2,7 +2,7 @@
   <section class="section hero">
     <div class="container">
       <div class="columns hero__columns">
-        <div class="column is-8-tablet is-7-desktop hero__left">
+        <div class="column is-7-tablet is-7-desktop hero__left">
           <div class="hero__text">
             <div v-html="
                 richtextToHTML(
@@ -19,7 +19,7 @@
             <JoinWaitlist />
           </div>
         </div>
-        <div class="column is-4-tablet is-5-desktop hero__right">
+        <div class="column is-5-tablet is-5-desktop hero__right">
 
           <v-lazy-image
             :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
@@ -30,7 +30,6 @@
         </div>
       </div>
     </div>
-
   </section>
 </template>
 
@@ -96,16 +95,21 @@ query HomeHero {
 <style lang="scss">
 .hero {
   padding-top: 4rem;
-  padding-bottom: 3rem;
+  padding-bottom: 4rem;
 
   @include from($tablet) {
-    padding-top: 6rem;
-    padding-bottom: 3rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   @include from($desktop) {
-    padding-top: 9rem;
-    padding-bottom: 9rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  @include from($fullhd) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
   }
 
   &__columns {
@@ -117,9 +121,6 @@ query HomeHero {
       flex-direction: row;
       align-items: center;
     }
-  }
-
-  &__image {
   }
 
   &__left {
