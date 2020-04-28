@@ -5,7 +5,7 @@
       <ContentWithImage>
         <template v-slot:heading-tag></template>
         <template v-slot:heading>
-          About TraceToZero.
+          About TraceToZero
         </template>
 
         <template v-slot:body-text>
