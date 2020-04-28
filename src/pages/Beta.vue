@@ -2,19 +2,21 @@
   <Layout>
     <Hero />
 
-    <HowItWorks />
+    <DeviceCarousel />
+
+    <FeatureList />
 
     <HomeContent />
 
-    <HomeCallToAction />
+    <CallToAction alternateBackground />
   </Layout>
 </template>
 
 <script>
 import Hero from '~/components/home/HeroBeta.vue'
-import HowItWorks from '~/components/home/HowItWorks.vue'
-import HomeContent from '~/components/home/HomeContent.vue'
-import HomeCallToAction from '~/components/home/HomeCallToAction.vue'
+import DeviceCarousel from '~/components/DeviceCarousel.vue'
+import HomeContent from '~/components/HomeContent.vue'
+import CallToAction from '~/components/CallToAction.vue'
 
 export default {
   metaInfo: {
@@ -23,9 +25,9 @@ export default {
   },
   components: {
     Hero,
-    HowItWorks,
+    DeviceCarousel,
     HomeContent,
-    HomeCallToAction
+    CallToAction
   }
 }
 </script>

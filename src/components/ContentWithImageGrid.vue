@@ -3,12 +3,12 @@
     class="section content-with-image primary-section"
     :class="{ alternateBackgroundLight: alternateBackground }"
   >
-    <div class="container">
+    <div class="container-fluid is-gapless">
       <div
-        class="columns is-variable is-mobile-6 is-6-tablet is-8-desktop"
+        class="columns"
         :class="{ rowReverse: imagePushed }"
       >
-        <div class="column content-with-image__content is-12-tablet is-6-desktop">
+        <div class="column content-with-image__content is-6-tablet is-6-desktop">
           <h3 :class="'content-with-image__heading-tag-' + tagColor">
             <slot name="heading-tag"></slot>
           </h3>
@@ -27,7 +27,7 @@
             ></b-icon>
           </div>
         </div>
-        <div class="column content-with-image__image-container is-12-tablet is-6-desktop">
+        <div class="column content-with-image__image-container is-6-tablet is-6-desktop">
           <div
             class="content-with-image__image image is-square"
             :class="{ imageBoxShadow: imageBoxShadow }"
@@ -71,43 +71,42 @@ export default {
 <style lang="scss" scoped>
 .section {
   overflow: hidden;
-
-  @include until($desktop) {
-    padding: 0;
-  }
+  padding: 0;
 }
 
 .columns {
-  align-items: center;
+  align-items: stretch;
   display: flex;
   flex-direction: column-reverse;
 
-  @include from($desktop) {
+  @include from($tablet) {
     padding-bottom: 0;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   @include from($desktop) {
-    align-items: center;
+    align-items: stretch;
   }
 }
 
 .rowReverse {
-  @include from($desktop) {
+  @include from($tablet) {
     flex-direction: row-reverse;
   }
 }
 
 .content-with-image {
-  &__content {
-    @include until($desktop) {
-      padding: 4rem 2rem !important;
-    }
-  }
-
   .title {
     margin-bottom: 0;
+  }
+
+  &__content {
+    padding: 4rem 2rem;
+
+    @include from($desktop) {
+      padding: 8rem;
+    }
   }
 
   &__body-text {
@@ -134,8 +133,7 @@ export default {
   }
 
   &__image-container {
-    width: 100%;
-
+    padding: 0;
     position: relative;
 
     @include from($desktop) {
@@ -144,15 +142,14 @@ export default {
   }
 
   .imageBoxShadow {
-    @include box_shadow(3);
+    // @include box_shadow(3);
   }
 
   &__image {
-    @include from($desktop) {
-      border-radius: 6px;
-    }
-
+    // border-radius: 6px;
     overflow: hidden;
+    width: 100%;
+    height: 100%;
 
     img {
       object-fit: cover;

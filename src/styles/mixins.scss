@@ -25,3 +25,15 @@
     line-height: 1.9 * $font-size;
   }
 }
+
+@mixin heading_tag($color) {
+  padding: 0.25rem 1rem;
+  color: $color;
+  background-color: lighten(rgba($color, 0.5), 20%);
+  border-radius: 50px;
+  width: fit-content;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+}

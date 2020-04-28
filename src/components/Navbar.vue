@@ -4,6 +4,7 @@
     wrapper-class="container"
     :fixed-top="true"
     :class="{ scrolled: scrolled }"
+    class="alternateBackground"
   >
     <template slot="brand">
       <b-navbar-item
@@ -25,6 +26,13 @@
 
       <b-navbar-item
         tag="g-link"
+        to="/privacy"
+      >
+        Privacy
+      </b-navbar-item>
+
+      <b-navbar-item
+        tag="g-link"
         to="/contributors"
       >
         Contributors
@@ -42,9 +50,9 @@
           <a
             v-else
             class="button is-primary is-rounded"
-            disabled
+            @click="toggleEmailModal"
           >
-            Coming Soon
+            Join Waitlist
           </a>
         </div>
       </b-navbar-item>
@@ -54,6 +62,7 @@
 
 <script>
 import Logo from '~/assets/images/Logo.svg'
+import { mapActions } from 'vuex'
 
 export default {
   data: function() {
@@ -68,6 +77,7 @@ export default {
     Logo
   },
   methods: {
+    ...mapActions(['toggleEmailModal']),
     handleScroll() {
       // Stop gridsome from trying to run this function on build - results in window not defined error
       if (!process.isClient) return
@@ -84,6 +94,9 @@ export default {
 
       this.lastPosition = window.scrollY
       // this.scrolled = window.scrollY > 250;
+    },
+    showModal() {
+      this.$emit('showModal')
     }
   },
   created() {

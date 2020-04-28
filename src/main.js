@@ -3,15 +3,47 @@
 import '@mdi/font/scss/materialdesignicons.scss'
 import Buefy from 'buefy'
 import '~/styles/main.scss'
+import Vuex from 'vuex'
 
 import DefaultLayout from '~/layouts/Default.vue'
 
-export default function(Vue, { router, head, isClient }) {
+export default function(Vue, { router, head, isClient, appOptions }) {
+  Vue.use(Vuex)
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
 
   // Register our Bulma component library
   Vue.use(Buefy, {
     defaultIconPack: 'mdi'
+  })
+
+  appOptions.store = new Vuex.Store({
+    state: {
+      emailModalActive: false
+    },
+    getters: {
+      emailModalActive: (state, getters, rootState) => {
+        return state.emailModalActive
+      }
+    },
+    mutations: {
+      openModal(state) {
+        state.emailModalActive = true
+      },
+      closeModal(state) {
+        state.emailModalActive = false
+      }
+    },
+    actions: {
+      toggleEmailModal({ state, commit }) {
+        const emailModalActive = state.emailModalActive
+
+        if (emailModalActive) {
+          commit('closeModal')
+        } else {
+          commit('openModal')
+        }
+      }
+    }
   })
 }

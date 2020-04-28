@@ -1,15 +1,17 @@
 <template>
   <section
     v-if="$static.allCorporate.edges.length > 0"
-    class="section section__contributors contributors__corporate"
+    class="section contributors contributors__corporate"
   >
     <div class="container">
-      <h2 class="title">Corporate Contributors</h2>
-      <div class="columns is-variable is-multiline is-8 is-mobile">
+      <div class="contributors__heading">
+        <h3 class="heading-tag">Corporate Contributors</h3>
+      </div>
+      <div class="contributors__container columns is-variable is-multiline is-4 is-mobile">
         <div
           v-for="edge in $static.allCorporate.edges"
           :key="edge.node.id"
-          class="column is-2"
+          class="column"
           v-if="edge.node.fields.Logo.length > 0"
         >
           <div class="contributor">
@@ -42,12 +44,49 @@ export default {}
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 0 0 32% !important;
+    flex: 0 0 25% !important;
 
     @include from($desktop) {
       flex: none !important;
     }
   }
+}
+
+.contributors {
+  &__corporate {
+    background: $white;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    justify-content: center;
+    max-width: 960px;
+    margin: auto !important;
+
+    .column {
+      justify-content: center;
+    }
+  }
+
+  .contributor {
+    background: $white;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 10rem;
+    width: 10rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+}
+
+.heading-tag {
+  @include heading_tag($orange);
 }
 </style>
 

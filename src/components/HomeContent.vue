@@ -1,11 +1,14 @@
 <template>
   <div>
     <ContentWithImage
-      v-for="edge in $static.allContentfulHomeContentBlock.edges"
+      v-for="(edge, index) in $static.allContentfulContentWithImage.edges"
       :key="edge.node.id"
-      :alternateBackground="!edge.node.alignImageRight"
+      :index="index"
+      :alternateBackground="edge.node.alternateBackground"
       :imagePushed="edge.node.alignImageRight"
+      :imageBoxShadow="edge.node.imageBoxShadow"
     >
+      <template v-slot:heading-tag>{{ edge.node.headingTag }}</template>
       <template v-slot:heading>{{ edge.node.heading }}</template>
 
       <template v-slot:body-text>
@@ -45,7 +48,7 @@ export default {
       return documentToHtmlString(content)
     },
     renderOptimizedImage(src) {
-      return renderImage({ src, fit: 'fill', w: 640, h: 640 })
+      return renderImage({ src, fit: 'fill', w: 1280, h: 1280 })
     }
   }
 }
@@ -53,7 +56,7 @@ export default {
 
 <static-query>
 query HomeContent {
-  allContentfulHomeContentBlock(sortBy: "order", order: ASC) {
+  allContentfulContentWithImage(sortBy: "order", order: ASC) {
     edges {
       node {
         id,
@@ -66,11 +69,15 @@ query HomeContent {
             fileName
           }
         },
+        headingTag,
+        headingTagColor,
         heading,
         text,
         linkText,
         linkDestination,
         alignImageRight,
+        imageBoxShadow,
+        alternateBackground,
         order
       }
     }

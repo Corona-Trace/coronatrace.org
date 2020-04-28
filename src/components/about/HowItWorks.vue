@@ -1,10 +1,10 @@
 <template>
-  <section class="section how-it-works primary-section">
+  <section class="section about-how-it-works primary-section">
     <div class="container">
-      <div class="columns how-it-works__carousel-container">
+      <div class="columns about-how-it-works__carousel-container">
 
-        <div class="column how-it-works__device-container">
-          <div class="how-it-works__device-inner-container">
+        <div class="column about-how-it-works__device-container">
+          <div class="about-how-it-works__device-inner-container">
             <g-image
               src="~/assets/images/hiw-blob.svg"
               width="458"
@@ -77,8 +77,8 @@
           </div>
         </div>
 
-        <div class="column how-it-works__body">
-          <div class="how-it-works__heading">
+        <div class="column about-how-it-works__body">
+          <div class="about-how-it-works__heading">
             <h2>How It Works</h2>
             <h3 class="title section-title">
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.heading }}
@@ -87,7 +87,7 @@
               {{ $static.allContentfulHowItWorksCarousel.edges[activeCarouselItem].node.text }}
             </p>
           </div>
-          <div class="how-it-works__indicator indicator is-hidden-mobile">
+          <div class="about-how-it-works__indicator indicator is-hidden-mobile">
             <div class="indicator__container">
               <span
                 class="current-item"
@@ -189,7 +189,7 @@ query HowItWorksCarousel {
 </static-query>
 
 <style lang="scss" scoped>
-.how-it-works {
+.about-how-it-works {
   &__carousel-container {
     display: flex;
     flex-direction: column-reverse;
@@ -236,13 +236,7 @@ query HowItWorksCarousel {
     flex-direction: column;
 
     h2 {
-      padding: 0.25rem 1rem;
-      color: $green;
-      background-color: $green-light;
-      border-radius: 50px;
-      width: fit-content;
-      margin-bottom: 1rem;
-      margin-top: 0.5rem;
+      @include heading_tag($green);
     }
 
     .section-title {

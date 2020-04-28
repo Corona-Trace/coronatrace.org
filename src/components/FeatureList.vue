@@ -1,21 +1,21 @@
 <template>
-  <section class="section get-started primary-section">
+  <section class="section get-started primary-section alternateBackground">
     <div class="container">
       <div class="get-started__heading">
+        <h3>Download the App</h3>
         <h2 class="section-title">Get Started</h2>
       </div>
       <div class="columns is-multiline">
         <div
           class="column is-6-tablet is-3-desktop get-started__item"
-          v-for="edge in $static.allContentfulGetStartedItem.edges"
+          v-for="edge in $static.allContentfulFeatureListItem.edges"
           :key="edge.node.id"
         >
-          <b-icon
-            class="get-started__icon"
-            size="is-large"
-            :icon="edge.node.iconHandle"
-          >
-          </b-icon>
+          <picture class="get-started__icon">
+            <g-image :src="edge.node.iconImage.file.url">
+            </g-image>
+          </picture>
+          </g-image>
           <div class="item__text">
             <h4 v-text="edge.node.heading"></h4>
             <p v-text="edge.node.text"></p>
@@ -28,11 +28,18 @@
 
 <static-query>
 query GetStartedItems {
-  allContentfulGetStartedItem(sortBy: "order", order: ASC) {
+  allContentfulFeatureListItem(sortBy: "order", order: ASC) {
     edges {
       node {
         id,
         iconHandle,
+        iconImage{
+          title,
+          file {
+            url,
+            fileName
+          }
+        },
         heading,
         text
       }
@@ -48,22 +55,30 @@ export default {}
 <style lang="scss" scoped>
 .get-started {
   &__heading {
+    display: flex;
     text-align: center;
     margin-bottom: 4rem;
+    flex-direction: column;
+    align-items: center;
 
     @include from($desktop) {
       margin-bottom: 8rem;
+    }
+
+    h3 {
+      @include heading_tag($red);
     }
   }
 
   &__item {
     padding: 2rem;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
 
     @include from($desktop) {
       padding: 0 2.75rem;
-      flex-direction: column;
     }
 
     h4 {
@@ -76,25 +91,27 @@ export default {}
         min-height: 6rem;
       }
     }
+
+    p {
+      @include set_type(1.125rem);
+    }
   }
 
   &__icon {
-    padding-right: 1.5rem;
     color: $blue;
     margin-bottom: 0.5rem;
-    height: 6rem;
     width: 6rem;
+    height: 6rem;
+    padding: 2rem;
+    border-radius: 50%;
+    background-color: $white;
+    overflow: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    @include from($desktop) {
-      padding-right: 0;
-      height: 3rem;
-      width: 3rem;
-    }
-
-    i {
-      &::before {
-        font-size: 6rem;
-      }
+    img {
+      width: 100%;
     }
   }
 }

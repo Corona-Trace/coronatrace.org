@@ -1,5 +1,8 @@
 <template>
-  <section class="section page-header alternateBackground">
+  <section
+    class="section page-header"
+    :class="{ alternateBackgroundLight: alternateBackground }"
+  >
     <div
       class="container"
       :class="{ 'container__large-margins': largeMargins }"
@@ -20,7 +23,9 @@
 export default {
   props: {
     title: String,
-    largeMargins: Boolean
+    largeMargins: Boolean,
+    alternateBackground: Boolean,
+    backgroundColor: String
   }
 }
 </script>
@@ -34,6 +39,15 @@ export default {
 .page-header {
   h1 {
     padding-bottom: 2rem;
+  }
+
+  .subtitle {
+    max-width: 525px;
+    margin: auto;
+  }
+
+  p:empty {
+    display: none;
   }
 }
 </style>

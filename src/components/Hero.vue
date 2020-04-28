@@ -16,51 +16,34 @@
           </div>
 
           <div class="hero__cta">
-            <b-button
-              @click="showModal"
-              type="is-primary"
-              size="is-large"
-              rounded
-            >Join Waitlist</b-button>
+            <JoinWaitlist />
           </div>
         </div>
-        <div class="column is-4-tablet is-5-fullhd hero__right">
+        <div class="column is-4-tablet is-5-desktop hero__right">
 
-          <g-image
-            width="403"
-            height="403"
-            src="~/assets/images/blue-dot.svg"
-            class="hero__dot"
-          ></g-image>
+          <v-lazy-image
+            :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
+            :alt="$static.allContentfulHomeHero.edges[0].node.image.title"
+            src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            class="hero__image"
+          />
         </div>
       </div>
     </div>
 
-    <b-modal
-      :active.sync="emailSignupActive"
-      trap-focus
-      aria-role="dialog"
-      aria-modal
-      scroll="keep"
-      class="email-signup-modal"
-    >
-      <email-signup></email-signup>
-    </b-modal>
   </section>
 </template>
 
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
-import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
+import JoinWaitlist from '~/components/JoinWaitlist.vue'
+import VLazyImage from 'v-lazy-image'
+import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
-    EmailSignup
-  },
-  data() {
-    return {
-      emailSignupActive: false
-    }
+    JoinWaitlist,
+    VLazyImage
   },
   methods: {
     richtextToHTML(content) {
@@ -79,8 +62,8 @@ export default {
       var final = '<h1 class="title">' + notEmptyText + '</h1>'
       return final
     },
-    showModal() {
-      this.emailSignupActive = true
+    renderOptimizedImage(src) {
+      return renderImage({ src, fit: 'fill', w: 720, h: 720 })
     }
   }
 }
@@ -92,6 +75,12 @@ query HomeHero {
     edges {
       node {
         id,
+        image {
+          title,
+          file {
+            url
+          }
+        },
         title,
         date,
         hero,
@@ -126,18 +115,11 @@ query HomeHero {
 
     @include from($tablet) {
       flex-direction: row;
+      align-items: center;
     }
   }
 
-  &__dot {
-    border-radius: 50%;
-    @include box_shadow(3);
-
-    @include until($tablet) {
-      @include box_shadow(1);
-      height: 13vh;
-      width: auto;
-    }
+  &__image {
   }
 
   &__left {

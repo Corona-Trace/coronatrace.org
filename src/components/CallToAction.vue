@@ -1,14 +1,17 @@
 <template>
-  <section class="section call-to-action primary-section">
+  <section
+    class="section call-to-action primary-section"
+    :class="{ alternateBackgroundLight: alternateBackground }"
+  >
     <div class="container">
       <div class="call-to-action__heading">
         <div class="call-to-action__dot"></div>
         <h2
           class="title section-title"
-          v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
+          v-text="$static.allContentfulCallToAction.edges[0].node.heading"
         ></h2>
         <p v-text="
-            $static.allContentfulHomeCallToAction.edges[0].node.subheading
+            $static.allContentfulCallToAction.edges[0].node.subheading
           "></p>
       </div>
       <div class="call-to-action__badges">
@@ -22,12 +25,7 @@
           target="_blank"
           rounded
         >Join the Beta</b-button>
-        <b-button
-          v-else
-          type="is-primary"
-          disabled
-          rounded
-        >Coming Soon</b-button>
+        <JoinWaitlist />
       </div>
     </div>
   </section>
@@ -36,23 +34,29 @@
 <script>
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
+import JoinWaitlist from '~/components/JoinWaitlist.vue'
 
 export default {
   components: {
     BadgeApple,
-    BadgeGoogle
+    BadgeGoogle,
+    JoinWaitlist
+  },
+  props: {
+    alternateBackground: Boolean
   }
 }
 </script>
 
 <static-query>
 query HomeCTA {
-  allContentfulHomeCallToAction {
+  allContentfulCallToAction {
     edges {
       node {
         id,
         heading,
-        subheading
+        subheading,
+        alternateBackground
       }
     }
   }

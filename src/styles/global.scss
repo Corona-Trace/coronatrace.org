@@ -25,6 +25,10 @@ main {
   background-color: $gray-bg;
 }
 
+.alternateBackgroundLight {
+  background-color: $off-white;
+}
+
 .container {
   &__large-margins {
     max-width: 720px;
@@ -97,4 +101,9 @@ section.single-page {
 
 body.has-navbar-fixed-top {
   padding-top: $navbar-height;
+}
+
+.largeMargins {
+  max-width: 720px;
+  margin: auto;
 }

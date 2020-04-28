@@ -1,17 +1,16 @@
 <template>
   <layout>
-    <div class="terms-of-service">
+    <div class="public-health">
       <PageHeader
         :title="$static.contentfulSinglePageBasic.heading"
-        class="terms-of-service__heading"
-        alternateBackground
+        class="public-health__heading"
       >
       </PageHeader>
 
-      <section class="section single-page__basic terms-of-service">
+      <section class="section single-page__basic public-health">
         <div class="container">
           <div
-            class="terms-of-service__content"
+            class="public-health__content"
             v-html="richTextToHTML($static.contentfulSinglePageBasic.content)"
           ></div>
         </div>
@@ -24,10 +23,13 @@
 import PageHeader from '~/components/PageHeader.vue'
 import { BLOCKS } from '@contentful/rich-text-types'
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import { renderImage } from '~/helpers/contentful'
+import VLazyImage from 'v-lazy-image'
 
 export default {
   components: {
-    PageHeader
+    PageHeader,
+    VLazyImage
   },
   methods: {
     richTextToHTML(content) {
@@ -45,14 +47,11 @@ export default {
 
 <static-query>
 
-query PrivacyPolicy {
-  contentfulSinglePageBasic(id: "3nb5uEjXxyT6Ya17JKJgni"){	
+query PublicHealth {
+  contentfulSinglePageBasic(id: "2Yg71I9t7ikhRD51McUtq3"){	
 		title,
         heading,
 		content
   }
 }
 </static-query>
-
-<style>
-</style>
