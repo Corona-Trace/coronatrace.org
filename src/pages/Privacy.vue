@@ -2,7 +2,7 @@
   <layout>
     <div class="privacy">
 
-      <ContentWithImage :imageBoxShadow="true">
+      <ContentWithImage>
         <template v-slot:heading-tag></template>
         <template v-slot:heading>
           We Don’t Track People, We Trace Infections - Safely and Anonymously.
@@ -16,10 +16,10 @@
         </template>
 
         <template v-slot:image>
-          <v-lazy-image
-            src="https://via.placeholder.com/600"
-            alt="Test"
-            src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          <g-image
+            src="~/assets/images/illustration-city.png"
+            alt="TracetoZero Takes Privacy Seriously"
+            width="640"
           />
         </template>
       </ContentWithImage>

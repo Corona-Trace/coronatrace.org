@@ -42,6 +42,15 @@
         </div>
         <div class="column">
           <div class="footer__heading">
+            <h4>Legal</h4>
+          </div>
+          <div class="footer__body">
+            <g-link to="/legal/privacy-policy">Privacy Policy</g-link>
+            <g-link to="/legal/terms-of-service">Terms of Service</g-link>
+          </div>
+        </div>
+        <div class="column">
+          <div class="footer__heading">
             <h4>Download the App</h4>
           </div>
           <div class="footer__body">
@@ -54,15 +63,11 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <div class="footer__bottom--left">
-          <div>
-            &copy; {{ currentYear }} TraceToZero
-          </div>
+
+        <div>
+          &copy; {{ currentYear }} TraceToZero
         </div>
-        <div class="footer__bottom--right">
-          <g-link to="/legal/privacy-policy">Privacy Policy</g-link>
-          <g-link to="/legal/terms-of-service">Terms of Service</g-link>
-        </div>
+
       </div>
     </div>
   </section>
@@ -126,7 +131,6 @@ export default {
   &__bottom {
     padding-top: 3rem;
     margin-top: 3rem;
-    border-top: 1px solid $gray;
     display: flex;
     flex-grow: 1;
     justify-content: center;
@@ -134,52 +138,6 @@ export default {
 
     @include from($desktop) {
       flex-direction: row;
-    }
-
-    &--left {
-      display: flex;
-      justify-content: flex-end;
-      margin: 1rem 0;
-      flex-direction: column;
-
-      @include from($desktop) {
-        flex-direction: row;
-        padding-right: 0.5rem;
-        border-right: 1px solid $gray;
-      }
-
-      > * {
-        padding: 0 0.5rem;
-        flex-direction: column;
-
-        @include from($desktop) {
-          flex-direction: row;
-          margin-right: 1rem;
-        }
-      }
-    }
-
-    &--right {
-      display: flex;
-      justify-content: flex-start;
-      padding-bottom: 0.5rem;
-      margin: 1rem 0;
-      flex-direction: column;
-
-      @include from($desktop) {
-        flex-direction: row;
-        padding-left: 1rem;
-      }
-
-      > * {
-        padding-bottom: 0.5rem;
-        flex-direction: column;
-
-        @include from($desktop) {
-          flex-direction: row;
-          padding: 0 0.5rem;
-        }
-      }
     }
   }
 }

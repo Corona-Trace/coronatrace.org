@@ -2,7 +2,7 @@
   <Layout>
     <div class="about">
 
-      <ContentWithImage :imageBoxShadow="true">
+      <ContentWithImage>
         <template v-slot:heading-tag></template>
         <template v-slot:heading>
           About TraceToZero.
@@ -20,10 +20,14 @@
         </template>
 
         <template v-slot:image>
-          <v-lazy-image
-            src="https://via.placeholder.com/600"
-            alt="Test"
-            src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          <g-image
+            src="~/assets/images/illustration-phone.png"
+            height="640"
+            width="640"
+            alt="About TracetoZero"
+            fit="contain"
+            background="transparent"
+            quality="100"
           />
         </template>
       </ContentWithImage>
@@ -35,16 +39,16 @@
               <h3 class="about-partners__heading-tag heading-tag">OUR PARTNERS</h3>
               <div class="about-partners__logos-container">
                 <div class="about-partners__logo-item">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt=""
-                  >
+                  <g-image
+                    src="~/assets/images/logo-mayo.svg"
+                    alt="Mayo Clinic Logo"
+                  ></g-image>
                 </div>
                 <div class="about-partners__logo-item">
-                  <img
-                    src="https://via.placeholder.com/300"
-                    alt=""
-                  >
+                  <g-image
+                    src="~/assets/images/logo-mit.svg"
+                    alt="MIT Logo"
+                  ></g-image>
                 </div>
               </div>
             </div>
@@ -75,25 +79,39 @@
           <div class="column is-3">
             <h4 class="title is-4">Maps</h4>
             <div class="about-resources__links">
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
+              <a
+                href="https://www.maps.arcgis.com/apps/Styler/index.html?appid=230e6ea74c064fcfa390721d29b05cfe&lat=42.50721&lon=-44.15075&zoom=2"
+                target="_blank"
+              >IHME Projected Peaks Dashboard</a>
+              <a
+                href="https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6"
+                target="_blank"
+              >Johns Hopkins University Dashboard</a>
+              <a href="https://www.nytimes.com/interactive/2020/us/coronavirus-us-cases.html">NY Times US Map</a>
+
             </div>
           </div>
           <div class="column is-3">
             <h4 class="title is-4">Statistics</h4>
             <div class="about-resources__links">
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
+              <a
+                href="https://nssac.bii.virginia.edu/covid-19/dashboard/"
+                target="_blank"
+              >University of Virginia Dashboard</a>
+
             </div>
           </div>
           <div class="column is-3">
             <h4 class="title is-4">Global</h4>
             <div class="about-resources__links">
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
-              <a href="">Test Link</a>
+              <a
+                href="https://www.arcgis.com/apps/opsdashboard/index.html#/a9419e61cb6f4521a15baf78be309b35"
+                target="_blank"
+              >ArcGIS Global Dashboard</a>
+              <a
+                href="https://nextstrain.org/ncov"
+                target="_blank"
+              >Next Strain Transmission Visualization</a>
             </div>
           </div>
         </div>
@@ -201,6 +219,9 @@ export default {
     border-radius: 50%;
     background-color: $white;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
       width: 100%;

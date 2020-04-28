@@ -21,12 +21,12 @@
         </div>
         <div class="column is-4-tablet is-5-fullhd hero__right">
 
-          <g-image
-            width="403"
-            height="403"
-            src="~/assets/images/blue-dot.svg"
-            class="hero__dot"
-          ></g-image>
+          <v-lazy-image
+            :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
+            :alt="$static.allContentfulHomeHero.edges[0].node.image.title"
+            src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            class="hero__image"
+          />
         </div>
       </div>
     </div>
@@ -37,10 +37,13 @@
 <script>
 import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
+import VLazyImage from 'v-lazy-image'
+import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
-    JoinWaitlist
+    JoinWaitlist,
+    VLazyImage
   },
   methods: {
     richtextToHTML(content) {
@@ -58,6 +61,9 @@ export default {
 
       var final = '<h1 class="title">' + notEmptyText + '</h1>'
       return final
+    },
+    renderOptimizedImage(src) {
+      return renderImage({ src, fit: 'fill', w: 720, h: 720 })
     }
   }
 }
@@ -69,6 +75,12 @@ query HomeHero {
     edges {
       node {
         id,
+        image {
+          title,
+          file {
+            url
+          }
+        },
         title,
         date,
         hero,
@@ -106,15 +118,7 @@ query HomeHero {
     }
   }
 
-  &__dot {
-    border-radius: 50%;
-    @include box_shadow(3);
-
-    @include until($tablet) {
-      @include box_shadow(1);
-      height: 13vh;
-      width: auto;
-    }
+  &__image {
   }
 
   &__left {
