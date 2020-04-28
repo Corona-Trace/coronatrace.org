@@ -10,9 +10,9 @@
   </Layout>
 </template>
 
+<script>
 import Hero from '~/components/home/HeroBeta.vue'
 import DeviceCarousel from '~/components/DeviceCarousel.vue'
-<script>
 import HomeContent from '~/components/HomeContent.vue'
 import CallToAction from '~/components/CallToAction.vue'
 

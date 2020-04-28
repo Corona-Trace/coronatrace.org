@@ -1,14 +1,17 @@
 <template>
-  <section class="section call-to-action primary-section">
+  <section
+    class="section call-to-action primary-section"
+    :class="{ alternateBackgroundLight: alternateBackground }"
+  >
     <div class="container">
       <div class="call-to-action__heading">
         <div class="call-to-action__dot"></div>
         <h2
           class="title section-title"
-          v-text="$static.allContentfulHomeCallToAction.edges[0].node.heading"
+          v-text="$static.allContentfulCallToAction.edges[0].node.heading"
         ></h2>
         <p v-text="
-            $static.allContentfulHomeCallToAction.edges[0].node.subheading
+            $static.allContentfulCallToAction.edges[0].node.subheading
           "></p>
       </div>
       <div class="call-to-action__badges">
@@ -38,18 +41,22 @@ export default {
     BadgeApple,
     BadgeGoogle,
     JoinWaitlist
+  },
+  props: {
+    alternateBackground: Boolean
   }
 }
 </script>
 
 <static-query>
 query HomeCTA {
-  allContentfulHomeCallToAction {
+  allContentfulCallToAction {
     edges {
       node {
         id,
         heading,
-        subheading
+        subheading,
+        alternateBackground
       }
     }
   }

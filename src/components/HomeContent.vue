@@ -77,6 +77,7 @@ query HomeContent {
         linkDestination,
         alignImageRight,
         imageBoxShadow,
+        alternateBackground,
         order
       }
     }

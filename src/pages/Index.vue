@@ -8,7 +8,7 @@
 
     <HomeContent />
 
-    <CallToAction />
+    <CallToAction alternateBackground />
 
   </Layout>
 </template>

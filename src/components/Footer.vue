@@ -45,8 +45,14 @@
             <h4>Legal</h4>
           </div>
           <div class="footer__body">
-            <g-link to="/legal/privacy-policy">Privacy Policy</g-link>
-            <g-link to="/legal/terms-of-service">Terms of Service</g-link>
+            <g-link
+              class="footer__item"
+              to="/legal/privacy-policy"
+            >Privacy Policy</g-link>
+            <g-link
+              class="footer__item"
+              to="/legal/terms-of-service"
+            >Terms of Service</g-link>
           </div>
         </div>
         <div class="column">
