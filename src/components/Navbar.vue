@@ -4,6 +4,7 @@
     wrapper-class="container"
     :fixed-top="true"
     :class="{ scrolled: scrolled }"
+    class="alternateBackground"
   >
     <template slot="brand">
       <b-navbar-item

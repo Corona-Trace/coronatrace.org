@@ -1,7 +1,7 @@
 <template>
   <section
     class="section page-header"
-    :class="{ alternateBackground: alternateBackground }"
+    :class="{ alternateBackgroundLight: alternateBackground }"
   >
     <div
       class="container"

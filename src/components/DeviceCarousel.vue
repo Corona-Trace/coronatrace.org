@@ -1,5 +1,5 @@
 <template>
-  <section class="section how-it-works primary-section">
+  <section class="section how-it-works primary-section alternateBackgroundLight">
     <div class="container">
       <div class="columns how-it-works__carousel-container">
 
