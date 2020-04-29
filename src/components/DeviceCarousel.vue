@@ -165,27 +165,6 @@ export default {
 }
 </script>
 
-<static-query>
-query HowItWorksCarousel {
-  allContentfulDeviceCarouselItem(sortBy: "order", order: ASC) {
-    edges {
-      node {
-        id,
-        title,
-        heading,
-        text,
-        image {
-          title,
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
 .device-carousel {
   &__carousel-container {

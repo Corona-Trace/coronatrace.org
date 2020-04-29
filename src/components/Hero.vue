@@ -63,30 +63,6 @@ export default {
 }
 </script>
 
-<static-query>
-query HomeHero {
-  allContentfulHomeHero(sortBy: "id", order: ASC, limit: 1) {
-    edges {
-      node {
-        id,
-        image {
-          title,
-          file {
-            url
-          }
-        },
-        title,
-        date,
-        hero,
-        heroCta,
-        subheading,
-        headline
-      }
-    }
-  }
-}
-</static-query>
-
 <style lang="scss">
 .hero {
   padding-top: 4rem;
