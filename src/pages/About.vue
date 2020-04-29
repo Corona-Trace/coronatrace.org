@@ -207,12 +207,17 @@ export default {
 
   &__logos-container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-top: 2rem;
+
+    @include from($desktop) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
 
   &__logo-item {
-    margin: 0 1rem;
+    margin: 1rem 0;
     padding: 3rem;
     height: 14rem;
     width: 14rem;
@@ -222,6 +227,10 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @include from($desktop) {
+      margin: 0 1rem;
+    }
 
     img {
       width: 100%;
