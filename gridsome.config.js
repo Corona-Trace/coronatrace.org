@@ -72,6 +72,16 @@ module.exports = {
       }
     },
     {
+      use: 'gridsome-source-storyblok',
+      options: {
+        client: {
+          accessToken: 'Djoq43NWlv5LMs9L7u7Xwwtt'
+        },
+        version: 'draft',
+        typeName: 'StoryblokEntry'
+      }
+    },
+    {
       use: '@gridsome/plugin-critical',
       options: {
         paths: ['/'],

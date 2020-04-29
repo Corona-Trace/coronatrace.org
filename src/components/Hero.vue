@@ -4,15 +4,11 @@
       <div class="columns hero__columns">
         <div class="column is-7-tablet is-7-desktop hero__left">
           <div class="hero__text">
-            <div v-html="
-                richtextToHTML(
-                  $static.allContentfulHomeHero.edges[0].node.headline
-                )
-              "></div>
-            <p
-              class="subtitle"
-              v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
-            ></p>
+            <RichText :text="$attrs.block.Heading"></RichText>
+            <p class="subtitle">
+              <RichText :text="$attrs.block.SubHeading"></RichText>
+            </p>
+
           </div>
 
           <div class="hero__cta">
@@ -22,8 +18,7 @@
         <div class="column is-5-tablet is-5-desktop hero__right">
 
           <v-lazy-image
-            :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
-            :alt="$static.allContentfulHomeHero.edges[0].node.image.title"
+            :src="$attrs.block.Image"
             src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             class="hero__image"
           />
@@ -34,13 +29,13 @@
 </template>
 
 <script>
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import RichText from '~/components/RichText.vue'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
 import VLazyImage from 'v-lazy-image'
-import { renderImage } from '~/helpers/contentful'
 
 export default {
   components: {
+    RichText,
     JoinWaitlist,
     VLazyImage
   },

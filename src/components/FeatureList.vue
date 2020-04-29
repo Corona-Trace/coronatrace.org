@@ -2,55 +2,29 @@
   <section class="section get-started primary-section alternateBackground">
     <div class="container">
       <div class="get-started__heading">
-        <h3>Download the App</h3>
-        <h2 class="section-title">Get Started</h2>
+        <h3>{{ $attrs.block.HeadingTag }}</h3>
+        <h2 class="section-title">{{ $attrs.block.Heading }}</h2>
       </div>
       <div class="columns is-multiline">
         <div
           class="column is-6-tablet is-3-desktop get-started__item"
-          v-for="edge in $static.allContentfulFeatureListItem.edges"
-          :key="edge.node.id"
+          v-for="(item, i) in $attrs.block.FeatureListItems"
+          :key="i"
         >
           <picture class="get-started__icon">
-            <g-image :src="edge.node.iconImage.file.url">
+            <g-image :src="item.Icon">
             </g-image>
           </picture>
           </g-image>
           <div class="item__text">
-            <h4 v-text="edge.node.heading"></h4>
-            <p v-text="edge.node.text"></p>
+            <h4 v-text="item.Heading"></h4>
+            <p v-text="item.Text"></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<static-query>
-query GetStartedItems {
-  allContentfulFeatureListItem(sortBy: "order", order: ASC) {
-    edges {
-      node {
-        id,
-        iconHandle,
-        iconImage{
-          title,
-          file {
-            url,
-            fileName
-          }
-        },
-        heading,
-        text
-      }
-    }
-  }
-}
-</static-query>
-
-<script>
-export default {}
-</script>
 
 <style lang="scss" scoped>
 .get-started {
