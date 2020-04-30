@@ -1,9 +1,20 @@
 <template>
-  <div class="layout">
+  <Layout>
+
     <Navbar />
 
     <main>
-      <slot />
+      <div
+        class="blok"
+        v-for="block in $page.storyblokEntry.content.PageItems"
+      >
+        <component
+          v-if="block.component"
+          :is="block.component"
+          :block="block"
+          :key="block._uid"
+        />
+      </div>
     </main>
 
     <b-modal
@@ -19,7 +30,7 @@
     </b-modal>
 
     <Footer />
-  </div>
+  </Layout>
 </template>
 
 <script>
@@ -27,12 +38,38 @@ import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
 import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
 import { mapGetters, mapActions, mapState } from 'vuex'
+import RichText from '~/components/RichText.vue'
+import Hero from '~/components/Hero.vue'
+import DeviceCarousel from '~/components/DeviceCarousel.vue'
+import FeatureList from '~/components/FeatureList.vue'
+import ContentWithImage from '~/components/ContentWithImage.vue'
+import CallToAction from '~/components/CallToAction.vue'
+import ContentWithTwoLogos from '~/components/ContentWithTwoLogos.vue'
 
 export default {
+  metaInfo() {
+    return {
+      title: this.$page.storyblokEntry.content.MetaTitle,
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$page.storyblokEntry.content.MetaDescription
+        }
+      ]
+    }
+  },
   components: {
     Navbar,
     Footer,
-    EmailSignup
+    EmailSignup,
+    RichText,
+    Hero,
+    DeviceCarousel,
+    FeatureList,
+    ContentWithImage,
+    CallToAction,
+    ContentWithTwoLogos
   },
   computed: {
     ...mapGetters(['emailModalActive'])

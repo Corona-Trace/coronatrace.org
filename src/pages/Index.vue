@@ -5,42 +5,12 @@
       class="blok"
       v-for="block in $page.storyblokEntry.content.PageItems"
     >
-
       <component
-        v-if="block.component == 'Hero'"
+        v-if="block.component"
         :is="block.component"
         :block="block"
         :key="block._uid"
       />
-
-      <component
-        v-if="block.component == 'DeviceCarousel'"
-        :is="block.component"
-        :block="block"
-        :key="block._uid"
-      />
-
-      <component
-        v-if="block.component == 'FeatureList'"
-        :is="block.component"
-        :block="block"
-        :key="block._uid"
-      />
-
-      <component
-        v-if="block.component == 'ContentWithImage'"
-        :is="block.component"
-        :block="block"
-        :key="block._uid"
-      />
-
-      <component
-        v-if="block.component == 'CallToAction'"
-        :is="block.component"
-        :block="block"
-        :key="block._uid"
-      />
-
     </div>
 
   </Layout>
@@ -53,19 +23,29 @@ import DeviceCarousel from '~/components/DeviceCarousel.vue'
 import FeatureList from '~/components/FeatureList.vue'
 import ContentWithImage from '~/components/ContentWithImage.vue'
 import CallToAction from '~/components/CallToAction.vue'
+import ContentWithTwoLogos from '~/components/ContentWithTwoLogos.vue'
 
 export default {
-  metaInfo: {
-    title: "Let's stop the spread of the Coronavirus together"
+  metaInfo() {
+    return {
+      title: this.$page.storyblokEntry.content.MetaTitle,
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$page.storyblokEntry.content.MetaDescription
+        }
+      ]
+    }
   },
-  computed: {},
   components: {
     RichText,
     Hero,
     DeviceCarousel,
     FeatureList,
     ContentWithImage,
-    CallToAction
+    CallToAction,
+    ContentWithTwoLogos
   },
   methods: {
     richtext(text) {
