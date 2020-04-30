@@ -45,6 +45,7 @@ import FeatureList from '~/components/FeatureList.vue'
 import ContentWithImage from '~/components/ContentWithImage.vue'
 import CallToAction from '~/components/CallToAction.vue'
 import ContentWithTwoLogos from '~/components/ContentWithTwoLogos.vue'
+import ResourceLinks from '~/components/ResourceLinks.vue'
 
 export default {
   metaInfo() {
@@ -69,7 +70,8 @@ export default {
     FeatureList,
     ContentWithImage,
     CallToAction,
-    ContentWithTwoLogos
+    ContentWithTwoLogos,
+    ResourceLinks
   },
   computed: {
     ...mapGetters(['emailModalActive'])

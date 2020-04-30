@@ -64,11 +64,6 @@ query HomeCTA {
 </static-query>
 
 <style lang="scss" scoped>
-.section {
-  padding-top: 9rem;
-  padding-bottom: 9rem;
-}
-
 .call-to-action {
   text-align: center;
 

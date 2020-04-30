@@ -107,3 +107,18 @@ body.has-navbar-fixed-top {
   max-width: 720px;
   margin: auto;
 }
+
+section.section {
+  padding-top: $section-padding-mobile;
+  padding-bottom: $section-padding-mobile;
+
+  @include from($tablet) {
+    padding-top: $section-padding-tablet;
+    padding-bottom: $section-padding-tablet;
+  }
+
+  @include from($desktop) {
+    padding-top: $section-padding-desktop;
+    padding-bottom: $section-padding-desktop;
+  }
+}
