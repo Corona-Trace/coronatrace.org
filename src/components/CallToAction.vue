@@ -1,17 +1,17 @@
 <template>
   <section
     class="section call-to-action primary-section"
-    :class="{ alternateBackgroundLight: alternateBackground }"
+    :class="{ alternateBackgroundLight: $attrs.block.AlternateBackground }"
   >
     <div class="container">
       <div class="call-to-action__heading">
         <div class="call-to-action__dot"></div>
         <h2
           class="title section-title"
-          v-text="$static.allContentfulCallToAction.edges[0].node.heading"
+          v-text="$attrs.block.Heading"
         ></h2>
         <p v-text="
-            $static.allContentfulCallToAction.edges[0].node.subheading
+            $attrs.block.Subheading
           "></p>
       </div>
       <div class="call-to-action__badges">
@@ -25,7 +25,7 @@
           target="_blank"
           rounded
         >Join the Beta</b-button>
-        <JoinWaitlist />
+        <JoinWaitlist v-else />
       </div>
     </div>
   </section>

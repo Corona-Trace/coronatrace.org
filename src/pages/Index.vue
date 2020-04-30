@@ -6,40 +6,42 @@
       v-for="block in $page.storyblokEntry.content.PageItems"
     >
 
-      <!-- Hero Component Logic -->
       <component
         v-if="block.component == 'Hero'"
         :is="block.component"
         :block="block"
         :key="block._uid"
       />
-      <!-- End Hero Component Logic -->
 
-      <!-- Device Carousel Component Logic -->
       <component
         v-if="block.component == 'DeviceCarousel'"
         :is="block.component"
         :block="block"
         :key="block._uid"
       />
-      <!-- End Device Carousel Component Logic -->
 
-      <!-- Device Carousel Component Logic -->
       <component
         v-if="block.component == 'FeatureList'"
         :is="block.component"
         :block="block"
         :key="block._uid"
       />
-      <!-- End Device Carousel Component Logic -->
+
+      <component
+        v-if="block.component == 'ContentWithImage'"
+        :is="block.component"
+        :block="block"
+        :key="block._uid"
+      />
+
+      <component
+        v-if="block.component == 'CallToAction'"
+        :is="block.component"
+        :block="block"
+        :key="block._uid"
+      />
 
     </div>
-
-    <FeatureList />
-
-    <HomeContent />
-
-    <CallToAction alternateBackground />
 
   </Layout>
 </template>
@@ -49,9 +51,8 @@ import RichText from '~/components/RichText.vue'
 import Hero from '~/components/Hero.vue'
 import DeviceCarousel from '~/components/DeviceCarousel.vue'
 import FeatureList from '~/components/FeatureList.vue'
-import HomeContent from '~/components/HomeContent.vue'
+import ContentWithImage from '~/components/ContentWithImage.vue'
 import CallToAction from '~/components/CallToAction.vue'
-import VLazyImage from 'v-lazy-image'
 
 export default {
   metaInfo: {
@@ -63,9 +64,8 @@ export default {
     Hero,
     DeviceCarousel,
     FeatureList,
-    HomeContent,
-    CallToAction,
-    VLazyImage
+    ContentWithImage,
+    CallToAction
   },
   methods: {
     richtext(text) {

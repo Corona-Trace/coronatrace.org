@@ -150,15 +150,8 @@ export default {
     }
   },
   computed: {
-    currentHeading() {
-      const carousel = $static.allContentfulDeviceCarouselItem
-      const i = this.activeCarouselItem
-      const heading =
-        $static.allContentfulDeviceCarouselItem.edges[i].node.heading
-      return heading
-    },
     totalCarouselItems() {
-      const length = this.$static.allContentfulDeviceCarouselItem.edges.length
+      const length = this.$attrs.block.CarouselItems.length
       return length
     }
   }

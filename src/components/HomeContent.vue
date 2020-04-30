@@ -8,7 +8,6 @@
       :imagePushed="edge.node.alignImageRight"
       :imageBoxShadow="edge.node.imageBoxShadow"
     >
-      <template v-slot:heading-tag>{{ edge.node.headingTag }}</template>
       <template v-slot:heading>{{ edge.node.heading }}</template>
 
       <template v-slot:body-text>

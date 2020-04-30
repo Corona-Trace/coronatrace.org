@@ -1,38 +1,45 @@
 <template>
   <section
     class="section content-with-image primary-section"
-    :class="{ alternateBackgroundLight: alternateBackground }"
+    :class="{ alternateBackgroundLight: $attrs.block.AlternateBackground }"
   >
     <div class="container">
       <div
         class="columns is-variable is-mobile-6 is-6-tablet is-8-desktop"
-        :class="{ rowReverse: imagePushed }"
+        :class="{ rowReverse: $attrs.block.AlignImageLeft }"
       >
         <div class="column content-with-image__content is-12-tablet is-6-desktop">
           <h3 :class="'content-with-image__heading-tag-' + tagColor">
-            <slot name="heading-tag"></slot>
+            {{ $attrs.block.HeadingTag }}
           </h3>
           <h2 class="title section-title">
-            <slot name="heading"></slot>
+            {{ $attrs.block.Heading }}
           </h2>
           <div class="content-with-image__body-text">
-            <slot name="body-text"></slot>
+            <RichText :text="$attrs.block.Text"></RichText>
           </div>
           <div class="content-with-image__link cta-link">
-            <slot name="link"></slot>
+            <a
+              :href="$attrs.block.LinkDestination"
+              v-text="$attrs.block.LinkText"
+              target="_blank"
+            ></a>
             <b-icon
               size="is-small"
               icon="arrow-right"
-              v-if="hasLinkSlot"
+              v-if="$attrs.block.LinkText"
             ></b-icon>
           </div>
         </div>
         <div class="column content-with-image__image-container is-12-tablet is-6-desktop">
           <div
             class="content-with-image__image image is-square"
-            :class="{ imageBoxShadow: imageBoxShadow }"
+            :class="{ imageBoxShadow: $attrs.block.ImageBoxShadow }"
           >
-            <slot name="image"></slot>
+            <v-lazy-image
+              :src="$attrs.block.Image"
+              src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            />
           </div>
         </div>
       </div>
@@ -41,6 +48,9 @@
 </template>
 
 <script>
+import RichText from '~/components/RichText.vue'
+import VLazyImage from 'v-lazy-image'
+
 export default {
   props: {
     // Set to true if you want image to be pushed to the right
@@ -48,19 +58,20 @@ export default {
     alternateBackground: Boolean,
     imageBoxShadow: Boolean
   },
+  components: {
+    RichText,
+    VLazyImage
+  },
   data: function() {
     return {}
   },
   computed: {
-    hasLinkSlot() {
-      return !!this.$slots.link
-    },
     tagColor() {
-      if (this.$attrs.index == 0) {
+      if (this.$attrs.block.HeadingTagColor == 'orange') {
         return 'orange'
-      } else if (this.$attrs.index == 1) {
+      } else if (this.$attrs.block.HeadingTagColor == 'red') {
         return 'red'
-      } else if (this.$attrs.index == 2) {
+      } else if (this.$attrs.block.HeadingTagColor == 'gray') {
         return 'gray'
       }
     }
