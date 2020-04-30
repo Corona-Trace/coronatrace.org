@@ -1,10 +1,21 @@
 <template>
   <layout>
     <div class="contributors">
-      <PageHeader title="Contributors">
-        We’d like to thank all of our contributors that have made this entire
-        effort possible.
-      </PageHeader>
+      <section
+        class="section page-header"
+        :style="{ 'background-color': '#f7f9f8', 'text-align': 'center' }"
+      >
+        <div class="container">
+          <div class="columns">
+            <div class="column">
+              <h1 class="title is-1">Contributors</h1>
+              <p class="subtitle">
+                We’d like to thank all of our contributors that have made this entire effort possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <CoreContributors />
 
@@ -64,6 +75,21 @@ export default {
     h2 {
       padding-bottom: 4rem;
     }
+  }
+}
+
+.page-header {
+  h1 {
+    padding-bottom: 2rem;
+  }
+
+  .subtitle {
+    max-width: 525px;
+    margin: auto;
+  }
+
+  p:empty {
+    display: none;
   }
 }
 </style>

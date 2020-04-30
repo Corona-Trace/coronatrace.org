@@ -129,7 +129,7 @@ export default {
       }
     }
 
-    .subtitle {
+    .subtitle p {
       @include set_type(1.15rem);
       padding: 2rem 0 3rem;
       margin: 0;

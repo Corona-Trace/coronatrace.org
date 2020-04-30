@@ -166,9 +166,10 @@ export default {
     overflow: hidden;
 
     img {
-      object-fit: cover;
-      object-position: center;
+      // object-fit: cover;
+      // object-position: center;
       z-index: 20;
+      object-fit: contain;
     }
   }
 
