@@ -51,7 +51,7 @@ export default {
 
       if (color == 'white') {
         return '#fff'
-      } else if (color == 'offwhite') {
+      } else if (color == 'off-white') {
         return '#f7f9f8'
       } else if (color == 'gray') {
         return '#e6edeb'

@@ -25,6 +25,8 @@ import ContentWithImage from '~/components/ContentWithImage.vue'
 import CallToAction from '~/components/CallToAction.vue'
 import ContentWithTwoLogos from '~/components/ContentWithTwoLogos.vue'
 import ResourceLinks from '~/components/ResourceLinks.vue'
+import ContentThreeCol from '~/components/ContentThreeCol.vue'
+import PageHeader from '~/components/PageHeader.vue'
 
 export default {
   metaInfo() {
@@ -47,7 +49,9 @@ export default {
     ContentWithImage,
     CallToAction,
     ContentWithTwoLogos,
-    ResourceLinks
+    ResourceLinks,
+    ContentThreeCol,
+    PageHeader
   },
   methods: {
     richtext(text) {

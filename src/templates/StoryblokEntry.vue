@@ -29,7 +29,6 @@
       <email-signup></email-signup>
     </b-modal>
 
-    <Footer />
   </Layout>
 </template>
 
@@ -46,6 +45,9 @@ import ContentWithImage from '~/components/ContentWithImage.vue'
 import CallToAction from '~/components/CallToAction.vue'
 import ContentWithTwoLogos from '~/components/ContentWithTwoLogos.vue'
 import ResourceLinks from '~/components/ResourceLinks.vue'
+import ContentThreeCol from '~/components/ContentThreeCol.vue'
+import PageHeader from '~/components/PageHeader.vue'
+import ContentRichText from '~/components/ContentRichText.vue'
 
 export default {
   metaInfo() {
@@ -71,7 +73,10 @@ export default {
     ContentWithImage,
     CallToAction,
     ContentWithTwoLogos,
-    ResourceLinks
+    ResourceLinks,
+    ContentThreeCol,
+    PageHeader,
+    ContentRichText
   },
   computed: {
     ...mapGetters(['emailModalActive'])
