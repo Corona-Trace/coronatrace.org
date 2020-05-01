@@ -17,29 +17,18 @@
     <template slot="start"> </template>
 
     <template slot="end">
-      <b-navbar-item
-        tag="g-link"
-        to="/about"
-      >
-        About
-      </b-navbar-item>
 
-      <b-navbar-item
-        tag="g-link"
-        to="/privacy"
-      >
-        Privacy
-      </b-navbar-item>
-
-      <b-navbar-item
-        tag="g-link"
-        to="/contributors"
-      >
-        Contributors
-      </b-navbar-item>
+      <component
+        v-for="block in block.NavLinks"
+        v-if="block.component == 'NavLink'"
+        :is="block.component"
+        :block="block"
+        :key="block._uid"
+      />
 
       <b-navbar-item tag="div">
         <div class="buttons">
+
           <a
             href="https://coronatrace.us19.list-manage.com/subscribe?u=261f5cf9c913c5f184f41bde2&id=6c859007ff"
             v-if="$route.path.includes('beta')"
@@ -47,13 +36,15 @@
           >
             Join the Beta
           </a>
-          <a
-            v-else
-            class="button is-primary is-rounded"
-            @click="toggleEmailModal"
-          >
-            Join Waitlist
-          </a>
+          <JoinWaitList></JoinWaitList>
+
+          <component
+            v-for="block in block.NavLinks"
+            v-if="block.component == 'NavCTA'"
+            :is="block.component"
+            :block="block"
+            :key="block._uid"
+          />
         </div>
       </b-navbar-item>
     </template>
@@ -62,6 +53,9 @@
 
 <script>
 import Logo from '~/assets/images/Logo.svg'
+import JoinWaitList from '~/components/JoinWaitlist.vue'
+import NavLink from '~/components/NavLink.vue'
+import NavCTA from '~/components/NavCTA.vue'
 import { mapActions } from 'vuex'
 
 export default {
@@ -74,7 +68,10 @@ export default {
     }
   },
   components: {
-    Logo
+    Logo,
+    JoinWaitList,
+    NavLink,
+    NavCTA
   },
   methods: {
     ...mapActions(['toggleEmailModal']),
@@ -99,6 +96,11 @@ export default {
       this.$emit('showModal')
     }
   },
+  computed: {
+    block() {
+      return this.$static.storyblokEntry.content
+    }
+  },
   created() {
     // Stop gridsome from trying to run this function on build - results in window not defined error
     if (!process.isClient) return
@@ -116,8 +118,10 @@ export default {
 
 <static-query>
 query {
-  metadata {
-    siteName
+  storyblokEntry(id: "story-10821360-default") {
+    id,
+    name,
+    content
   }
 }
 </static-query>
