@@ -111,21 +111,21 @@ export default {
 
   &__text {
     .title {
-      @include set_type(2.75rem, 'sm');
+      @include set_type(2.5rem, 'sm');
 
       @include from($tablet) {
-        @include set_type(3.5rem, 'sm');
+        @include set_type(3.25rem, 'sm');
       }
 
       @include from($desktop) {
-        @include set_type(4rem, 'sm');
+        @include set_type(3.75rem, 'sm');
       }
 
       @include from($widescreen) {
       }
 
       @include from($fullhd) {
-        @include set_type(4.5rem, 'sm');
+        @include set_type(4.25rem, 'sm');
       }
     }
 
@@ -135,7 +135,7 @@ export default {
       margin: 0;
 
       @include from($tablet) {
-        @include set_type(1.5rem);
+        @include set_type(1.25rem);
       }
 
       @include from($desktop) {

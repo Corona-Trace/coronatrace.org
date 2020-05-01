@@ -17,11 +17,11 @@ h6 {
 p {
   color: $gray-dark;
 
-  @include set_type(1.15rem);
+  @include set_type(1rem);
   margin-bottom: 1.5rem;
 
   @include from($desktop) {
-    @include set_type(1.25rem);
+    @include set_type(1.125rem);
   }
 }
 

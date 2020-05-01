@@ -214,11 +214,11 @@ export default {
     }
 
     p.text {
-      @include set_type(1.25rem);
+      @include set_type(1.125rem);
       color: $gray-dark;
 
       @include from($tablet) {
-        @include set_type(1.5rem);
+        @include set_type(1.25rem);
         color: $gray-dark;
       }
     }

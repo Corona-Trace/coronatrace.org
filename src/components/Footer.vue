@@ -57,7 +57,7 @@ query {
 }
 </static-query>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .footer {
   padding-top: 6rem;
   padding-bottom: 6rem;
