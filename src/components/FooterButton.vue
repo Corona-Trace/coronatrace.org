@@ -1,18 +1,19 @@
 <template>
   <b-button
-    v-else
     type="is-primary"
+    tag="a"
+    :href="block.Destination.url"
+    target="_blank"
     rounded
-    @click="toggleEmailModal"
-  >Join Waitlist</b-button>
+  >{{ block.Text}}</b-button>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
-  methods: {
-    ...mapActions(['toggleEmailModal'])
+  computed: {
+    block() {
+      return this.$attrs.block
+    }
   }
 }
 </script>
