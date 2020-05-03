@@ -43,12 +43,3 @@ export default {
 }
 </script>
 
-<style lang="scss">
-// .fade-enter-active {
-//   transition: opacity 0.5s;
-// }
-
-// .fade-enter {
-//   opacity: 0;
-// }
-</style>

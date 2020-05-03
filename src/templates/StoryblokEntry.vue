@@ -4,39 +4,25 @@
     <Navbar />
 
     <main>
-      <div
-        class="blok"
-        v-for="block in $page.storyblokEntry.content.PageItems"
-      >
-        <component
-          v-if="block.component"
-          :is="block.component"
-          :block="block"
-          :key="block._uid"
-        />
-      </div>
-    </main>
 
-    <b-modal
-      :active.sync="emailModalActive"
-      trap-focus
-      aria-role="dialog"
-      aria-modal
-      scroll="keep"
-      class="email-signup-modal"
-      @close="toggleEmailModal"
-    >
-      <email-signup></email-signup>
-    </b-modal>
+      <component
+        v-for="block in $page.storyblokEntry.content.PageItems"
+        v-if="block.component"
+        :is="block.component"
+        :block="block"
+        :key="block._uid"
+      />
+
+    </main>
 
   </Layout>
 </template>
 
 <script>
+import { mapGetters, mapActions, mapState } from 'vuex'
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/Footer.vue'
 import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
-import { mapGetters, mapActions, mapState } from 'vuex'
 import RichText from '~/components/RichText.vue'
 import Hero from '~/components/Hero.vue'
 import DeviceCarousel from '~/components/DeviceCarousel.vue'
