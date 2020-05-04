@@ -2,38 +2,34 @@
 
   <div
     class="footer__item"
-    v-if="block.Destination.linktype =='story'"
+    v-if="blok.Destination.linktype =='story'"
   >
-    <g-link :to="transformLink(block.Destination.cached_url)">{{ block.Text }}</g-link>
+    <g-link :to="transformLink(blok.Destination.cached_url)">{{ blok.Text }}</g-link>
   </div>
 
   <div
     class="footer__item"
-    v-else-if="block.Destination.linktype =='url' && block.Destination.url.includes('http')"
+    v-else-if="blok.Destination.linktype =='url' && blok.Destination.url.includes('http')"
   >
-    <a :href="block.Destination.url">{{ block.Text }}</a>
+    <a :href="blok.Destination.url">{{ blok.Text }}</a>
 
   </div>
 
   <div
     class="footer__item"
-    v-else-if="block.Destination.linktype =='url'"
+    v-else-if="blok.Destination.linktype =='url'"
   >
-    <g-link :to="block.Destination.url">{{ block.Text }}</g-link>
+    <g-link :to="blok.Destination.url">{{ blok.Text }}</g-link>
   </div>
 
 </template>
 
 <script>
 export default {
+  props: ['blok'],
   methods: {
     transformLink(link) {
       return '/' + link
-    }
-  },
-  computed: {
-    block() {
-      return this.$attrs.block
     }
   }
 }

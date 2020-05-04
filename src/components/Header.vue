@@ -19,11 +19,11 @@
     <template slot="end">
 
       <component
-        v-for="block in block.NavLinks"
-        v-if="block.component == 'NavLink'"
-        :is="block.component"
-        :block="block"
-        :key="block._uid"
+        v-for="blok in blok.NavLinks"
+        v-if="blok.component == 'NavLink'"
+        :is="blok.component"
+        :blok="blok"
+        :key="blok._uid"
       />
 
       <b-navbar-item tag="div">
@@ -39,11 +39,11 @@
           <JoinWaitList></JoinWaitList>
 
           <component
-            v-for="block in block.NavLinks"
-            v-if="block.component == 'NavCTA'"
-            :is="block.component"
-            :block="block"
-            :key="block._uid"
+            v-for="blok in blok.NavLinks"
+            v-if="blok.component == 'NavCTA'"
+            :is="blok.component"
+            :blok="blok"
+            :key="blok._uid"
           />
         </div>
       </b-navbar-item>
@@ -59,6 +59,8 @@ import NavCTA from '~/components/NavCTA.vue'
 import { mapActions } from 'vuex'
 
 export default {
+  name: 'Header',
+  props: ['blok'],
   data: function() {
     return {
       navHeight: null,
@@ -96,11 +98,7 @@ export default {
       this.$emit('showModal')
     }
   },
-  computed: {
-    block() {
-      return this.$static.storyblokEntry.content
-    }
-  },
+  computed: {},
   created() {
     // Stop gridsome from trying to run this function on build - results in window not defined error
     if (!process.isClient) return

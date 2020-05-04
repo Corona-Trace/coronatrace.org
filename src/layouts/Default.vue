@@ -1,36 +1,30 @@
 <template>
   <div class="layout">
-    <Navbar />
+    <Header :blok="getProperty('Header')" />
 
     <main>
       <slot />
     </main>
 
-    <b-modal
-      :active.sync="emailModalActive"
-      trap-focus
-      aria-role="dialog"
-      aria-modal
-      scroll="keep"
-      class="email-signup-modal"
-      @close="toggleEmailModal"
-    >
-      <email-signup></email-signup>
-    </b-modal>
-
-    <Footer />
+    <Footer :blok="getProperty('Footer')" />
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/Navbar.vue'
+import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
 import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
 import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
+  props: {
+    globalContent: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   components: {
-    Navbar,
+    Header,
     Footer,
     EmailSignup
   },
@@ -38,7 +32,13 @@ export default {
     ...mapGetters(['emailModalActive'])
   },
   methods: {
-    ...mapActions(['toggleEmailModal'])
+    ...mapActions(['toggleEmailModal']),
+    getProperty(prop) {
+      if (this.globalContent[prop] === undefined) {
+        return {}
+      }
+      return this.globalContent[prop][0] || {}
+    }
   }
 }
 </script>

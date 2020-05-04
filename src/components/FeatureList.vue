@@ -2,13 +2,13 @@
   <section class="section get-started primary-section alternateBackground">
     <div class="container">
       <div class="get-started__heading">
-        <h3>{{ $attrs.block.HeadingTag }}</h3>
-        <h2 class="section-title">{{ $attrs.block.Heading }}</h2>
+        <h3>{{ blok.HeadingTag }}</h3>
+        <h2 class="section-title">{{ blok.Heading }}</h2>
       </div>
       <div class="columns is-multiline">
         <div
           class="column is-6-tablet is-3-desktop get-started__item"
-          v-for="(item, i) in $attrs.block.FeatureListItems"
+          v-for="(item, i) in blok.FeatureListItems"
           :key="i"
         >
           <picture class="get-started__icon">
@@ -25,6 +25,12 @@
     </div>
   </section>
 </template>
+
+<script>
+export default {
+  props: ['blok']
+}
+</script>
 
 <style lang="scss" scoped>
 .get-started {

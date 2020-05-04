@@ -1,24 +1,18 @@
 <template>
-
   <a
-    :href="block.Destination.url"
+    :href="blok.Destination.url"
     class="button is-primary is-rounded"
-    v-text="block.Text"
+    v-text="blok.Text"
   >
   </a>
-
 </template>
 
 <script>
 export default {
+  props: ['blok'],
   methods: {
     transformLink(link) {
       return '/' + link
-    }
-  },
-  computed: {
-    block() {
-      return this.$attrs.block
     }
   }
 }

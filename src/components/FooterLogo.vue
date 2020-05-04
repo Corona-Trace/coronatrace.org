@@ -2,7 +2,7 @@
   <div class="footer__heading">
     <g-link to="/">
       <v-lazy-image
-        :src="block.Logo"
+        :src="blok.Logo"
         src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
       />
     </g-link>
@@ -13,13 +13,9 @@
 import VLazyImage from 'v-lazy-image'
 
 export default {
+  props: ['blok'],
   components: {
     VLazyImage
-  },
-  computed: {
-    block() {
-      return this.$attrs.block
-    }
   }
 }
 </script>

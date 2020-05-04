@@ -4,9 +4,9 @@
       <div class="columns hero__columns">
         <div class="column is-7-tablet is-7-desktop hero__left">
           <div class="hero__text">
-            <RichText :text="$attrs.block.Heading"></RichText>
+            <RichText :text="blok.Heading"></RichText>
             <p class="subtitle">
-              <RichText :text="$attrs.block.SubHeading"></RichText>
+              <RichText :text="blok.SubHeading"></RichText>
             </p>
 
           </div>
@@ -18,7 +18,7 @@
         <div class="column is-5-tablet is-5-desktop hero__right">
 
           <v-lazy-image
-            :src="$attrs.block.Image"
+            :src="blok.Image"
             src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             class="hero__image"
           />
@@ -34,6 +34,7 @@ import JoinWaitlist from '~/components/JoinWaitlist.vue'
 import VLazyImage from 'v-lazy-image'
 
 export default {
+  props: ['blok'],
   components: {
     RichText,
     JoinWaitlist,

@@ -30,7 +30,7 @@
                 ref="hiwCarousel"
               >
                 <b-carousel-item
-                  v-for="(item, i) in $attrs.block.CarouselItems"
+                  v-for="(item, i) in blok.CarouselItems"
                   :key="i"
                 >
                   <v-lazy-image
@@ -77,12 +77,12 @@
 
         <div class="column device-carousel__body">
           <div class="device-carousel__heading">
-            <h2>{{ $attrs.block.HeadingTag }}</h2>
+            <h2>{{ blok.HeadingTag }}</h2>
             <h3 class="title section-title">
-              {{ $attrs.block.CarouselItems[activeCarouselItem].Heading }}
+              {{ blok.CarouselItems[activeCarouselItem].Heading }}
             </h3>
             <p class="text">
-              {{ $attrs.block.CarouselItems[activeCarouselItem].Text }}
+              {{ blok.CarouselItems[activeCarouselItem].Text }}
             </p>
           </div>
           <div class="device-carousel__indicator indicator is-hidden-mobile">
@@ -129,6 +129,7 @@ import iPhone from '~/assets/images/iPhone.svg'
 import VLazyImage from 'v-lazy-image'
 
 export default {
+  props: ['blok'],
   components: {
     iPhone,
     VLazyImage
@@ -151,7 +152,7 @@ export default {
   },
   computed: {
     totalCarouselItems() {
-      const length = this.$attrs.block.CarouselItems.length
+      const length = this.blok.CarouselItems.length
       return length
     }
   }

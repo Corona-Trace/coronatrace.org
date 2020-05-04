@@ -3,10 +3,10 @@
     <div class="container">
       <div class="columns">
         <component
-          v-for="block in block.FooterColumns"
-          :is="block.component"
-          :block="block"
-          :key="block._uid"
+          v-for="blok in blok.FooterColumns"
+          :is="blok.component"
+          :blok="blok"
+          :key="blok._uid"
         />
       </div>
       <div class="footer__bottom">
@@ -28,6 +28,7 @@ import JoinWaitlist from '~/components/JoinWaitlist.vue'
 import FooterColumn from '~/components/FooterColumn.vue'
 
 export default {
+  props: ['blok'],
   components: {
     Logo,
     BadgeApple,
@@ -39,9 +40,6 @@ export default {
     currentYear() {
       let currentYear = new Date().getFullYear()
       return currentYear
-    },
-    block() {
-      return this.$static.storyblokEntry.content
     }
   }
 }
