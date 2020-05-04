@@ -6,17 +6,17 @@
     <div class="container">
       <div class="columns is-variable is-8-desktop">
         <div class="column content-two-logos__logos is-6-tablet is-6-desktop">
-          <h3 class="content-two-logos__heading-tag heading-tag">{{ $attrs.block.HeadingTag }}</h3>
+          <h3 class="content-two-logos__heading-tag heading-tag">{{ blok.HeadingTag }}</h3>
           <div class="content-two-logos__logos-container">
             <div class="content-two-logos__logo-item">
               <v-lazy-image
-                :src="$attrs.block.logo1"
+                :src="blok.logo1"
                 src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
               />
             </div>
             <div class="content-two-logos__logo-item">
               <v-lazy-image
-                :src="$attrs.block.logo2"
+                :src="blok.logo2"
                 src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
               />
             </div>
@@ -24,10 +24,10 @@
         </div>
         <div class="column about__partners-text is-6-tablet is-6-desktop">
           <div class="content-two-logos__heading">
-            <h2 class="title section-title">{{ $attrs.block.Heading }}</h2>
+            <h2 class="title section-title">{{ blok.Heading }}</h2>
           </div>
           <div class="content-two-logos__copy">
-            <RichText :text="$attrs.block.Text"></RichText>
+            <RichText :text="blok.Text"></RichText>
           </div>
         </div>
 
@@ -41,13 +41,14 @@ import VLazyImage from 'v-lazy-image'
 import RichText from '~/components/RichText.vue'
 
 export default {
+  props: ['blok'],
   components: {
     VLazyImage,
     RichText
   },
   computed: {
     bgColor() {
-      const color = this.$attrs.block.BackgroundColor
+      const color = this.blok.BackgroundColor
 
       if (color == 'white') {
         return '#fff'

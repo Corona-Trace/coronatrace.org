@@ -4,11 +4,11 @@
     :style="{ 'background-color': bgColor }"
   >
     <div class="content-three-col__heading">
-      <h3 class="content-three-col__heading-tag heading-tag">{{ $attrs.block.HeadingTag }}</h3>
+      <h3 class="content-three-col__heading-tag heading-tag">{{ blok.HeadingTag }}</h3>
     </div>
     <div class="content-three-col__body columns is-variable is-8">
       <div
-        v-for="col in $attrs.block.Columns"
+        v-for="col in blok.Columns"
         class="column is-3"
       >
         <h4 class="title is-4">{{ col.Heading }}</h4>
@@ -17,15 +17,16 @@
         </div>
       </div>
     </div>
-    <h4 class="title">{{ $attrs.block.ClosingTitle }}</h4>
+    <h4 class="title">{{ blok.ClosingTitle }}</h4>
   </section>
 </template>
 
 <script>
 export default {
+  props: ['blok'],
   computed: {
     bgColor() {
-      const color = this.$attrs.block.BackgroundColor
+      const color = this.blok.BackgroundColor
 
       if (color == 'white') {
         return '#fff'

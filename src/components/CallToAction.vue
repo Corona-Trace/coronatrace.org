@@ -1,17 +1,17 @@
 <template>
   <section
     class="section call-to-action primary-section"
-    :class="{ alternateBackgroundLight: $attrs.block.AlternateBackground }"
+    :class="{ alternateBackgroundLight: blok.AlternateBackground }"
   >
     <div class="container">
       <div class="call-to-action__heading">
         <div class="call-to-action__dot"></div>
         <h2
           class="title section-title"
-          v-text="$attrs.block.Heading"
+          v-text="blok.Heading"
         ></h2>
         <p v-text="
-            $attrs.block.Subheading
+            blok.Subheading
           "></p>
       </div>
       <div class="call-to-action__badges">
@@ -43,7 +43,8 @@ export default {
     JoinWaitlist
   },
   props: {
-    alternateBackground: Boolean
+    alternateBackground: Boolean,
+    blok: Object
   }
 }
 </script>

@@ -1,43 +1,44 @@
 <template>
   <section
+    v-editable="blok"
     class="section content-with-image primary-section"
-    :class="{ alternateBackgroundLight: $attrs.block.AlternateBackground }"
+    :class="{ alternateBackgroundLight: blok.AlternateBackground }"
   >
     <div class="container">
       <div
         class="columns is-variable is-mobile-6 is-6-tablet is-8-desktop"
-        :class="{ rowReverse: $attrs.block.AlignImageLeft }"
+        :class="{ rowReverse: blok.AlignImageLeft }"
       >
         <div class="column content-with-image__content is-12-tablet is-6-desktop">
           <h3 :class="'content-with-image__heading-tag-' + tagColor">
-            {{ $attrs.block.HeadingTag }}
+            {{ blok.HeadingTag }}
           </h3>
           <h2 class="title section-title">
-            {{ $attrs.block.Heading }}
+            {{ blok.Heading }}
           </h2>
           <div class="content-with-image__body-text">
-            <RichText :text="$attrs.block.Text"></RichText>
+            <RichText :text="blok.Text"></RichText>
           </div>
           <div class="content-with-image__link cta-link">
             <a
-              :href="$attrs.block.LinkDestination"
-              v-text="$attrs.block.LinkText"
+              :href="blok.LinkDestination"
+              v-text="blok.LinkText"
               target="_blank"
             ></a>
             <b-icon
               size="is-small"
               icon="arrow-right"
-              v-if="$attrs.block.LinkText"
+              v-if="blok.LinkText"
             ></b-icon>
           </div>
         </div>
         <div class="column content-with-image__image-container is-12-tablet is-6-desktop">
           <div
             class="content-with-image__image image is-square"
-            :class="{ imageBoxShadow: $attrs.block.ImageBoxShadow }"
+            :class="{ imageBoxShadow: blok.ImageBoxShadow }"
           >
             <v-lazy-image
-              :src="$attrs.block.Image"
+              :src="blok.Image"
               src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             />
           </div>
@@ -56,7 +57,8 @@ export default {
     // Set to true if you want image to be pushed to the right
     imagePushed: Boolean,
     alternateBackground: Boolean,
-    imageBoxShadow: Boolean
+    imageBoxShadow: Boolean,
+    blok: Object
   },
   components: {
     RichText,
@@ -67,11 +69,11 @@ export default {
   },
   computed: {
     tagColor() {
-      if (this.$attrs.block.HeadingTagColor == 'orange') {
+      if (this.blok.HeadingTagColor == 'orange') {
         return 'orange'
-      } else if (this.$attrs.block.HeadingTagColor == 'red') {
+      } else if (this.blok.HeadingTagColor == 'red') {
         return 'red'
-      } else if (this.$attrs.block.HeadingTagColor == 'gray') {
+      } else if (this.blok.HeadingTagColor == 'gray') {
         return 'gray'
       }
     }
