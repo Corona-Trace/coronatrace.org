@@ -5,12 +5,8 @@
         <div class="column is-7-tablet is-7-desktop hero__left">
           <div class="hero__text">
             <RichText :text="blok.Heading"></RichText>
-            <p class="subtitle">
-              <RichText :text="blok.SubHeading"></RichText>
-            </p>
-
+            <RichText :text="blok.SubHeading"></RichText>
           </div>
-
           <div class="hero__cta">
             <JoinWaitlist />
           </div>
@@ -39,27 +35,6 @@ export default {
     RichText,
     JoinWaitlist,
     VLazyImage
-  },
-  methods: {
-    richtextToHTML(content) {
-      const newContent = content.content
-
-      var text = newContent.map(function(content) {
-        return content.content[0].value
-      })
-
-      var notEmptyText = text.filter(function(text) {
-        return text.length > 0
-      })
-
-      notEmptyText = notEmptyText.join('<br />')
-
-      var final = '<h1 class="title">' + notEmptyText + '</h1>'
-      return final
-    },
-    renderOptimizedImage(src) {
-      return renderImage({ src, fit: 'fill', w: 720, h: 720 })
-    }
   }
 }
 </script>
@@ -130,7 +105,9 @@ export default {
       }
     }
 
-    .subtitle p {
+    .subtitle {
+      display: block;
+
       @include set_type(1.15rem);
       padding: 2rem 0 3rem;
       margin: 0;
