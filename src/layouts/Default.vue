@@ -1,13 +1,20 @@
 <template>
-  <div class="layout">
-    <Header :blok="getProperty('Header')" />
+
+  <div
+    class="layout"
+    :global-content="globalData.content"
+  >
+
+    <Header :blok="$static.global.edges[0].node.content.Header[0]" />
 
     <main>
       <slot />
     </main>
 
-    <Footer :blok="getProperty('Footer')" />
+    <Footer :blok="$static.global.edges[0].node.content.Footer[0]" />
+
   </div>
+
 </template>
 
 <script>
@@ -29,7 +36,10 @@ export default {
     EmailSignup
   },
   computed: {
-    ...mapGetters(['emailModalActive'])
+    ...mapGetters(['emailModalActive']),
+    globalData() {
+      return this.$static.global.edges[0].node
+    }
   },
   methods: {
     ...mapActions(['toggleEmailModal']),
@@ -43,3 +53,16 @@ export default {
 }
 </script>
 
+<static-query>
+query  {
+  global: allStoryblokEntry (filter: { slug: { eq: "global" } }) {
+    edges {
+      node {
+        id
+        full_slug
+        content
+      }
+    }
+  }
+}
+</static-query>

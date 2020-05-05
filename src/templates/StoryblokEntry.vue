@@ -14,6 +14,12 @@ import { mapGetters, mapActions, mapState } from 'vuex'
 import Footer from '~/components/Footer.vue'
 
 export default {
+  props: {
+    globalContent: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   components: {
     Footer
   },
@@ -39,7 +45,13 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['toggleEmailModal'])
+    ...mapActions(['toggleEmailModal']),
+    getProperty(prop) {
+      if (this.globalContent[prop] === undefined) {
+        return {}
+      }
+      return this.globalContent[prop][0] || {}
+    }
   }
 }
 </script>

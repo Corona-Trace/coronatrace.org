@@ -14,3 +14,4 @@ export default {
   props: ['blok']
 }
 </script>
+
