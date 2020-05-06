@@ -33,6 +33,19 @@ import CorporateContributors from '~/components/contributors/CorporateContributo
 import IndividualContributors from '~/components/contributors/IndividualContributors.vue'
 
 export default {
+  metaInfo() {
+    return {
+      title: 'Contributors',
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content:
+            'Here are some of the amazing contributors that make this effort possible.'
+        }
+      ]
+    }
+  },
   components: {
     PageHeader,
     CoreContributors,
