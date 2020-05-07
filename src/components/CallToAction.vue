@@ -49,21 +49,6 @@ export default {
 }
 </script>
 
-<static-query>
-query HomeCTA {
-  allContentfulCallToAction {
-    edges {
-      node {
-        id,
-        heading,
-        subheading,
-        alternateBackground
-      }
-    }
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
 .call-to-action {
   text-align: center;

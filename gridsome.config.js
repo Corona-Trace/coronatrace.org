@@ -63,15 +63,6 @@ module.exports = {
       }
     },
     {
-      use: '@gridsome/source-contentful',
-      options: {
-        space: process.env.CONTENTFUL_SPACE_ID, // required
-        accessToken: process.env.CONTENTFUL_API_KEY, // required,
-        environment: 'master',
-        host: 'cdn.contentful.com'
-      }
-    },
-    {
       use: 'gridsome-source-storyblok',
       options: {
         client: {
