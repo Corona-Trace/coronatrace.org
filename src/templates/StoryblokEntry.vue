@@ -6,11 +6,13 @@
       :blok="story.content"
       :is="story.content.component"
     />
+    <EmailSignupModal></EmailSignupModal>
   </Layout>
 </template>
 
 <script>
 import { mapGetters, mapActions, mapState } from 'vuex'
+import EmailSignupModal from '~/components/email-signup/EmailSignupModal.vue'
 import Footer from '~/components/Footer.vue'
 
 export default {
@@ -21,6 +23,7 @@ export default {
     }
   },
   components: {
+    EmailSignupModal,
     Footer
   },
   metaInfo() {

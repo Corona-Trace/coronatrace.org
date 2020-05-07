@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import EmailForm from '~/components/home/email-signup/EmailForm.vue'
-import Confirmation from '~/components/home/email-signup/Confirmation.vue'
+import EmailForm from '~/components/email-signup/EmailForm.vue'
+import Confirmation from '~/components/email-signup/Confirmation.vue'
 
 export default {
   components: {
