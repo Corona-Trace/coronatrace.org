@@ -10,7 +10,7 @@
     <main>
       <slot />
     </main>
-
+    <EmailSignupModal></EmailSignupModal>
     <Footer :blok="$static.global.edges[0].node.content.Footer[0]" />
 
   </div>
@@ -20,7 +20,7 @@
 <script>
 import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
-import EmailSignup from '~/components/email-signup/EmailSignup.vue'
+import EmailSignupModal from '~/components/email-signup/EmailSignupModal.vue'
 import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
@@ -33,7 +33,7 @@ export default {
   components: {
     Header,
     Footer,
-    EmailSignup
+    EmailSignupModal
   },
   computed: {
     ...mapGetters(['emailModalActive']),
