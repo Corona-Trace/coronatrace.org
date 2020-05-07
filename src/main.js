@@ -4,6 +4,7 @@ import '@mdi/font/scss/materialdesignicons.scss'
 import Buefy from 'buefy'
 import '~/styles/main.scss'
 import Vuex from 'vuex'
+import Components from './components'
 
 import DefaultLayout from '~/layouts/Default.vue'
 
@@ -11,6 +12,11 @@ export default function(Vue, { router, head, isClient, appOptions }) {
   Vue.use(Vuex)
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout)
+
+  // registering the components
+  Object.keys(Components).forEach(key => {
+    Vue.component(key, Components[key])
+  })
 
   // Register our Bulma component library
   Vue.use(Buefy, {

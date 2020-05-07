@@ -2,71 +2,12 @@
   <section class="section footer">
     <div class="container">
       <div class="columns">
-        <div class="column">
-          <div class="footer__heading">
-            <g-link to="/">
-              <Logo />
-            </g-link>
-          </div>
-          <div class="footer__body"></div>
-        </div>
-        <div class="column">
-          <div class="footer__heading">
-            <h4>TraceToZero</h4>
-          </div>
-          <div class="footer__body">
-            <g-link
-              class="footer__item"
-              to="/about"
-            >About</g-link>
-            <g-link
-              class="footer__item"
-              to="/privacy"
-            >Privacy</g-link>
-            <g-link
-              class="footer__item"
-              to="/contributors"
-            >Contributors</g-link>
-          </div>
-        </div>
-        <div class="column">
-          <div class="footer__heading">
-            <h4>Contact Us</h4>
-          </div>
-          <div class="footer__body">
-            <g-link
-              class="footer__item"
-              to="/support"
-            >Support</g-link>
-          </div>
-        </div>
-        <div class="column">
-          <div class="footer__heading">
-            <h4>Legal</h4>
-          </div>
-          <div class="footer__body">
-            <g-link
-              class="footer__item"
-              to="/legal/privacy-policy"
-            >Privacy Policy</g-link>
-            <g-link
-              class="footer__item"
-              to="/legal/terms-of-service"
-            >Terms of Service</g-link>
-          </div>
-        </div>
-        <div class="column">
-          <div class="footer__heading">
-            <h4>Download the App</h4>
-          </div>
-          <div class="footer__body">
-            <!-- <BadgeApple class="badge" />
-          <BadgeGoogle class="badge" /> -->
-            <div class="footer__item">
-              <JoinWaitlist />
-            </div>
-          </div>
-        </div>
+        <component
+          v-for="blok in blok.FooterColumns"
+          :is="blok.component"
+          :blok="blok"
+          :key="blok._uid"
+        />
       </div>
       <div class="footer__bottom">
 
@@ -84,13 +25,16 @@ import Logo from '~/assets/images/Logo.svg'
 import BadgeApple from '~/assets/images/BadgeApple.svg'
 import BadgeGoogle from '~/assets/images/BadgeGoogle.svg'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
+import FooterColumn from '~/components/FooterColumn.vue'
 
 export default {
+  props: ['blok'],
   components: {
     Logo,
     BadgeApple,
     BadgeGoogle,
-    JoinWaitlist
+    JoinWaitlist,
+    FooterColumn
   },
   computed: {
     currentYear() {
@@ -100,6 +44,16 @@ export default {
   }
 }
 </script>
+
+<static-query>
+query {
+  storyblokEntry(id: "story-10822706-default") {
+    id,
+    name,
+    content
+  }
+}
+</static-query>
 
 <style lang="scss" scoped>
 .footer {

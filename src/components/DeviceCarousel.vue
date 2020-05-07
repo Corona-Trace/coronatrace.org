@@ -1,10 +1,10 @@
 <template>
-  <section class="section how-it-works primary-section alternateBackgroundLight">
+  <section class="section device-carousel primary-section alternateBackgroundLight">
     <div class="container">
-      <div class="columns how-it-works__carousel-container">
+      <div class="columns device-carousel__carousel-container">
 
-        <div class="column how-it-works__device-container">
-          <div class="how-it-works__device-inner-container">
+        <div class="column device-carousel__device-container">
+          <div class="device-carousel__device-inner-container">
             <g-image
               src="~/assets/images/hiw-blob.svg"
               width="458"
@@ -30,13 +30,11 @@
                 ref="hiwCarousel"
               >
                 <b-carousel-item
-                  v-for="(item, i) in $static.allContentfulDeviceCarouselItem
-                  .edges"
+                  v-for="(item, i) in blok.CarouselItems"
                   :key="i"
                 >
                   <v-lazy-image
-                    :src="item.node.image.file.url"
-                    :alt="item.node.image.title"
+                    :src="item.Image"
                     src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
                   />
                 </b-carousel-item>
@@ -77,17 +75,17 @@
           </div>
         </div>
 
-        <div class="column how-it-works__body">
-          <div class="how-it-works__heading">
-            <h2>How It Works</h2>
+        <div class="column device-carousel__body">
+          <div class="device-carousel__heading">
+            <h2>{{ blok.HeadingTag }}</h2>
             <h3 class="title section-title">
-              {{ $static.allContentfulDeviceCarouselItem.edges[activeCarouselItem].node.heading }}
+              {{ blok.CarouselItems[activeCarouselItem].Heading }}
             </h3>
             <p class="text">
-              {{ $static.allContentfulDeviceCarouselItem.edges[activeCarouselItem].node.text }}
+              {{ blok.CarouselItems[activeCarouselItem].Text }}
             </p>
           </div>
-          <div class="how-it-works__indicator indicator is-hidden-mobile">
+          <div class="device-carousel__indicator indicator is-hidden-mobile">
             <div class="indicator__container">
               <span
                 class="current-item"
@@ -131,6 +129,7 @@ import iPhone from '~/assets/images/iPhone.svg'
 import VLazyImage from 'v-lazy-image'
 
 export default {
+  props: ['blok'],
   components: {
     iPhone,
     VLazyImage
@@ -152,44 +151,16 @@ export default {
     }
   },
   computed: {
-    currentHeading() {
-      const carousel = $static.allContentfulDeviceCarouselItem
-      const i = this.activeCarouselItem
-      const heading =
-        $static.allContentfulDeviceCarouselItem.edges[i].node.heading
-      return heading
-    },
     totalCarouselItems() {
-      const length = this.$static.allContentfulDeviceCarouselItem.edges.length
+      const length = this.blok.CarouselItems.length
       return length
     }
   }
 }
 </script>
 
-<static-query>
-query HowItWorksCarousel {
-  allContentfulDeviceCarouselItem(sortBy: "order", order: ASC) {
-    edges {
-      node {
-        id,
-        title,
-        heading,
-        text,
-        image {
-          title,
-          file {
-            url
-          }
-        }
-      }
-    }
-  }
-}
-</static-query>
-
 <style lang="scss" scoped>
-.how-it-works {
+.device-carousel {
   &__carousel-container {
     display: flex;
     flex-direction: column-reverse;
@@ -244,11 +215,11 @@ query HowItWorksCarousel {
     }
 
     p.text {
-      @include set_type(1.25rem);
+      @include set_type(1.125rem);
       color: $gray-dark;
 
       @include from($tablet) {
-        @include set_type(1.5rem);
+        @include set_type(1.25rem);
         color: $gray-dark;
       }
     }

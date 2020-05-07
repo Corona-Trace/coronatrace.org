@@ -10,12 +10,9 @@
     "purgecss": "node_modules/purgecss/bin/purgecss --config ./purgecss.config.js --output ./dist/assets/css"
   },
   "dependencies": {
-    "@contentful/rich-text-html-renderer": "^13.4.0",
-    "@contentful/rich-text-types": "^14.1.0",
     "@gridsome/plugin-critical": "^0.1.6",
     "@gridsome/plugin-google-analytics": "^0.1.0",
     "@gridsome/plugin-sitemap": "^0.2.3",
-    "@gridsome/source-contentful": "^0.5.2",
     "@mdi/font": "^5.0.45",
     "airtable": "^0.8.1",
     "axios": "^0.19.2",
@@ -24,9 +21,9 @@
     "bulma-scss": "^0.8.1",
     "cleave.js": "^1.5.10",
     "concurrently": "^5.1.0",
-    "contentful-rich-text-vue-renderer": "^1.1.5",
     "gridsome": "^0.7.0",
     "gridsome-plugin-robots-txt": "^1.0.2",
+    "gridsome-source-storyblok": "^1.0.0",
     "mailchimp-api-v3": "^1.13.1",
     "netlify-lambda": "^1.6.3",
     "purgecss": "^2.1.2",

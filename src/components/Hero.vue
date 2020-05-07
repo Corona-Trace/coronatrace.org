@@ -4,17 +4,9 @@
       <div class="columns hero__columns">
         <div class="column is-7-tablet is-7-desktop hero__left">
           <div class="hero__text">
-            <div v-html="
-                richtextToHTML(
-                  $static.allContentfulHomeHero.edges[0].node.headline
-                )
-              "></div>
-            <p
-              class="subtitle"
-              v-text="$static.allContentfulHomeHero.edges[0].node.subheading"
-            ></p>
+            <RichText :text="blok.Heading"></RichText>
+            <RichText :text="blok.SubHeading"></RichText>
           </div>
-
           <div class="hero__cta">
             <JoinWaitlist />
           </div>
@@ -22,8 +14,7 @@
         <div class="column is-5-tablet is-5-desktop hero__right">
 
           <v-lazy-image
-            :src="renderOptimizedImage($static.allContentfulHomeHero.edges[0].node.image.file.url)"
-            :alt="$static.allContentfulHomeHero.edges[0].node.image.title"
+            :src="blok.Image"
             src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
             class="hero__image"
           />
@@ -34,63 +25,19 @@
 </template>
 
 <script>
-import { documentToHtmlString } from '@contentful/rich-text-html-renderer'
+import RichText from '~/components/RichText.vue'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
 import VLazyImage from 'v-lazy-image'
-import { renderImage } from '~/helpers/contentful'
 
 export default {
+  props: ['blok'],
   components: {
+    RichText,
     JoinWaitlist,
     VLazyImage
-  },
-  methods: {
-    richtextToHTML(content) {
-      const newContent = content.content
-
-      var text = newContent.map(function(content) {
-        return content.content[0].value
-      })
-
-      var notEmptyText = text.filter(function(text) {
-        return text.length > 0
-      })
-
-      notEmptyText = notEmptyText.join('<br />')
-
-      var final = '<h1 class="title">' + notEmptyText + '</h1>'
-      return final
-    },
-    renderOptimizedImage(src) {
-      return renderImage({ src, fit: 'fill', w: 720, h: 720 })
-    }
   }
 }
 </script>
-
-<static-query>
-query HomeHero {
-  allContentfulHomeHero(sortBy: "id", order: ASC, limit: 1) {
-    edges {
-      node {
-        id,
-        image {
-          title,
-          file {
-            url
-          }
-        },
-        title,
-        date,
-        hero,
-        heroCta,
-        subheading,
-        headline
-      }
-    }
-  }
-}
-</static-query>
 
 <style lang="scss">
 .hero {
@@ -140,31 +87,33 @@ query HomeHero {
 
   &__text {
     .title {
-      @include set_type(2.75rem, 'sm');
+      @include set_type(2.5rem, 'sm');
 
       @include from($tablet) {
-        @include set_type(3.5rem, 'sm');
+        @include set_type(3.25rem, 'sm');
       }
 
       @include from($desktop) {
-        @include set_type(4rem, 'sm');
+        @include set_type(3.75rem, 'sm');
       }
 
       @include from($widescreen) {
       }
 
       @include from($fullhd) {
-        @include set_type(4.5rem, 'sm');
+        @include set_type(4.25rem, 'sm');
       }
     }
 
     .subtitle {
+      display: block;
+
       @include set_type(1.15rem);
       padding: 2rem 0 3rem;
       margin: 0;
 
       @include from($tablet) {
-        @include set_type(1.5rem);
+        @include set_type(1.25rem);
       }
 
       @include from($desktop) {

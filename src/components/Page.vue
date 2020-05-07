@@ -1,0 +1,17 @@
+<template>
+  <div v-editable="blok">
+    <component
+      :key="blok._uid"
+      v-for="blok in blok.PageItems"
+      :blok="blok"
+      :is="blok.component"
+    />
+  </div>
+</template>
+
+<script>
+export default {
+  props: ['blok']
+}
+</script>
+

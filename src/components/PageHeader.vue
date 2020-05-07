@@ -1,6 +1,7 @@
 <template>
   <section
     class="section page-header"
+    :style="{ 'background-color': bgColor, 'text-align': $attrs.block.TextAlign }"
     :class="{ alternateBackgroundLight: alternateBackground }"
   >
     <div
@@ -9,9 +10,12 @@
     >
       <div class="columns">
         <div class="column">
-          <h1 class="title is-1">{{ title }}</h1>
-          <p class="subtitle">
-            <slot />
+          <h1 class="title is-1">{{ $attrs.block.Heading }}</h1>
+          <p
+            class="subtitle"
+            v-if="$attrs.block.SubHeading"
+          >
+            {{ $attrs.block.SubHeading }}
           </p>
         </div>
       </div>
@@ -26,6 +30,21 @@ export default {
     largeMargins: Boolean,
     alternateBackground: Boolean,
     backgroundColor: String
+  },
+  computed: {
+    bgColor() {
+      const color = this.$attrs.block.BackgroundColor
+
+      if (color == 'white') {
+        return '#fff'
+      } else if (color == 'off-white') {
+        return '#f7f9f8'
+      } else if (color == 'gray') {
+        return '#e6edeb'
+      } else {
+        return '#fff'
+      }
+    }
   }
 }
 </script>

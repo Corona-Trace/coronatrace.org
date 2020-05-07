@@ -63,12 +63,13 @@ module.exports = {
       }
     },
     {
-      use: '@gridsome/source-contentful',
+      use: 'gridsome-source-storyblok',
       options: {
-        space: 'ns2fx9vns4i8', // required
-        accessToken: 'GxR06QUAejxt5g87V8G5eXRJqXqaboECVhG_prQejH8', // required,
-        environment: 'master',
-        host: 'cdn.contentful.com'
+        client: {
+          accessToken: process.env.STORYBLOK_API_KEY
+        },
+        version: 'draft',
+        typeName: 'StoryblokEntry'
       }
     },
     {

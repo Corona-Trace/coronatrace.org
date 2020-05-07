@@ -1,54 +1,68 @@
 <template>
-  <div class="layout">
-    <Navbar />
+
+  <div
+    class="layout"
+    :global-content="globalData.content"
+  >
+
+    <Header :blok="$static.global.edges[0].node.content.Header[0]" />
 
     <main>
       <slot />
     </main>
+    <EmailSignupModal></EmailSignupModal>
+    <Footer :blok="$static.global.edges[0].node.content.Footer[0]" />
 
-    <b-modal
-      :active.sync="emailModalActive"
-      trap-focus
-      aria-role="dialog"
-      aria-modal
-      scroll="keep"
-      class="email-signup-modal"
-      @close="toggleEmailModal"
-    >
-      <email-signup></email-signup>
-    </b-modal>
-
-    <Footer />
   </div>
+
 </template>
 
 <script>
-import Navbar from '~/components/Navbar.vue'
+import Header from '~/components/Header.vue'
 import Footer from '~/components/Footer.vue'
-import EmailSignup from '~/components/home/email-signup/EmailSignup.vue'
+import EmailSignupModal from '~/components/email-signup/EmailSignupModal.vue'
 import { mapGetters, mapActions, mapState } from 'vuex'
 
 export default {
+  props: {
+    globalContent: {
+      type: Object,
+      default: () => ({})
+    }
+  },
   components: {
-    Navbar,
+    Header,
     Footer,
-    EmailSignup
+    EmailSignupModal
   },
   computed: {
-    ...mapGetters(['emailModalActive'])
+    ...mapGetters(['emailModalActive']),
+    globalData() {
+      return this.$static.global.edges[0].node
+    }
   },
   methods: {
-    ...mapActions(['toggleEmailModal'])
+    ...mapActions(['toggleEmailModal']),
+    getProperty(prop) {
+      if (this.globalContent[prop] === undefined) {
+        return {}
+      }
+      return this.globalContent[prop][0] || {}
+    }
   }
 }
 </script>
 
-<style lang="scss">
-// .fade-enter-active {
-//   transition: opacity 0.5s;
-// }
-
-// .fade-enter {
-//   opacity: 0;
-// }
-</style>
+<static-query>
+query  {
+  global: allStoryblokEntry (filter: { slug: { eq: "global" } }) {
+    edges {
+      node {
+        id
+        full_slug
+        content
+      }
+    }
+  }
+}
+</static-query>
