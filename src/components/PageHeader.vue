@@ -3,6 +3,7 @@
     class="section page-header"
     :style="{ 'background-color': bgColor, 'text-align': $attrs.block.TextAlign }"
     :class="{ alternateBackgroundLight: alternateBackground }"
+    v-editable="blok"
   >
     <div
       class="container"

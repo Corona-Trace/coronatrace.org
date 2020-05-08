@@ -2,6 +2,7 @@
   <section
     class="section content-three-col"
     :style="{ 'background-color': bgColor }"
+    v-editable="blok"
   >
     <div class="content-three-col__heading">
       <h3 class="content-three-col__heading-tag heading-tag">{{ blok.HeadingTag }}</h3>

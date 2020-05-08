@@ -4,6 +4,7 @@
     tag="a"
     :href="block.Destination.url"
     target="_blank"
+    v-editable="blok"
     rounded
   >{{ block.Text}}</b-button>
 </template>

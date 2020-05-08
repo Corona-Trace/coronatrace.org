@@ -1,5 +1,8 @@
 <template>
-  <div class="column">
+  <div
+    class="column"
+    v-editable="blok"
+  >
     <div
       class="footer__heading"
       v-if="blok.Heading"

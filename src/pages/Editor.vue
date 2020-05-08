@@ -11,6 +11,7 @@
 
 <script>
 import { getMetadataToPage } from '../utils/meta-tags'
+
 const getParam = function(val) {
   var result = '',
     tmp = []
@@ -28,7 +29,7 @@ const loadStoryblokBridge = function(cb) {
   script.type = 'text/javascript'
   script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${getParam(
     'token'
-  ) || 'F42hKl0MIWzMo9b3vyQ03Att'}`
+  ) || 'BxYUFuoEqHOVxyOtS7DNxQtt'}`
   script.onload = cb
   document.getElementsByTagName('head')[0].appendChild(script)
 }
@@ -58,12 +59,17 @@ export default {
   },
   methods: {
     loadStory() {
+      var slug = this.oldPath
+
       if (getParam('path') !== '') {
-        this.oldPath = getParam('path')
+        slug = getParam('path')
+      } else {
+        slug = 'home'
       }
+
       window.storyblok.get(
         {
-          slug: getParam('path') || this.oldPath,
+          slug: slug,
           version: 'draft'
         },
         data => {

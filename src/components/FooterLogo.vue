@@ -1,5 +1,8 @@
 <template>
-  <div class="footer__heading">
+  <div
+    class="footer__heading"
+    v-editable="blok"
+  >
     <g-link to="/">
       <v-lazy-image
         :src="blok.Logo"

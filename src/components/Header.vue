@@ -5,6 +5,7 @@
     :fixed-top="true"
     :class="{ scrolled: scrolled }"
     class="alternateBackground"
+    v-editable="blok"
   >
     <template slot="brand">
       <b-navbar-item
