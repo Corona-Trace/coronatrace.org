@@ -1,5 +1,8 @@
 <template>
-  <section class="section get-started primary-section alternateBackground">
+  <section
+    class="section get-started primary-section alternateBackground"
+    v-editable="blok"
+  >
     <div class="container">
       <div class="get-started__heading">
         <h3>{{ blok.HeadingTag }}</h3>

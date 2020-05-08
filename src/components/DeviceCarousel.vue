@@ -1,5 +1,8 @@
 <template>
-  <section class="section device-carousel primary-section alternateBackgroundLight">
+  <section
+    class="section device-carousel primary-section alternateBackgroundLight"
+    v-editable="blok"
+  >
     <div class="container">
       <div class="columns device-carousel__carousel-container">
 

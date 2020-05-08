@@ -3,12 +3,14 @@
   <div
     class="footer__item"
     v-if="blok.Destination.linktype =='story'"
+    v-editable="blok"
   >
     <g-link :to="transformLink(blok.Destination.cached_url)">{{ blok.Text }}</g-link>
   </div>
 
   <div
     class="footer__item"
+    v-editable="blok"
     v-else-if="blok.Destination.linktype =='url' && blok.Destination.url.includes('http')"
   >
     <a :href="blok.Destination.url">{{ blok.Text }}</a>
@@ -18,6 +20,7 @@
   <div
     class="footer__item"
     v-else-if="blok.Destination.linktype =='url'"
+    v-editable="blok"
   >
     <g-link :to="blok.Destination.url">{{ blok.Text }}</g-link>
   </div>

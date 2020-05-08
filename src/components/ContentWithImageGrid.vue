@@ -2,6 +2,7 @@
   <section
     class="section content-with-image primary-section"
     :class="{ alternateBackgroundLight: alternateBackground }"
+    v-editable="blok"
   >
     <div class="container-fluid is-gapless">
       <div

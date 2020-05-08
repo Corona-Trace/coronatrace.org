@@ -4,6 +4,7 @@
     v-if="blok.Destination.linktype =='story'"
     :to="transformLink(blok.Destination.cached_url)"
     tag="g-link"
+    v-editable="blok"
   >
     {{ blok.Text }}
   </b-navbar-item>

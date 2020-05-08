@@ -3,6 +3,7 @@
     :href="blok.Destination.url"
     class="button is-primary is-rounded"
     v-text="blok.Text"
+    v-editable="blok"
   >
   </a>
 </template>

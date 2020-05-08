@@ -1,5 +1,8 @@
 <template>
-  <section class="section hero">
+  <section
+    class="section hero"
+    v-editable="blok"
+  >
     <div class="container">
       <div class="columns hero__columns">
         <div class="column is-7-tablet is-7-desktop hero__left">

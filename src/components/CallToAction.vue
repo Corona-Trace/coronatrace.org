@@ -2,6 +2,7 @@
   <section
     class="section call-to-action primary-section"
     :class="{ alternateBackgroundLight: blok.AlternateBackground }"
+    v-editable="blok"
   >
     <div class="container">
       <div class="call-to-action__heading">

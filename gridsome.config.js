@@ -68,7 +68,7 @@ module.exports = {
         client: {
           accessToken: process.env.STORYBLOK_API_KEY
         },
-        version: 'draft',
+        version: 'published',
         typeName: 'StoryblokEntry'
       }
     },

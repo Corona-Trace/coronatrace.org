@@ -2,6 +2,7 @@
   <section
     class="content-two-logos section"
     :style="{ 'background-color': bgColor }"
+    v-editable="blok"
   >
     <div class="container">
       <div class="columns is-variable is-8-desktop">
