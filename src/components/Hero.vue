@@ -16,10 +16,10 @@
         </div>
         <div class="column is-5-tablet is-5-desktop hero__right">
 
-          <v-lazy-image
-            :src="blok.Image"
-            src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+          <g-image
+            :src="imageURL"
             class="hero__image"
+            width="800"
           />
         </div>
       </div>
@@ -30,14 +30,23 @@
 <script>
 import RichText from '~/components/RichText.vue'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
-import VLazyImage from 'v-lazy-image'
 
 export default {
   props: ['blok'],
   components: {
     RichText,
-    JoinWaitlist,
-    VLazyImage
+    JoinWaitlist
+  },
+  computed: {
+    imageURL() {
+      if (typeof this.blok.Image === 'string') {
+        return this.blok.Image
+      }
+
+      const path = this.blok.Image.path
+      return require('!!assets-loader?width=800&quality=100&fit=inside!~/' +
+        path)
+    }
   }
 }
 </script>
