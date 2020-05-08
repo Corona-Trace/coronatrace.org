@@ -37,9 +37,9 @@
             class="content-with-image__image image is-square"
             :class="{ imageBoxShadow: blok.ImageBoxShadow }"
           >
-            <v-lazy-image
-              :src="blok.Image"
-              src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+            <g-image
+              :src="imageURL"
+              width="1024"
             />
           </div>
         </div>
@@ -50,7 +50,6 @@
 
 <script>
 import RichText from '~/components/RichText.vue'
-import VLazyImage from 'v-lazy-image'
 
 export default {
   props: {
@@ -61,8 +60,7 @@ export default {
     blok: Object
   },
   components: {
-    RichText,
-    VLazyImage
+    RichText
   },
   data: function() {
     return {}
@@ -76,6 +74,15 @@ export default {
       } else if (this.blok.HeadingTagColor == 'gray') {
         return 'gray'
       }
+    },
+    imageURL() {
+      if (typeof this.blok.Image === 'string') {
+        return this.blok.Image
+      }
+
+      const path = this.blok.Image.path
+      return require('!!assets-loader?width=800&quality=100&fit=inside!~/' +
+        path)
     }
   }
 }
@@ -84,10 +91,6 @@ export default {
 <style lang="scss" scoped>
 .section {
   overflow: hidden;
-
-  @include until($desktop) {
-    padding: 0;
-  }
 }
 
 .columns {

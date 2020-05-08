@@ -69,7 +69,9 @@ module.exports = {
           accessToken: process.env.STORYBLOK_API_KEY
         },
         version: 'published',
-        typeName: 'StoryblokEntry'
+        typeName: 'StoryblokEntry',
+        downloadImages: true,
+        imageDirectory: 'assets/images'
       }
     },
     {

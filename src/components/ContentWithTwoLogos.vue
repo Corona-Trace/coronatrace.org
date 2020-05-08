@@ -10,15 +10,15 @@
           <h3 class="content-two-logos__heading-tag heading-tag">{{ blok.HeadingTag }}</h3>
           <div class="content-two-logos__logos-container">
             <div class="content-two-logos__logo-item">
-              <v-lazy-image
+              <g-image
                 :src="blok.logo1"
-                src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                width="128"
               />
             </div>
             <div class="content-two-logos__logo-item">
-              <v-lazy-image
+              <g-image
                 :src="blok.logo2"
-                src-placeholder="data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="
+                width="128"
               />
             </div>
           </div>
@@ -38,13 +38,11 @@
 </template>
 
 <script>
-import VLazyImage from 'v-lazy-image'
 import RichText from '~/components/RichText.vue'
 
 export default {
   props: ['blok'],
   components: {
-    VLazyImage,
     RichText
   },
   computed: {
@@ -60,6 +58,24 @@ export default {
       } else {
         return '#fff'
       }
+    },
+    logoURL1() {
+      if (typeof this.blok.logo1 === 'string') {
+        return this.blok.logo1
+      }
+
+      const path = this.blok.logo1.path
+      return require('!!assets-loader?width=800&quality=100&fit=inside!~/' +
+        path)
+    },
+    logoURL1() {
+      if (typeof this.blok.logo2 === 'string') {
+        return this.blok.logo2
+      }
+
+      const path = this.blok.logo2.path
+      return require('!!assets-loader?width=800&quality=100&fit=inside!~/' +
+        path)
     }
   }
 }
