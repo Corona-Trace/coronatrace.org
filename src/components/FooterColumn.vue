@@ -24,7 +24,7 @@
 
 <script>
 import FooterLink from '~/components/FooterLink.vue'
-import FooterLogo from '~/components/FooterLogo.vue'
+import Logo from '~/components/Logo.vue'
 import FooterButton from '~/components/FooterButton.vue'
 import JoinWaitlist from '~/components/JoinWaitlist.vue'
 
@@ -32,7 +32,7 @@ export default {
   props: ['blok'],
   components: {
     FooterLink,
-    FooterLogo,
+    Logo,
     FooterButton,
     JoinWaitlist
   },

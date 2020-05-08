@@ -12,7 +12,10 @@
         tag="g-link"
         :to="{ path: '/' }"
       >
-        <Logo class="nav__logo" />
+        <Logo
+          :blok="blok.Logo[0]"
+          class="nav__logo"
+        />
       </b-navbar-item>
     </template>
     <template slot="start"> </template>
@@ -53,7 +56,7 @@
 </template>
 
 <script>
-import Logo from '~/assets/images/Logo.svg'
+import Logo from '~/components/Logo.vue'
 import JoinWaitList from '~/components/JoinWaitlist.vue'
 import NavLink from '~/components/NavLink.vue'
 import NavCTA from '~/components/NavCTA.vue'

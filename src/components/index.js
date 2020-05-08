@@ -6,6 +6,7 @@ import DeviceCarousel from './DeviceCarousel.vue'
 import FeatureList from './FeatureList.vue'
 import Hero from './Hero.vue'
 import Header from './Header.vue'
+import Logo from './Logo.vue'
 import Page from './Page.vue'
 import ResourceLinks from './ResourceLinks'
 
@@ -18,6 +19,7 @@ export default {
   FeatureList,
   Hero,
   Header,
+  Logo,
   Page,
   ResourceLinks
 }
